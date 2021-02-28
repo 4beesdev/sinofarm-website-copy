@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 pt-48">
       <!-- BANNER -->
       <div class="w-full banner relative flex items-center mb-2">
         <img
@@ -8,7 +8,7 @@
           src="@/assets/images/home-banner.png"
           alt=""
         />
-        <div class="px-6 sm:w-96 lg:px-12">
+        <div class="px-6 sm:w-96 lg:px-12 banner-text">
           <h2 class="font-lato font-bold text-gray text-5xl mb-2">Covid 19</h2>
           <p class="font-lato font-normal text-gray text-lg">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam
@@ -27,7 +27,7 @@
       >
         <div class="flex mb-2 lg:w-6/12 lg:mb-0 lg:mr-2">
           <NuxtLink
-            to="/"
+            to="/products"
             class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2"
           >
             <img src="@/assets/images/products.svg" class="w-12 mb-2" alt="" />
@@ -59,8 +59,8 @@
         </div>
       </div>
       <!-- PRODUCTS -->
-      <div class="flex flex-col py-16">
-        <div class="md:w-2/6 md:mr-5">
+      <div class="flex flex-col md:flex-row py-16">
+        <div class="md:w-2/6 mb-10 md:mr-10 lg:mr-40">
           <h2 class="font-lato font-bold text-gray text-2xl mb-5">
             Find your product
           </h2>
@@ -76,6 +76,16 @@
             >Learn more</NuxtLink
           >
         </div>
+        <div
+          class="w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <div class="border-2 border-primary h-64"></div>
+          <div class="border-2 border-primary h-64"></div>
+          <div class="border-2 border-primary h-64"></div>
+          <div class="border-2 border-primary h-64"></div>
+          <div class="border-2 border-primary h-64"></div>
+          <div class="border-2 border-primary h-64"></div>
+        </div>
       </div>
     </div>
     <!-- NEWS -->
@@ -84,7 +94,7 @@
         <div
           class="flex flex-col items-center md:flex-wrap md:flex-row md:items-start md:justify-around xl:justify-between"
         >
-          <div class="bg-white shadow-lg w-96 mb-10 xl:mb-0">
+          <div class="bg-white w-full shadow-lg sm:w-96 mb-10 xl:mb-0">
             <img
               class="w-full h-50 object-cover"
               src="@/assets/images/news-1.png"
@@ -102,7 +112,7 @@
               </p>
             </div>
           </div>
-          <div class="bg-white shadow-lg w-96 mb-10 xl:mb-0">
+          <div class="bg-white w-full shadow-lg sm:w-96 mb-10 xl:mb-0">
             <img
               class="w-full h-50 object-cover"
               src="@/assets/images/news-2.png"
@@ -120,7 +130,7 @@
               </p>
             </div>
           </div>
-          <div class="bg-white shadow-lg w-96">
+          <div class="bg-white w-full shadow-lg sm:w-96">
             <img
               class="w-full h-50 object-cover"
               src="@/assets/images/news-3.png"
@@ -233,6 +243,9 @@ export default {}
 .banner {
   height: 60vh;
   img {
+    z-index: -1;
+  }
+  &-text {
     z-index: -1;
   }
 }
