@@ -4,12 +4,7 @@
     <div class="container mx-auto px-4 py-10">
       <div class="flex flex-col lg:flex-row lg:justify-between">
         <div class="flex mb-10 flex-col lg:w-80 lg:mr-20">
-          <button
-            class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
-          >
-            Products
-            <img src="@/assets/images/arrow-down.svg" class="w-6" alt="" />
-          </button>
+          <Collapsible :link-items="productCategories"></Collapsible>
           <button
             class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
           >
@@ -37,7 +32,22 @@
 </template>
 
 <script>
-export default {}
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      productCategories: [],
+    }
+  },
+  async mounted() {
+    try {
+      const response = await axios.get('http://localhost:1337/subcategories')
+      this.productCategories = response.data
+    } catch (err) {
+      this.error = err
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped></style>

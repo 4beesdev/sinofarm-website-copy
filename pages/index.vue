@@ -11,13 +11,12 @@
         <div class="px-6 sm:w-96 lg:px-12 banner-text">
           <h2 class="font-lato font-bold text-gray text-5xl mb-2">Covid 19</h2>
           <p class="font-lato font-normal text-gray text-lg">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam
-            fuga distinctio, sed tempora velit soluta maxime exercitationem.
+            {{ $t('homepage.covid') }}
           </p>
           <NuxtLink
             class="p-4 bg-primary block text-center mt-4 w-60 font-lato font-bold text-white"
             to="/"
-            >Learn more</NuxtLink
+            >{{ $t('button.more') }}</NuxtLink
           >
         </div>
       </div>
@@ -31,14 +30,14 @@
             class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2"
           >
             <img src="@/assets/images/products.svg" class="w-12 mb-2" alt="" />
-            Our products
+            {{ $t('homepage.navigation.products') }}
           </NuxtLink>
           <NuxtLink
             to="/"
             class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center"
           >
             <img src="@/assets/images/careers.svg" class="mb-2 w-12" alt="" />
-            Careers
+            {{ $t('homepage.navigation.careers') }}
           </NuxtLink>
         </div>
         <div class="flex lg:w-6/12">
@@ -47,14 +46,14 @@
             class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2"
           >
             <img src="@/assets/images/pharmacy.svg" class="mb-2 w-12" alt="" />
-            Pharmacy
+            {{ $t('homepage.navigation.pharmacy') }}
           </NuxtLink>
           <NuxtLink
             to="/"
             class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center"
           >
             <img src="@/assets/images/portal.svg" class="mb-2 w-12" alt="" />
-            Portal
+            {{ $t('homepage.navigation.portal') }}
           </NuxtLink>
         </div>
       </div>
@@ -62,29 +61,62 @@
       <div class="flex flex-col md:flex-row py-16">
         <div class="md:w-2/6 mb-10 md:mr-10 lg:mr-40">
           <h2 class="font-lato font-bold text-gray text-2xl mb-5">
-            Find your product
+            {{ $t('homepage.findProduct.title') }}
           </h2>
           <p class="font-lato text-gray mb-5">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt iusto
-            suscipit vel nemo corporis architecto! Modi doloremque harum enim
-            adipisci suscipit sapiente sequi dignissimos necessitatibus, cumque
-            vel iusto quod quo?
+            {{ $t('homepage.findProduct.text') }}
           </p>
           <NuxtLink
             class="p-4 bg-primary block text-center w-60 font-lato font-bold text-white"
             to="/"
-            >Learn more</NuxtLink
+            >{{ $t('button.more') }}</NuxtLink
           >
         </div>
         <div
           class="w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         >
-          <div class="border-2 border-primary h-64"></div>
-          <div class="border-2 border-primary h-64"></div>
-          <div class="border-2 border-primary h-64"></div>
-          <div class="border-2 border-primary h-64"></div>
-          <div class="border-2 border-primary h-64"></div>
-          <div class="border-2 border-primary h-64"></div>
+          <div class="border-2 border-primary h-64">
+            <img
+              src="@/assets/images/home-product-1.jpg"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              alt=""
+            />
+          </div>
+          <div class="border-2 border-primary h-64">
+            <img
+              src="@/assets/images/home-product-2.png"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              alt=""
+            />
+          </div>
+          <div class="border-2 border-primary h-64">
+            <img
+              src="@/assets/images/home-product-3.jpg"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              alt=""
+            />
+          </div>
+          <div class="border-2 border-primary h-64">
+            <img
+              src="@/assets/images/home-product-4.jpg"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              alt=""
+            />
+          </div>
+          <div class="border-2 border-primary h-64">
+            <img
+              src="@/assets/images/home-product-5.jpg"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              alt=""
+            />
+          </div>
+          <div class="border-2 border-primary h-64">
+            <img
+              src="@/assets/images/home-product-6.jpg"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -94,7 +126,7 @@
         <div
           class="flex flex-col items-center md:flex-wrap md:flex-row md:items-start md:justify-around xl:justify-between"
         >
-          <div class="bg-white w-full shadow-lg sm:w-96 mb-10 xl:mb-0">
+          <div class="bg-white w-full h-full shadow-lg sm:w-96 mb-10 xl:mb-0">
             <img
               class="w-full h-50 object-cover"
               src="@/assets/images/news-1.png"
@@ -102,13 +134,10 @@
             />
             <div class="p-6">
               <h2 class="font-lato text-2xl font-bold text-gray mb-5">
-                Lorem Ipsum dolor sit amet
+                {{ $t('homepage.news.first.title') }}
               </h2>
               <p class="font-lato text-gray font-bold">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Maiores, voluptatum, quas nihil magnam libero ipsa laudantium,
-                optio explicabo itaque delectus adipisci. Consequatur, ipsum!
-                Deserunt quae commodi sequi ipsum deleniti iure?
+                {{ $t('homepage.news.first.text') }}
               </p>
             </div>
           </div>
@@ -120,13 +149,10 @@
             />
             <div class="p-6">
               <h2 class="font-lato text-2xl font-bold text-gray mb-5">
-                Lorem Ipsum dolor sit amet
+                {{ $t('homepage.news.second.title') }}
               </h2>
               <p class="font-lato text-gray font-bold">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Maiores, voluptatum, quas nihil magnam libero ipsa laudantium,
-                optio explicabo itaque delectus adipisci. Consequatur, ipsum!
-                Deserunt quae commodi sequi ipsum deleniti iure?
+                {{ $t('homepage.news.second.text') }}
               </p>
             </div>
           </div>
@@ -138,13 +164,10 @@
             />
             <div class="p-6">
               <h2 class="font-lato text-2xl font-bold text-gray mb-5">
-                Lorem Ipsum dolor sit amet
+                {{ $t('homepage.news.third.title') }}
               </h2>
               <p class="font-lato text-gray font-bold">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Maiores, voluptatum, quas nihil magnam libero ipsa laudantium,
-                optio explicabo itaque delectus adipisci. Consequatur, ipsum!
-                Deserunt quae commodi sequi ipsum deleniti iure?
+                {{ $t('homepage.news.third.text') }}
               </p>
             </div>
           </div>
@@ -155,42 +178,23 @@
     <div class="container mx-auto py-16 px-4">
       <div class="flex flex-col md:flex-row">
         <div class="md:w-3/6 md:mr-5">
-          <h2 class="font-lato text-2xl font-bold text-gray mb-4">About us</h2>
-          <p class="font-lato text-normal font-normal text-gray mb-2">
-            Sinofarm d.o.o. je privatna kompanija iz Beograda, partner velikih
-            svetskih proizvođača. Već dve decenije se uspešno bavimo
-            distribucijom i proizvodnjom medicinskih sredstava.
-          </p>
-          <p class="font-lato text-normal font-normal text-gray mb-2">
-            Odabran tim lekara, tehnologa, ekonomista i pravnika posvetio se
-            razvoju prvog srpskog brenda medicinskog potrošnog materijala i
-            medicinskih pomagala –
-            <span class="font-bold">SINOMEDIC, SINOFINE I SINODREAMS</span>.
-          </p>
-          <p class="font-lato text-normal font-normal text-gray mb-5">
-            Učestvujemo u više socijalnih projekata, i izlažemo na sajmovima i
-            kongresima širom zemlje i inostranstva.
+          <h2 class="font-lato text-2xl font-bold text-gray mb-4">
+            {{ $t('homepage.about.title') }}
+          </h2>
+          <p
+            v-for="(text, index) in $t('homepage.about.text')"
+            :key="index"
+            class="font-lato text-normal font-normal text-gray mb-2"
+          >
+            {{ text }}
           </p>
           <div class="flex flex-col">
             <NuxtLink
+              v-for="(link, index) in $t('homepage.about.links')"
+              :key="index"
               class="text-primary border-b-2 border-primary w-max mb-2"
               to="/"
-              >O nama</NuxtLink
-            >
-            <NuxtLink
-              class="text-primary border-b-2 border-primary w-max mb-2"
-              to="/"
-              >Nasi brendovi</NuxtLink
-            >
-            <NuxtLink
-              class="text-primary border-b-2 border-primary w-max mb-2"
-              to="/"
-              >Drustvena odgovornost</NuxtLink
-            >
-            <NuxtLink
-              class="text-primary border-b-2 border-primary w-max mb-2"
-              to="/"
-              >Karijera</NuxtLink
+              >{{ link }}</NuxtLink
             >
           </div>
         </div>
@@ -211,22 +215,24 @@
         >
           <div class="flex flex-col items-center mb-10 md:mb-0">
             <img class="w-16 mb-5" src="@/assets/images/contact.svg" alt="" />
-            <h2 class="text-xl text-gray font-lato font-bold mb-2">Contact</h2>
+            <h2 class="text-xl text-gray font-lato font-bold mb-2">
+              {{ $t('homepage.contact.title') }}
+            </h2>
             <p
               class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96 lg:text-left"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              {{ $t('homepage.contact.text') }}
             </p>
           </div>
           <div class="flex flex-col items-center">
             <img class="w-16 mb-5" src="@/assets/images/locations.svg" alt="" />
             <h2 class="text-xl text-gray font-lato font-bold mb-2">
-              Locations
+              {{ $t('homepage.locations.title') }}
             </h2>
             <p
               class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96 lg:text-left"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              {{ $t('homepage.locations.text') }}
             </p>
           </div>
         </div>
@@ -236,7 +242,23 @@
 </template>
 
 <script>
-export default {}
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      data: [],
+      error: null,
+    }
+  },
+  async mounted() {
+    try {
+      const response = await axios.get('http://localhost:1337/subcategories')
+      this.data = response.data
+    } catch (err) {
+      this.error = err
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>

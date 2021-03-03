@@ -29,11 +29,31 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: [
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          {
+            code: 'sr',
+            file: 'sr-SR.js',
+          },
+          {
+            code: 'en',
+            file: 'en-EN.js',
+          },
+        ],
+        lazy: true,
+        langDir: 'lang/',
+        defaultLocale: 'sr',
+        detectBrowserLanguage: false,
+      },
+    ],
+  ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
