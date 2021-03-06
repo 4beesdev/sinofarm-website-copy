@@ -19,9 +19,11 @@
             class="font-lato font-normal mb-2"
             >{{ $t('footer.company.link1') }}</NuxtLink
           >
-          <NuxtLink to="/" class="font-lato font-normal mb-2">{{
-            $t('footer.company.link2')
-          }}</NuxtLink>
+          <NuxtLink
+            :to="localePath('/careers')"
+            class="font-lato font-normal mb-2"
+            >{{ $t('footer.company.link2') }}</NuxtLink
+          >
           <NuxtLink
             :to="localePath('/about-us')"
             class="font-lato font-normal mb-2"

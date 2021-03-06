@@ -18,9 +18,21 @@
       class="flex flex-col items-center py-10 lg:flex-row lg:justify-between"
     >
       <div class="w-44 h-2 bg-lightBlue mb-10 lg:mb-0"></div>
-      <div class="w-44 h-44 bg-lightBlue rounded-full mb-5 lg:mb-0"></div>
-      <div class="w-44 h-44 bg-lightBlue rounded-full mb-5 lg:mb-0"></div>
-      <div class="w-44 h-44 bg-lightBlue rounded-full mb-10 lg:mb-0"></div>
+      <div
+        class="w-44 h-44 bg-lightBlue flex justify-center items-center rounded-full mb-5 lg:mb-0"
+      >
+        <img src="@/assets/images/careers-people.svg" class="w-20" alt="" />
+      </div>
+      <div
+        class="w-44 h-44 bg-lightBlue flex justify-center items-center rounded-full mb-5 lg:mb-0"
+      >
+        <img src="@/assets/images/careers-hand.svg" class="w-20" alt="" />
+      </div>
+      <div
+        class="w-44 h-44 bg-lightBlue flex justify-center items-center rounded-full mb-10 lg:mb-0"
+      >
+        <img src="@/assets/images/careers-up.svg" class="w-20" alt="" />
+      </div>
       <div class="w-44 h-2 bg-lightBlue"></div>
     </div>
     <h2 class="text-3xl font-bold text-gray font-lato mb-5 lg:text-center">

@@ -13,7 +13,11 @@
         {{ $t('covidpage.text1') }}
       </p>
       <div>
-        <p class="text-lg font-lato text-gray mb-10">Ovamo idu ikonice</p>
+        <div class="flex justify-between items-center mb-10">
+          <img src="@/assets/images/covid-19.svg" class="w-20" alt="" />
+          <img src="@/assets/images/covid-distance.svg" class="w-20" alt="" />
+          <img src="@/assets/images/covid-person.svg" class="w-20" alt="" />
+        </div>
         <p class="text-lg font-lato text-gray">
           {{ $t('covidpage.text2') }}
         </p>

@@ -26,14 +26,14 @@
       >
         <div class="flex mb-2 lg:w-6/12 lg:mb-0 lg:mr-2">
           <NuxtLink
-            to="/products"
+            :to="localePath('/products')"
             class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2"
           >
             <img src="@/assets/images/products.svg" class="w-12 mb-2" alt="" />
             {{ $t('homepage.navigation.products') }}
           </NuxtLink>
           <NuxtLink
-            to="/"
+            :to="localePath('/careers')"
             class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center"
           >
             <img src="@/assets/images/careers.svg" class="mb-2 w-12" alt="" />
@@ -193,7 +193,7 @@
               v-for="(link, index) in $t('homepage.about.links')"
               :key="index"
               class="text-primary border-b-2 border-primary w-max mb-2"
-              :to="`/${link.link}`"
+              :to="localePath(`/${link.link}`)"
               >{{ link.title }}</NuxtLink
             >
           </div>
