@@ -4,7 +4,7 @@
       <!-- BANNER -->
       <div class="w-full banner relative flex items-center mb-2">
         <img
-          class="w-full h-full object-cover absolute"
+          class="w-full h-full object-cover absolute z-1 top-0 left-0"
           src="@/assets/images/home-banner.png"
           alt=""
         />
@@ -15,7 +15,7 @@
           </p>
           <NuxtLink
             class="p-4 bg-primary block text-center mt-4 w-60 font-lato font-bold text-white"
-            to="/"
+            :to="localePath('/covid')"
             >{{ $t('button.more') }}</NuxtLink
           >
         </div>
@@ -193,8 +193,8 @@
               v-for="(link, index) in $t('homepage.about.links')"
               :key="index"
               class="text-primary border-b-2 border-primary w-max mb-2"
-              to="/"
-              >{{ link }}</NuxtLink
+              :to="`/${link.link}`"
+              >{{ link.title }}</NuxtLink
             >
           </div>
         </div>
@@ -268,7 +268,6 @@ export default {
     z-index: -1;
   }
   &-text {
-    z-index: -1;
   }
 }
 </style>

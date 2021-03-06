@@ -44,13 +44,13 @@
           class="hidden lg:flex justify-end font-lato text-base font-bold text-gray items-center lg:justify-between"
         >
           <div class="flex">
-            <NuxtLink to="/products" class="mr-4">{{
+            <NuxtLink :to="localePath('/products')" class="mr-4">{{
               $t('header.navigation.products')
             }}</NuxtLink>
-            <NuxtLink to="/" class="mr-4">{{
+            <NuxtLink :to="localePath('/')" class="mr-4">{{
               $t('header.navigation.industries')
             }}</NuxtLink>
-            <NuxtLink to="/" class="mr-4">{{
+            <NuxtLink :to="localePath('/about-us')" class="mr-4">{{
               $t('header.navigation.brands')
             }}</NuxtLink>
           </div>

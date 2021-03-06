@@ -14,15 +14,19 @@
           <h3 class="font-lato text-lg uppercase mb-2">
             {{ $t('footer.company.title') }}
           </h3>
-          <NuxtLink to="/" class="font-lato font-normal mb-2">{{
-            $t('footer.company.link1')
-          }}</NuxtLink>
+          <NuxtLink
+            :to="localePath('/about-us')"
+            class="font-lato font-normal mb-2"
+            >{{ $t('footer.company.link1') }}</NuxtLink
+          >
           <NuxtLink to="/" class="font-lato font-normal mb-2">{{
             $t('footer.company.link2')
           }}</NuxtLink>
-          <NuxtLink to="/" class="font-lato font-normal mb-2">{{
-            $t('footer.company.link3')
-          }}</NuxtLink>
+          <NuxtLink
+            :to="localePath('/about-us')"
+            class="font-lato font-normal mb-2"
+            >{{ $t('footer.company.link3') }}</NuxtLink
+          >
         </div>
         <div class="mb-4 flex flex-col">
           <h3 class="font-lato text-lg uppercase mb-2">
@@ -36,9 +40,11 @@
           <h3 class="font-lato text-lg uppercase mb-2">
             {{ $t('footer.help.title') }}
           </h3>
-          <NuxtLink to="/" class="font-lato font-normal mb-2">{{
-            $t('footer.help.help')
-          }}</NuxtLink>
+          <NuxtLink
+            :to="localePath('/contact')"
+            class="font-lato font-normal mb-2"
+            >{{ $t('footer.help.help') }}</NuxtLink
+          >
         </div>
       </div>
     </div>
