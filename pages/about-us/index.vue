@@ -23,12 +23,18 @@
       </div>
       <div class="flex flex-col mb-10 sm:flex-col-reverse sm:justify-end">
         <div class="px-4 py-10">
-          <h2 class="text-3xl font-bold text-gray font-lato mb-5">
+          <h2 class="text-3xl font-bold text-gray font-lato mb-5 lg:mb-10">
             {{ $t('aboutpage.brands') }}
           </h2>
-          <p class="mb-3 text-lg font-lato text-gray">
-            Ovamo idu logotipi brendova
-          </p>
+          <div class="flex flex-col items-center">
+            <img src="@/assets/images/sinomedic.svg" class="w-96 mb-5" alt="" />
+            <img
+              src="@/assets/images/sinodreams.svg"
+              class="w-96 mb-5"
+              alt=""
+            />
+            <img src="@/assets/images/sinofine.svg" class="w-96 h-20" alt="" />
+          </div>
         </div>
         <img
           src="@/assets/images/home-banner.png"

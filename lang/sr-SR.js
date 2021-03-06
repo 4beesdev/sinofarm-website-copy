@@ -10,7 +10,7 @@ export default {
   },
   homepage: {
     covid:
-      'Pomažemo u opremnju prvih redova u brobi protiv pandemije COVID-19.',
+      'Pomažemo u opremanju prvih redova u borbi protiv pandemije COVID-19.',
     navigation: {
       products: 'Proizvodi',
       careers: 'Karijera',
@@ -53,7 +53,7 @@ export default {
         },
         {
           title: 'Brendovi',
-          link: 'brands',
+          link: 'about-us',
         },
         {
           title: 'Socijalna odgovornost',
@@ -107,6 +107,13 @@ export default {
       btn: 'Pošalji',
     },
   },
+  productspage: {
+    filter: {
+      categories: 'Kategorije',
+      industries: 'Industrije',
+      brands: 'Brendovi',
+    },
+  },
   careers: {
     title: 'Karijera',
     text1:
@@ -135,5 +142,17 @@ export default {
   },
   button: {
     more: 'Više',
+  },
+  breadcrumb: {
+    products: [
+      {
+        title: 'Početna',
+        link: '/',
+      },
+      {
+        title: 'Proizvodi',
+        link: '/products',
+      },
+    ],
   },
 }

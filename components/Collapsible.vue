@@ -4,21 +4,20 @@
       class="w-full flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6 focus:outline-none"
       @click="toggled = !toggled"
     >
-      Categories
+      {{ linkTitle }}
       <img src="@/assets/images/arrow-down.svg" class="w-6" alt="" />
     </button>
     <div
       v-if="toggled"
       :class="toggled ? 'active' : ''"
-      class="flex flex-col py-5 px-4"
+      class="flex flex-col py-5 px-2"
     >
-      <NuxtLink
-        v-for="(item, index) in categories"
-        :key="index"
-        class="mb-3"
-        to="/"
-        >{{ item }}</NuxtLink
-      >
+      <CollapsibleCategory
+        v-for="category in categories"
+        :key="category.title"
+        :title="category.title"
+        :subcategories="category.subcategories"
+      ></CollapsibleCategory>
     </div>
   </div>
 </template>
@@ -32,21 +31,35 @@ export default {
         return []
       },
     },
+    linkTitle: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
       categories: [],
+      subToggle: false,
       toggled: false,
     }
   },
   mounted() {
-    const uniqueArray = []
+    const categories = []
+    const fullCategories = []
     this.linkItems.forEach((item) => {
-      if (!uniqueArray.includes(item.category.name_sr)) {
-        uniqueArray.push(item.category.name_sr)
+      if (!categories.includes(item.category.name_sr)) {
+        categories.push(item.category.name_sr)
       }
     })
-    this.categories = uniqueArray
+    categories.forEach((category, index) => {
+      fullCategories.push({ title: category, subcategories: [] })
+      this.linkItems.forEach((item) => {
+        if (item.category.name_sr === category) {
+          fullCategories[index].subcategories.push(item)
+        }
+      })
+    })
+    this.categories = fullCategories
   },
 }
 </script>

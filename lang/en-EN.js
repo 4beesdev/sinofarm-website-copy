@@ -52,7 +52,7 @@ export default {
         },
         {
           title: 'Brands',
-          link: 'brands',
+          link: 'about-us',
         },
         {
           title: 'Social responsibility',
@@ -77,7 +77,7 @@ export default {
     title: 'About us',
     text: [
       'Sinofarm Ltd. is a privately held company from Belgrade, partner of major international manufacturers. Over two decades successfully deals with production and distribution of medical devices.',
-      'Selected team of doctors, pharmacists, technologists, economists and lawyers are dedicated to the development of the first Serbian brands of medical supplies – SINOMEDIC, SINOFINE I SINODREAMS.',
+      'Selected team of doctors, pharmacists, technologists, economists and lawyers are dedicated to the development of the first Serbian brands of medical supplies – SINOMEDIC, SINOFINE and SINODREAMS.',
       'We participate in several social projects and exhibit at trade shows and conferences around the country and abroad. Sinofarm Ltd. Pays attention to the conditions in which our products are being kept, thus our warehouses are equiped with the latest softwares and warehouse standards, which is confirmed by the regulatory bodies and permissions. Our mission is to provide each of our clients with the same quality of products and service, so that every one of our end-users have the same high-end quality protective and medical gear. Sinofarm has its Germany company with office in Hamburg, which covers distribution for West, Central and North of Europe.',
     ],
     brands: 'Our brands',
@@ -113,6 +113,13 @@ export default {
     cta: 'Want to be part of our team?',
     btn: 'Apply here',
   },
+  productspage: {
+    filter: {
+      categories: 'Categories',
+      industries: 'Industries',
+      brands: 'Brends',
+    },
+  },
   footer: {
     copy: 'Sinofarm. All rights reserved 2021.',
     company: {
@@ -132,5 +139,17 @@ export default {
   },
   button: {
     more: 'Learn more',
+  },
+  breadcrumb: {
+    products: [
+      {
+        title: 'Home',
+        link: '/',
+      },
+      {
+        title: 'Products',
+        link: '/products',
+      },
+    ],
   },
 }

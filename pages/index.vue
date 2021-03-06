@@ -219,7 +219,7 @@
               {{ $t('homepage.contact.title') }}
             </h2>
             <p
-              class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96 lg:text-left"
+              class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96"
             >
               {{ $t('homepage.contact.text') }}
             </p>
@@ -230,7 +230,7 @@
               {{ $t('homepage.locations.title') }}
             </h2>
             <p
-              class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96 lg:text-left"
+              class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96"
             >
               {{ $t('homepage.locations.text') }}
             </p>
