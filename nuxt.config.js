@@ -53,7 +53,13 @@ export default {
         detectBrowserLanguage: false,
       },
     ],
+    ['@nuxtjs/strapi'],
   ],
+
+  strapi: {
+    url: 'http://localhost:1337',
+    entities: ['subcategories', 'categories'],
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},

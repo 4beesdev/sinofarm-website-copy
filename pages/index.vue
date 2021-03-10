@@ -5,7 +5,7 @@
       <div class="w-full banner relative flex items-center mb-2">
         <img
           class="w-full h-full object-cover absolute z-1 top-0 left-0"
-          src="@/assets/images/home-banner.png"
+          src="@/assets/images/covid.jpg"
           alt=""
         />
         <div class="px-6 sm:w-96 lg:px-12 banner-text">
@@ -128,8 +128,8 @@
         >
           <div class="bg-white w-full h-full shadow-lg sm:w-96 mb-10 xl:mb-0">
             <img
-              class="w-full h-50 object-cover"
-              src="@/assets/images/news-1.png"
+              class="w-full h-64 object-cover"
+              src="@/assets/images/blood sample.jpg"
               alt=""
             />
             <div class="p-6">
@@ -143,8 +143,8 @@
           </div>
           <div class="bg-white w-full shadow-lg sm:w-96 mb-10 xl:mb-0">
             <img
-              class="w-full h-50 object-cover"
-              src="@/assets/images/news-2.png"
+              class="w-full h-64 object-cover"
+              src="@/assets/images/news-doctor.jpg"
               alt=""
             />
             <div class="p-6">
@@ -158,8 +158,8 @@
           </div>
           <div class="bg-white w-full shadow-lg sm:w-96">
             <img
-              class="w-full h-50 object-cover"
-              src="@/assets/images/news-3.png"
+              class="w-full h-64 object-cover"
+              src="@/assets/images/gloves.min.jpg"
               alt=""
             />
             <div class="p-6">
@@ -201,7 +201,7 @@
         <div class="w-full mt-5 md:w-3/6">
           <img
             class="w-full h-full object-cover"
-            src="@/assets/images/about-us.png"
+            src="@/assets/images/blood sample.jpg"
             alt=""
           />
         </div>

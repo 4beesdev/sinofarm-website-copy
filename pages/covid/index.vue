@@ -2,7 +2,7 @@
   <div class="container mx-auto px-4 pt-48 pb-10">
     <div class="banner w-full mb-10">
       <img
-        src="@/assets/images/home-banner.png"
+        src="@/assets/images/covid.jpg"
         class="w-full h-full object-cover"
         alt=""
       />

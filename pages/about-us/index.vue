@@ -16,7 +16,7 @@
           </p>
         </div>
         <img
-          src="@/assets/images/home-banner.png"
+          src="@/assets/images/injection.jpg"
           class="w-full h-96 object-cover"
           alt=""
         />
@@ -37,7 +37,7 @@
           </div>
         </div>
         <img
-          src="@/assets/images/home-banner.png"
+          src="@/assets/images/epruvetice.jpg"
           class="w-full h-96 object-cover"
           alt=""
         />
