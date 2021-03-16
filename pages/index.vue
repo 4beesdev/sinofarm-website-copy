@@ -242,20 +242,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   data() {
     return {
       data: [],
       error: null,
-    }
-  },
-  async mounted() {
-    try {
-      const response = await axios.get('http://localhost:1337/subcategories')
-      this.data = response.data
-    } catch (err) {
-      this.error = err
     }
   },
 }

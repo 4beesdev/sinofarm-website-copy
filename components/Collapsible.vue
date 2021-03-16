@@ -13,10 +13,10 @@
       class="flex flex-col py-5 px-2"
     >
       <CollapsibleCategory
-        v-for="category in categories"
-        :key="category.title"
-        :title="category.title"
-        :subcategories="category.subcategories"
+        v-for="category in linkItems.categories"
+        :key="category.name_sr"
+        :title="category"
+        :subcategories="returnSubcategories(category)"
       ></CollapsibleCategory>
     </div>
   </div>
@@ -26,9 +26,9 @@
 export default {
   props: {
     linkItems: {
-      type: Array,
+      type: Object,
       default() {
-        return []
+        return {}
       },
     },
     linkTitle: {
@@ -43,23 +43,13 @@ export default {
       toggled: false,
     }
   },
-  mounted() {
-    const categories = []
-    const fullCategories = []
-    this.linkItems.forEach((item) => {
-      if (!categories.includes(item.category.name_sr)) {
-        categories.push(item.category.name_sr)
-      }
-    })
-    categories.forEach((category, index) => {
-      fullCategories.push({ title: category, subcategories: [] })
-      this.linkItems.forEach((item) => {
-        if (item.category.name_sr === category) {
-          fullCategories[index].subcategories.push(item)
-        }
-      })
-    })
-    this.categories = fullCategories
+  methods: {
+    returnSubcategories(cat) {
+      const subcategories = this.linkItems.subcategories.filter(
+        (sub) => sub.category.name_sr === cat.name_sr
+      )
+      return subcategories
+    },
   },
 }
 </script>

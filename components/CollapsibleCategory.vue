@@ -4,7 +4,7 @@
       class="text-left w-full mb-3 flex justify-between items-center font-lato font-bold text-gray focus:outline-none"
       @click="toggled = !toggled"
     >
-      {{ title }}
+      {{ returnLang === 'sr' ? title.name_sr : title.name_en }}
       <img src="@/assets/images/arrow-down.svg" class="w-3 ml-2" alt="" />
     </button>
     <div v-if="toggled" class="px-2 pb-3">
@@ -13,7 +13,7 @@
         :key="subcategory.name_sr"
         class="mb-2 font-lato text-gray"
       >
-        {{ subcategory.name_sr }}
+        {{ returnLang === 'sr' ? subcategory.name_sr : subcategory.name_en }}
       </p>
     </div>
   </div>
@@ -23,8 +23,10 @@
 export default {
   props: {
     title: {
-      type: String,
-      default: '',
+      type: Object,
+      default() {
+        return {}
+      },
     },
     subcategories: {
       type: Array,
@@ -37,6 +39,11 @@ export default {
     return {
       toggled: false,
     }
+  },
+  computed: {
+    returnLang() {
+      return this.$i18n.locale
+    },
   },
 }
 </script>

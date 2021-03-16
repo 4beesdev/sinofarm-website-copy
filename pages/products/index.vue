@@ -7,7 +7,7 @@
           {{ error }}
           <Collapsible
             :link-title="$t('productspage.filter.categories')"
-            :link-items="productCategories"
+            :link-items="products"
           ></Collapsible>
           <button
             class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
@@ -36,20 +36,24 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
+  async asyncData({ $axios }) {
+    const subcategories = await $axios.$get(
+      'http://46.101.201.186/subcategories'
+    )
+    const categories = await $axios.$get('http://46.101.201.186/categories')
+    return {
+      products: {
+        categories,
+        subcategories,
+      },
+    }
+  },
   data() {
     return {
       error: '',
-      productCategories: [],
-    }
-  },
-  async mounted() {
-    try {
-      const response = await axios.get('http://localhost:1337/subcategories')
-      this.productCategories = response.data
-    } catch (err) {
-      this.error = err
+      productCategories: {},
     }
   },
 }
