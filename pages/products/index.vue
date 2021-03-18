@@ -4,7 +4,6 @@
     <div class="container mx-auto px-4 py-10">
       <div class="flex flex-col lg:flex-row lg:justify-between">
         <div class="flex mb-10 flex-col lg:w-80 lg:mr-20">
-          {{ error }}
           <Collapsible
             :link-title="$t('productspage.filter.categories')"
             :link-items="products"
@@ -23,7 +22,7 @@
           </button>
         </div>
         <div class="flex w-full flex-col">
-          <ProductList />
+          <ProductList :products="products.products" />
           <button
             class="mt-20 p-4 bg-primary block text-center mt-4 w-60 font-lato font-bold text-white self-center"
           >
@@ -45,10 +44,14 @@ export default {
     const categories = await $axios.$get(
       'https://sinofarm-portal.4bees.io/categories'
     )
+    const products = await $axios.$get(
+      'https://sinofarm-portal.4bees.io/products'
+    )
     return {
       products: {
         categories,
         subcategories,
+        products,
       },
     }
   },
