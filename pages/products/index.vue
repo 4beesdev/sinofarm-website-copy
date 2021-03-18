@@ -40,9 +40,11 @@
 export default {
   async asyncData({ $axios }) {
     const subcategories = await $axios.$get(
-      'http://46.101.201.186/subcategories'
+      'https://sinofarm-portal.4bees.io/subcategories'
     )
-    const categories = await $axios.$get('http://46.101.201.186/categories')
+    const categories = await $axios.$get(
+      'https://sinofarm-portal.4bees.io/categories'
+    )
     return {
       products: {
         categories,
