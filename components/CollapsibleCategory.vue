@@ -11,9 +11,7 @@
       <NuxtLink
         v-for="subcategory in subcategories"
         :key="subcategory.name_sr"
-        :to="`/products/${
-          returnLang === 'sr' ? subcategory.name_sr : subcategory.name_en
-        }`"
+        :to="`/products/${subcategory.slug}`"
         class="mb-2 flex font-lato text-gray"
       >
         {{ returnLang === 'sr' ? subcategory.name_sr : subcategory.name_en }}
