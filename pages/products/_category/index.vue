@@ -1,6 +1,9 @@
 <template>
   <div class="pt-48">
-    <Breadcrumb :items="$t('breadcrumb.products')"></Breadcrumb>
+    <Breadcrumb
+      :items="$t('breadcrumb.products')"
+      :product-name="$route.params.category"
+    ></Breadcrumb>
     <div class="container mx-auto px-4 py-10">
       <div class="flex flex-col lg:flex-row lg:justify-between">
         <div class="flex mb-10 flex-col lg:w-80 lg:mr-20">
@@ -22,12 +25,22 @@
           </button>
         </div>
         <div class="flex w-full flex-col">
-          <ProductList :products="sinofarm.products" />
-          <button
+          <p
+            v-if="!hasProducts"
+            class="text-center text-xl font-lato font-bold text-gray"
+          >
+            Trenutno nemamo proizvode u ovoj kategoriji
+          </p>
+          <ProductList
+            :products="
+              categoryProducts($route.params.category, sinofarm.products)
+            "
+          />
+          <!-- <button
             class="mt-20 p-4 bg-primary block text-center mt-4 w-60 font-lato font-bold text-white self-center"
           >
             Show more
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -38,13 +51,26 @@
 import { mapState } from 'vuex'
 export default {
   data() {
-    return {}
+    return {
+      hasProducts: true,
+    }
   },
   computed: mapState(['sinofarm']),
-  created() {
-    this.$store.dispatch('getCategories')
-    this.$store.dispatch('getProducts')
-    this.$store.dispatch('getSubcategories')
+  methods: {
+    categoryProducts(category, products) {
+      const filteredProducts = products.filter((product) => {
+        if (
+          product.subcategory.name_sr === category ||
+          product.subcategory.name_en === category
+        ) {
+          return product
+        }
+      })
+      if (filteredProducts.length === 0) {
+        this.hasProducts = false
+      }
+      return filteredProducts
+    },
   },
 }
 </script>

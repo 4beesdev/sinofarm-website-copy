@@ -8,13 +8,16 @@
       <img src="@/assets/images/arrow-down.svg" class="w-3 ml-2" alt="" />
     </button>
     <div v-if="toggled" class="px-2 pb-3">
-      <p
+      <NuxtLink
         v-for="subcategory in subcategories"
         :key="subcategory.name_sr"
-        class="mb-2 font-lato text-gray"
+        :to="`/products/${
+          returnLang === 'sr' ? subcategory.name_sr : subcategory.name_en
+        }`"
+        class="mb-2 flex font-lato text-gray"
       >
         {{ returnLang === 'sr' ? subcategory.name_sr : subcategory.name_en }}
-      </p>
+      </NuxtLink>
     </div>
   </div>
 </template>

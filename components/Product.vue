@@ -1,10 +1,5 @@
 <template>
-  <NuxtLink
-    :to="`/products/${
-      returnLang === 'sr' ? productInfo.name_sr : productInfo.name_en
-    }`"
-    class="flex flex-col"
-  >
+  <NuxtLink :to="`/products/product/${productInfo.id}`" class="flex flex-col">
     <div class="w-full h-64 border-2 border-primary mb-3">
       <img
         :src="`https://sinofarm-portal.4bees.io${productInfo.image[0].url}`"
@@ -13,7 +8,7 @@
       />
     </div>
     <h3
-      class="font-lato font-bold text-lg text-gray mb-3 pb-3 border-b-2 border-gray"
+      class="font-lato font-bold text-lg text-gray mb-3 pb-3 justify-self-end border-b-2 border-gray"
     >
       {{ returnLang === 'sr' ? productInfo.name_sr : productInfo.name_en }}
     </h3>
@@ -44,9 +39,6 @@ export default {
     returnLang() {
       return this.$i18n.locale
     },
-  },
-  mounted() {
-    console.log(this.productInfo.image[0].url)
   },
 }
 </script>

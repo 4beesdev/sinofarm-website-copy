@@ -13,7 +13,7 @@
       class="flex flex-col py-5 px-2"
     >
       <CollapsibleCategory
-        v-for="category in linkItems.categories"
+        v-for="category in dataInfo.categories"
         :key="category.name_sr"
         :title="category"
         :subcategories="returnSubcategories(category)"
@@ -25,7 +25,7 @@
 <script>
 export default {
   props: {
-    linkItems: {
+    dataInfo: {
       type: Object,
       default() {
         return {}
@@ -38,17 +38,16 @@ export default {
   },
   data() {
     return {
-      categories: [],
       subToggle: false,
       toggled: false,
     }
   },
   methods: {
     returnSubcategories(cat) {
-      const subcategories = this.linkItems.subcategories.filter(
+      const subcat = this.dataInfo.subcategories.filter(
         (sub) => sub.category.name_sr === cat.name_sr
       )
-      return subcategories
+      return subcat
     },
   },
 }

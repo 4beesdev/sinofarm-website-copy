@@ -2,7 +2,9 @@
   <div class="pt-48">
     <Breadcrumb
       :items="$t('breadcrumb.products')"
-      :product-name="$route.params.slug"
+      :product-name="`${
+        returnLang === 'sr' ? product.name_sr : product.name_en
+      }`"
     />
     <div class="container mx-auto px-4 py-10">
       <div class="flex flex-col lg:flex-row">
@@ -38,39 +40,45 @@
             />
           </button>
         </div>
+
         <!-- Product info -->
         <div class="flex flex-col">
           <div class="flex flex-col mb-20 lg:flex-row">
-            <div
-              class="w-full h-64 border-2 border-gray md:w-96 lg:mr-10"
-            ></div>
+            <div class="w-full h-64 border-2 border-gray md:w-96 lg:mr-10">
+              <img
+                :src="`https://sinofarm-portal.4bees.io${product.image[0].url}`"
+                class="w-full h-full object-cover"
+                alt=""
+              />
+            </div>
             <div class="lg:w-4/6">
               <h1 class="font-lato font-bold text-2xl text-primary mt-6 mb-6">
-                Lorem ipsum dolor sit amet.
+                {{ returnLang === 'sr' ? product.name_sr : product.name_en }}
               </h1>
               <p class="font-lato font-normal text-lg text-gray">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Facere, distinctio? Nemo in magni ad voluptatem commodi
-                repellendus tempora vitae exercitationem recusandae, mollitia
-                vero eaque. Voluptatum repellendus impedit sapiente
-                necessitatibus voluptate.
+                {{
+                  returnLang === 'sr'
+                    ? product.description_sr
+                    : product.description_en
+                }}
               </p>
             </div>
           </div>
           <!-- Specification -->
           <div class="mb-20">
             <h2 class="font-lato font-bold text-2xl text-primary mb-6">
-              Specification
+              {{ returnLang === 'sr' ? 'Detalji' : 'Details ' }}
             </h2>
             <p class="font-lato font-normal text-lg text-gray">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-              reiciendis labore vel maxime, illum maiores magnam beatae fugiat
-              quos quaerat, iste suscipit et sed hic officia debitis fugit?
-              Commodi, consequatur.
+              {{
+                returnLang === 'sr'
+                  ? product.specification_sr
+                  : product.specification_en
+              }}
             </p>
           </div>
           <!-- Details -->
-          <div>
+          <!-- <div>
             <h2 class="font-lato font-bold text-2xl text-primary mb-6">
               Details
             </h2>
@@ -90,7 +98,7 @@
                 nostrum voluptatum ut recusandae placeat natus? Architecto.
               </li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -98,11 +106,18 @@
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+export default {
+  computed: {
+    returnLang() {
+      return this.$i18n.locale
+    },
+    ...mapState(['product']),
+  },
+  created() {
+    this.$store.dispatch('getProduct', this.$route.params.product)
+  },
+}
 </script>
 
-<style lang="scss" scoped>
-/* .product-nav {
-  z-index: -1; */
-/* } */
-</style>
+<style lang="scss" scoped></style>
