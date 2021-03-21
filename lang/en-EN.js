@@ -120,6 +120,11 @@ export default {
       brands: 'Brends',
     },
   },
+  product: {
+    overview: 'Overview',
+    specification: 'Specification',
+    details: 'Details',
+  },
   footer: {
     copy: 'Sinofarm. All rights reserved 2021.',
     company: {

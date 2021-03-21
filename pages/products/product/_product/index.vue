@@ -12,33 +12,36 @@
           <button
             class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
           >
-            Overview
+            {{ $t('product.overview') }}
             <img
               src="@/assets/images/arrow-down.svg"
               class="w-6 transform -rotate-90"
               alt=""
             />
           </button>
-          <button
+          <a
+            href="#"
             class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
           >
-            Specifications
+            {{ $t('product.specification') }}
             <img
               src="@/assets/images/arrow-down.svg"
               class="w-6 transform -rotate-90"
               alt=""
             />
-          </button>
-          <button
+          </a>
+          <a
+            href="#"
             class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
+            @click.prevent=""
           >
-            Details
+            {{ $t('product.details') }}
             <img
               src="@/assets/images/arrow-down.svg"
               class="w-6 transform -rotate-90"
               alt=""
             />
-          </button>
+          </a>
         </div>
 
         <!-- Product info -->
@@ -65,9 +68,9 @@
             </div>
           </div>
           <!-- Specification -->
-          <div class="mb-20">
+          <div id="specification" class="mb-20">
             <h2 class="font-lato font-bold text-2xl text-primary mb-6">
-              {{ returnLang === 'sr' ? 'Detalji' : 'Details ' }}
+              {{ $t('product.specification') }}
             </h2>
             <p class="font-lato font-normal text-lg text-gray">
               {{
@@ -114,8 +117,10 @@ export default {
     },
     ...mapState(['product']),
   },
-  created() {
-    this.$store.dispatch('getProduct', this.$route.params.product)
+  mounted() {
+    this.$store.dispatch('getProducts').then(() => {
+      this.$store.dispatch('getProduct', this.$route.params.product)
+    })
   },
 }
 </script>

@@ -114,6 +114,11 @@ export default {
       brands: 'Brendovi',
     },
   },
+  product: {
+    overview: 'Pregled',
+    specification: 'Specifikacija',
+    details: 'Detalji',
+  },
   careers: {
     title: 'Karijera',
     text1:
