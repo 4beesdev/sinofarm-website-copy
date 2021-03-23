@@ -1,9 +1,9 @@
 <template>
   <NuxtLink :to="`/products/product/${productInfo.id}`" class="flex flex-col">
-    <div class="w-full h-64 border-2 border-primary mb-3">
+    <div class="w-full h-64 border-2 border-primary mb-3 overflow-hidden">
       <img
-        :src="`https://sinofarm-portal.4bees.io${productInfo.image[0].url}`"
-        class="w-full h-full object-cover"
+        :src="`https://sinofarm-portal.4bees.io${productInfo.image.url}`"
+        class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
         alt=""
       />
     </div>

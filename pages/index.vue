@@ -5,16 +5,19 @@
       <div class="w-full banner relative flex items-center mb-2">
         <img
           class="w-full h-full object-cover absolute z-1 top-0 left-0"
-          src="@/assets/images/covid.jpg"
+          src="@/assets/images/cover-image.jpg"
           alt=""
         />
-        <div class="px-6 sm:w-96 lg:px-12 banner-text">
-          <h2 class="font-lato font-bold text-gray text-5xl mb-2">Covid 19</h2>
-          <p class="font-lato font-normal text-gray text-lg">
+        <div
+          class="w-full h-full absolute z-0 top-0 left-0 bg-black opacity-60"
+        ></div>
+        <div class="px-6 sm:w-96 lg:px-12 relative z-2 banner-text">
+          <h2 class="font-lato font-bold text-white text-5xl mb-2">Covid 19</h2>
+          <p class="font-lato font-normal text-white text-lg">
             {{ $t('homepage.covid') }}
           </p>
           <NuxtLink
-            class="p-4 bg-primary block text-center mt-4 w-60 font-lato font-bold text-white"
+            class="p-4 bg-primary block text-center mt-4 w-60 font-lato font-bold text-white button-primary"
             :to="localePath('/covid')"
             >{{ $t('button.more') }}</NuxtLink
           >
@@ -27,14 +30,14 @@
         <div class="flex mb-2 lg:w-6/12 lg:mb-0 lg:mr-2">
           <NuxtLink
             :to="localePath('/products')"
-            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2"
+            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2 navigation-button"
           >
             <img src="@/assets/images/products.svg" class="w-12 mb-2" alt="" />
             {{ $t('homepage.navigation.products') }}
           </NuxtLink>
           <NuxtLink
             :to="localePath('/careers')"
-            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center"
+            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center navigation-button"
           >
             <img src="@/assets/images/careers.svg" class="mb-2 w-12" alt="" />
             {{ $t('homepage.navigation.careers') }}
@@ -43,14 +46,14 @@
         <div class="flex lg:w-6/12">
           <NuxtLink
             to="/"
-            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2"
+            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2 navigation-button"
           >
             <img src="@/assets/images/pharmacy.svg" class="mb-2 w-12" alt="" />
             {{ $t('homepage.navigation.pharmacy') }}
           </NuxtLink>
           <NuxtLink
             to="/"
-            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center"
+            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center navigation-button"
           >
             <img src="@/assets/images/portal.svg" class="mb-2 w-12" alt="" />
             {{ $t('homepage.navigation.portal') }}
@@ -67,56 +70,74 @@
             {{ $t('homepage.findProduct.text') }}
           </p>
           <NuxtLink
-            class="p-4 bg-primary block text-center w-60 font-lato font-bold text-white"
-            to="/"
+            class="p-4 bg-primary block text-center w-60 font-lato font-bold text-white button-primary"
+            :to="localePath('/products')"
             >{{ $t('button.more') }}</NuxtLink
           >
         </div>
         <div
           class="w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         >
-          <div class="border-2 border-primary h-64">
+          <NuxtLink
+            :to="localePath('/products')"
+            class="border-2 border-primary h-64 overflow-hidden"
+          >
             <img
               src="@/assets/images/home-product-1.jpg"
               class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
               alt=""
             />
-          </div>
-          <div class="border-2 border-primary h-64">
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/products')"
+            class="border-2 border-primary h-64 overflow-hidden"
+          >
             <img
               src="@/assets/images/home-product-2.png"
               class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
               alt=""
             />
-          </div>
-          <div class="border-2 border-primary h-64">
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/products')"
+            class="border-2 border-primary h-64 overflow-hidden"
+          >
             <img
               src="@/assets/images/home-product-3.jpg"
               class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
               alt=""
             />
-          </div>
-          <div class="border-2 border-primary h-64">
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/products')"
+            class="border-2 border-primary h-64 overflow-hidden"
+          >
             <img
               src="@/assets/images/home-product-4.jpg"
               class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
               alt=""
             />
-          </div>
-          <div class="border-2 border-primary h-64">
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/products')"
+            class="border-2 border-primary h-64 overflow-hidden"
+          >
             <img
               src="@/assets/images/home-product-5.jpg"
               class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
               alt=""
             />
-          </div>
-          <div class="border-2 border-primary h-64">
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/products')"
+            class="border-2 border-primary h-64 overflow-hidden"
+          >
             <img
               src="@/assets/images/home-product-6.jpg"
               class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
               alt=""
             />
-          </div>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -124,53 +145,32 @@
     <div class="w-full bg-lightGray py-16">
       <div class="container mx-auto px-4">
         <div
-          class="flex flex-col items-center md:flex-wrap md:flex-row md:items-start md:justify-around xl:justify-between"
+          class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-10 lg:grid-cols-3"
         >
-          <div class="bg-white w-full h-full shadow-lg sm:w-96 mb-10 xl:mb-0">
+          <NuxtLink
+            v-for="article in articles"
+            :key="article.id"
+            :to="`/news/${article.id}`"
+            class="bg-white w-full h-full shadow-lg sm:w-96 mb-10 xl:mb-0 duration-300 transform hover:-translate-y-2"
+          >
             <img
               class="w-full h-64 object-cover"
-              src="@/assets/images/blood sample.jpg"
+              :src="`https://sinofarm-portal.4bees.io${article.image.url}`"
               alt=""
             />
             <div class="p-6">
               <h2 class="font-lato text-2xl font-bold text-gray mb-5">
-                {{ $t('homepage.news.first.title') }}
+                {{ returnLang === 'sr' ? article.title_sr : article.title_en }}
               </h2>
               <p class="font-lato text-gray font-bold">
-                {{ $t('homepage.news.first.text') }}
+                {{
+                  returnLang === 'sr'
+                    ? article.short_desc_sr
+                    : article.short_desc_en
+                }}
               </p>
             </div>
-          </div>
-          <div class="bg-white w-full shadow-lg sm:w-96 mb-10 xl:mb-0">
-            <img
-              class="w-full h-64 object-cover"
-              src="@/assets/images/news-doctor.jpg"
-              alt=""
-            />
-            <div class="p-6">
-              <h2 class="font-lato text-2xl font-bold text-gray mb-5">
-                {{ $t('homepage.news.second.title') }}
-              </h2>
-              <p class="font-lato text-gray font-bold">
-                {{ $t('homepage.news.second.text') }}
-              </p>
-            </div>
-          </div>
-          <div class="bg-white w-full shadow-lg sm:w-96">
-            <img
-              class="w-full h-64 object-cover"
-              src="@/assets/images/gloves.min.jpg"
-              alt=""
-            />
-            <div class="p-6">
-              <h2 class="font-lato text-2xl font-bold text-gray mb-5">
-                {{ $t('homepage.news.third.title') }}
-              </h2>
-              <p class="font-lato text-gray font-bold">
-                {{ $t('homepage.news.third.text') }}
-              </p>
-            </div>
-          </div>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -215,25 +215,50 @@
         >
           <div class="flex flex-col items-center mb-10 md:mb-0">
             <img class="w-16 mb-5" src="@/assets/images/contact.svg" alt="" />
-            <h2 class="text-xl text-gray font-lato font-bold mb-2">
+            <NuxtLink
+              :to="localePath('/contact')"
+              class="text-xl text-gray font-lato font-bold mb-2 header-link"
+            >
               {{ $t('homepage.contact.title') }}
-            </h2>
+            </NuxtLink>
             <p
               class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96"
             >
-              {{ $t('homepage.contact.text') }}
+              {{ $t('homepage.contact.text') }}:
             </p>
+            <a
+              class="text-normal mt-2 text-primary font-lato font-normal"
+              href="tel:+381113431061"
+            >
+              +381 (11) 343 1061</a
+            >
+            <a
+              class="text-normal mt-2 text-primary font-lato font-normal"
+              href="tel:+381113425934"
+            >
+              +381 (11) 342 5934</a
+            >
           </div>
           <div class="flex flex-col items-center">
             <img class="w-16 mb-5" src="@/assets/images/locations.svg" alt="" />
-            <h2 class="text-xl text-gray font-lato font-bold mb-2">
+            <NuxtLink
+              :to="localePath('/contact')"
+              class="text-xl text-gray font-lato font-bold mb-2 header-link"
+            >
               {{ $t('homepage.locations.title') }}
-            </h2>
+            </NuxtLink>
             <p
               class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96"
             >
               {{ $t('homepage.locations.text') }}
             </p>
+            <a
+              class="text-normal mt-2 text-primary font-lato font-normal"
+              href="http://maps.google.com/?q=Koste Nađa 31, 11160 Beograd, Srbija"
+              target="_blank"
+            >
+              Koste Nađa 31, 11160 Beograd, Srbija
+            </a>
           </div>
         </div>
       </div>
@@ -242,13 +267,16 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   data() {
-    return {
-      data: [],
-      error: null,
-    }
+    return {}
+  },
+  computed: {
+    returnLang() {
+      return this.$i18n.locale
+    },
+    ...mapState(['articles']),
   },
 }
 </script>
@@ -261,5 +289,40 @@ export default {
   }
   &-text {
   }
+}
+.button-primary {
+  transition: background-color 0.4s;
+  &:hover {
+    background-color: #32529d;
+  }
+}
+.navigation-button {
+  transition: background-color 0.4s;
+  img {
+    transition: transform 0.4s;
+  }
+  &:hover {
+    background-color: #32529d;
+    img {
+      transform: translateY(-5px);
+    }
+  }
+}
+.header-link {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: #3c62bd;
+    transition: width 0.4s;
+  }
+}
+.header-link:hover.header-link::after {
+  width: 100%;
 }
 </style>

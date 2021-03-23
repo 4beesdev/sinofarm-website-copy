@@ -7,6 +7,7 @@ export const state = () => ({
     subcategories: [],
   },
   product: {},
+  articles: [],
 })
 
 export const mutations = {
@@ -21,6 +22,9 @@ export const mutations = {
   },
   SET_PRODUCT(state, product) {
     state.product = product
+  },
+  SET_ARTICLES(state, articles) {
+    state.articles = articles
   },
 }
 export const actions = {
@@ -51,5 +55,24 @@ export const actions = {
       `https://sinofarm-portal.4bees.io/products/` + id
     )
     commit('SET_PRODUCT', product.data)
+  },
+  // Get all news
+  async getArticles({ commit }) {
+    const articles = await axios.get(
+      'https://sinofarm-portal.4bees.io/articles'
+    )
+    commit('SET_ARTICLES', articles.data)
+  },
+
+  // getProductById({ commit, state }, id) {
+  //   const product = state.sinofarm.products.find((prod) => (prod.id = id.id))
+  //   commit('SET_PRODUCT', product)
+  //   console.log(product)
+  // },
+}
+
+export const getters = {
+  getArticleById: (state) => (id) => {
+    return state.articles.find((article) => (article.id = id))
   },
 }

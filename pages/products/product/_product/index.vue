@@ -49,7 +49,7 @@
           <div class="flex flex-col mb-20 lg:flex-row">
             <div class="w-full h-64 border-2 border-gray md:w-96 lg:mr-10">
               <img
-                :src="`https://sinofarm-portal.4bees.io${product.image[0].url}`"
+                :src="`https://sinofarm-portal.4bees.io${product.image.url}`"
                 class="w-full h-full object-cover"
                 alt=""
               />
@@ -118,9 +118,7 @@ export default {
     ...mapState(['product']),
   },
   mounted() {
-    this.$store.dispatch('getProducts').then(() => {
-      this.$store.dispatch('getProduct', this.$route.params.product)
-    })
+    this.$store.dispatch('getProduct', this.$route.params.product)
   },
 }
 </script>

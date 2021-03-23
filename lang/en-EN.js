@@ -28,7 +28,7 @@ export default {
           'Our warehouse in Hamburg has started working. Sinofarm company has strategic plan to open new markets, and this is the first step in that mission.',
       },
       second: {
-        title: '(15.1.2021) – Sinofarm Pharmacy is now open',
+        title: '(15.1.2021) – Welcome to Sinopharm Pharmacy',
         text:
           'Visit our pharmacy in Resavska street in Belgrade and check out our offer.',
       },
@@ -55,8 +55,8 @@ export default {
           link: 'about-us',
         },
         {
-          title: 'Social responsibility',
-          link: 'social-responsibility',
+          title: 'News',
+          link: 'news',
         },
         {
           title: 'Careers',
@@ -145,6 +145,12 @@ export default {
   button: {
     more: 'Learn more',
   },
+  privacyPolicy: {
+    title: 'Privacy Policy',
+    text: 'By using our website, you accept our privacy policy.',
+    accept: 'Accept',
+    read: 'Read more',
+  },
   breadcrumb: {
     products: [
       {
@@ -154,6 +160,16 @@ export default {
       {
         title: 'Products',
         link: '/products',
+      },
+    ],
+    news: [
+      {
+        title: 'Home',
+        link: '/',
+      },
+      {
+        title: 'News',
+        link: '/news',
       },
     ],
   },

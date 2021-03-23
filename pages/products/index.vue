@@ -41,11 +41,6 @@ export default {
     return {}
   },
   computed: mapState(['sinofarm']),
-  created() {
-    this.$store.dispatch('getCategories')
-    this.$store.dispatch('getProducts')
-    this.$store.dispatch('getSubcategories')
-  },
 }
 </script>
 

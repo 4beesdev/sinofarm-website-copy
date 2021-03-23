@@ -29,7 +29,7 @@ export default {
           'Naše skladište u Hamburgu u Nemačkoj počelo je sa radom. Kompanija Sinofarm time je ostvarila svoj prvi korak ka svojim strateškim ciljevima širenja na evropska tržišta.',
       },
       second: {
-        title: '(15.1.2021) –Apoteka Sinofarm je počela sa radom',
+        title: '(15.1.2021) – Dobrodošli u Apoteku Sinofarm',
         text:
           'Posetite našu apoteku u Resavskoj ulici u Beogradu i pogledajte veći deo iz palete naših proizvoda uživo.',
       },
@@ -56,8 +56,8 @@ export default {
           link: 'about-us',
         },
         {
-          title: 'Socijalna odgovornost',
-          link: 'social-responsibility',
+          title: 'Novosti',
+          link: 'news',
         },
         {
           title: 'Karijere',
@@ -114,6 +114,7 @@ export default {
       brands: 'Brendovi',
     },
   },
+
   product: {
     overview: 'Pregled',
     specification: 'Specifikacija',
@@ -148,6 +149,12 @@ export default {
   button: {
     more: 'Više',
   },
+  privacyPolicy: {
+    title: 'Pravila Privatnosti',
+    text: 'Posetom na naš sajt, prihvatate pravila o privatnosti.',
+    accept: 'Prihvati',
+    read: 'Pročitaj više',
+  },
   breadcrumb: {
     products: [
       {
@@ -157,6 +164,16 @@ export default {
       {
         title: 'Proizvodi',
         link: '/products',
+      },
+    ],
+    news: [
+      {
+        title: 'Početna',
+        link: '/',
+      },
+      {
+        title: 'Novosti',
+        link: '/news',
       },
     ],
   },
