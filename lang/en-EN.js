@@ -16,6 +16,7 @@ export default {
       careers: 'Careers',
       pharmacy: 'Pharmacy',
       portal: 'Portal',
+      soon: 'Coming soon',
     },
     findProduct: {
       title: 'Find your product:',
@@ -95,7 +96,12 @@ export default {
           It is especially important to wear a mask when you are indoors with people you do not live with and when you are unable to stay at least 2 metres apart since COVID-19 spreads mainly among people who are in close contact with one another.`,
   },
   contactpage: {
-    title: 'Contact',
+    title: 'Contact information',
+    info: {
+      phone: 'Phone',
+      email: 'Email',
+      location: 'Locations',
+    },
     input: {
       name: 'Name',
       last: 'Last name',

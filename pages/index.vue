@@ -44,20 +44,48 @@
           </NuxtLink>
         </div>
         <div class="flex lg:w-6/12">
-          <NuxtLink
-            to="/"
-            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2 navigation-button"
-          >
-            <img src="@/assets/images/pharmacy.svg" class="mb-2 w-12" alt="" />
-            {{ $t('homepage.navigation.pharmacy') }}
-          </NuxtLink>
-          <NuxtLink
-            to="/"
-            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center navigation-button"
-          >
-            <img src="@/assets/images/portal.svg" class="mb-2 w-12" alt="" />
-            {{ $t('homepage.navigation.portal') }}
-          </NuxtLink>
+          <div class="w-6/12 relative mr-2">
+            <div class="">
+              <div
+                class="absolute bg-black opacity-40 z-10 w-full h-full top-0 left-0 flex justify-center items-center"
+              ></div>
+              <p
+                class="px-4 py-1 bg-primary border-2 border-white absolute z-20 top-10 right-0"
+              >
+                {{ $t('homepage.navigation.soon') }}
+              </p>
+            </div>
+            <NuxtLink
+              to="/"
+              class="p-4 bg-primary flex flex-col items-center justify-center navigation-button"
+            >
+              <img
+                src="@/assets/images/pharmacy.svg"
+                class="mb-2 w-12"
+                alt=""
+              />
+              {{ $t('homepage.navigation.pharmacy') }}
+            </NuxtLink>
+          </div>
+          <div class="w-6/12 relative">
+            <div class="">
+              <div
+                class="absolute bg-black opacity-40 z-10 w-full h-full top-0 left-0 flex justify-center items-center"
+              ></div>
+              <p
+                class="px-4 py-1 bg-primary border-2 border-white absolute z-20 top-10 right-0"
+              >
+                {{ $t('homepage.navigation.soon') }}
+              </p>
+            </div>
+            <NuxtLink
+              to="/"
+              class="w-full h-full p-4 bg-primary flex flex-col items-center justify-center navigation-button"
+            >
+              <img src="@/assets/images/portal.svg" class="mb-2 w-12" alt="" />
+              {{ $t('homepage.navigation.portal') }}
+            </NuxtLink>
+          </div>
         </div>
       </div>
       <!-- PRODUCTS -->
@@ -226,18 +254,6 @@
             >
               {{ $t('homepage.contact.text') }}:
             </p>
-            <a
-              class="text-normal mt-2 text-primary font-lato font-normal"
-              href="tel:+381113431061"
-            >
-              +381 (11) 343 1061</a
-            >
-            <a
-              class="text-normal mt-2 text-primary font-lato font-normal"
-              href="tel:+381113425934"
-            >
-              +381 (11) 342 5934</a
-            >
           </div>
           <div class="flex flex-col items-center">
             <img class="w-16 mb-5" src="@/assets/images/locations.svg" alt="" />
@@ -252,13 +268,6 @@
             >
               {{ $t('homepage.locations.text') }}
             </p>
-            <a
-              class="text-normal mt-2 text-primary font-lato font-normal"
-              href="http://maps.google.com/?q=Koste Nađa 31, 11160 Beograd, Srbija"
-              target="_blank"
-            >
-              Koste Nađa 31, 11160 Beograd, Srbija
-            </a>
           </div>
         </div>
       </div>

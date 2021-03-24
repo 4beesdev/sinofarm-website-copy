@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 left-0 w-full z-10 bg-white">
+  <div class="fixed top-0 left-0 w-full z-30 bg-white">
     <div
       v-if="brandsToggled"
       class="fixed top-0 left-0 w-full h-full z-0 bg-black opacity-50"
@@ -39,8 +39,35 @@
               <img src="@/assets/images/search.svg" class="w-6" alt="" />
             </button>
           </div>
-          <div class="hidden text-base text-gray font-lato font-bold lg:flex">
-            <NuxtLink :to="switchLocalePath('sr')">
+          <div
+            class="hidden text-base text-gray font-lato relative font-bold lg:flex lg:flex-col"
+          >
+            <a
+              href="#"
+              class="flex items-center"
+              @click.prevent="langToggled = !langToggled"
+            >
+              <img
+                src="@/assets/images/earth-grid-symbol.svg"
+                class="w-8"
+                alt=""
+              />
+              <img
+                src="@/assets/images/arrow-down.svg"
+                class="w-4 ml-4"
+                alt=""
+              />
+            </a>
+            <div
+              v-if="langToggled"
+              class="p-2 flex flex-col items-center w-full absolute transform translate-y-10 bg-white"
+            >
+              <NuxtLink :to="switchLocalePath('sr')" class="mb-2">
+                SR
+              </NuxtLink>
+              <NuxtLink :to="switchLocalePath('en')"> EN </NuxtLink>
+            </div>
+            <!-- <NuxtLink :to="switchLocalePath('sr')">
               <img src="@/assets/images/serbia.svg" class="w-8" alt="" />
             </NuxtLink>
             <span class="mx-3">/</span>
@@ -50,7 +77,7 @@
                 class="w-8"
                 alt=""
               />
-            </NuxtLink>
+            </NuxtLink> -->
           </div>
         </div>
         <div
@@ -148,12 +175,14 @@ export default {
     return {
       toggled: false,
       brandsToggled: false,
+      langToggled: false,
     }
   },
   watch: {
     $route(newRoute) {
       this.toggled = false
       this.brandsToggled = false
+      this.langToggled = false
     },
   },
 }

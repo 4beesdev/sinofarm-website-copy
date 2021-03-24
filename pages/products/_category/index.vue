@@ -1,9 +1,6 @@
 <template>
   <div class="pt-48">
-    <Breadcrumb
-      :items="$t('breadcrumb.products')"
-      :product-name="productsSubcategory"
-    ></Breadcrumb>
+    <Breadcrumb :items="$t('breadcrumb.products')"></Breadcrumb>
     <div class="container mx-auto px-4 py-10">
       <div class="flex flex-col lg:flex-row lg:justify-between">
         <div class="flex mb-10 flex-col lg:w-80 lg:mr-20">
@@ -66,9 +63,11 @@ export default {
       })
       if (filteredProducts.length === 0) {
         this.hasProducts = false
+        return []
+      } else {
+        this.productsSubcategory = filteredProducts[0].subcategory.name_sr
+        return filteredProducts
       }
-      this.productsSubcategory = filteredProducts[0].subcategory.name_sr
-      return filteredProducts
     },
   },
 }

@@ -1,11 +1,14 @@
 <template>
   <div class="pt-48">
     <Breadcrumb
+      class="lg:hidden"
       :items="$t('breadcrumb.products')"
-      :product-name="`${
-        returnLang === 'sr' ? product.name_sr : product.name_en
-      }`"
-    />
+    ></Breadcrumb>
+    <Breadcrumb
+      class="hidden lg:block"
+      :items="$t('breadcrumb.products')"
+      :product-name="returnLang === 'sr' ? product.name_sr : product.name_en"
+    ></Breadcrumb>
     <div class="container mx-auto px-4 py-10">
       <div class="flex flex-col lg:flex-row">
         <div class="flex mb-10 flex-col lg:w-3/6 lg:mr-20 relative z-1">

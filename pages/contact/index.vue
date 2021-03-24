@@ -2,23 +2,45 @@
   <div class="container mx-auto px-4 pt-48 pb-10">
     <div class="flex flex-col lg:flex-row lg:justify-between">
       <div
-        class="bg-lightBlue px-2 py-10 contact__info rounded-lg mb-10 lg:w-1/4 lg:px-10"
+        class="bg-lightBlue px-2 py-10 contact__info rounded-lg mb-10 lg:w-3/6 lg:mr-5 lg:px-10"
       >
         <h2 class="text-3xl font-bold text-gray font-lato mb-5">
           {{ $t('contactpage.title') }}
         </h2>
-        <p class="text-lg font-bold text-gray font-lato mb-5">
-          Koste Nađa 31, 11000 Beograd
-        </p>
         <div class="flex flex-col">
-          <a class="text-lg font-bold text-gray font-lato mb-3" href="tel:123"
-            >123 4567</a
+          <p class="text-lg text-gray font-lato font-bold">
+            {{ $t('contactpage.info.phone') }}:
+          </p>
+          <a
+            class="text-normal mt-2 text-gray font-lato font-normal"
+            href="tel:+381113431061"
+          >
+            +381 (11) 343 1061</a
           >
           <a
-            class="text-lg font-bold text-gray font-lato"
+            class="text-normal mt-2 mb-3 text-gray font-lato font-normal"
+            href="tel:+381113425934"
+          >
+            +381 (11) 342 5934</a
+          >
+          <p class="text-lg text-gray font-lato font-bold">
+            {{ $t('contactpage.info.email') }}:
+          </p>
+          <a
+            class="text-normal mt-2 text-gray font-lato font-normal"
             href="mailto:office@sinofarm.rs"
             >office@sinofarm.rs</a
           >
+          <p class="text-lg mt-3 text-gray font-lato font-bold">
+            {{ $t('contactpage.info.location') }}:
+          </p>
+          <a
+            class="text-normal mt-2 text-gray font-lato font-normal"
+            href="http://maps.google.com/?q=Koste Nađa 31, 11160 Beograd, Srbija"
+            target="_blank"
+          >
+            Koste Nađa 31, 11160 Beograd, Srbija
+          </a>
         </div>
       </div>
       <form action="" class="w-full flex flex-col font-lato text-lg lg:w-2/4">

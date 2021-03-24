@@ -16,6 +16,7 @@ export default {
       careers: 'Karijera',
       pharmacy: 'Apoteka',
       portal: 'Portal',
+      soon: 'Uskoro',
     },
     findProduct: {
       title: 'Pronađite svoj proizvod:',
@@ -98,7 +99,12 @@ export default {
       'Međutim, nošenje maske i dalje može da napravi razliku u tome koliko teško ćete se razboleti, da li ćete završiti u bolnici ili samo sa lakšim simptomima. Kada udahnete čestice virusa, one odmah napadaju sve ćelije do kojih dođu i pretvaraju ih u mašine za množenje virusa, a naš imuni sistem pokušava da zaustavi ovaj proces. Količina virusa kojoj ste izloženi - „viralno opterećenje" - može da presudi koliko ćete se teško razboleti. Ako je količina virusa veoma visoka, imunološki odgovor može da bude buran pri čemu se nanosi velika šteta organizmu. Ali ako je početna količina unetog virusa mala, imuni sistem je u stanju da se izbori manje drastičnim reakcijama - osoba ima manje simptoma, ako ih ima uopšte. Ako nosite masku u neposrednoj blizini nekog ko ima virus - udahnućete manju količinu čestica i proći bolje nego da je niste imali.',
   },
   contactpage: {
-    title: 'Kontakt',
+    title: 'Kontakt informacije',
+    info: {
+      phone: 'Telefon',
+      email: 'Email',
+      location: 'Lokacije',
+    },
     input: {
       name: 'Ime',
       last: 'Prezime',
