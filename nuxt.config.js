@@ -54,6 +54,7 @@ export default {
       },
     ],
     '@nuxtjs/axios',
+    'vue-scrollto/nuxt',
   ],
 
   axios: {

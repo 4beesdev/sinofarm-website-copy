@@ -8,6 +8,7 @@ export const state = () => ({
   },
   product: {},
   articles: [],
+  brands: [],
 })
 
 export const mutations = {
@@ -25,6 +26,9 @@ export const mutations = {
   },
   SET_ARTICLES(state, articles) {
     state.articles = articles
+  },
+  SET_BRANDS(state, brands) {
+    state.brands = brands
   },
 }
 export const actions = {
@@ -64,15 +68,21 @@ export const actions = {
     commit('SET_ARTICLES', articles.data)
   },
 
-  // getProductById({ commit, state }, id) {
-  //   const product = state.sinofarm.products.find((prod) => (prod.id = id.id))
-  //   commit('SET_PRODUCT', product)
-  //   console.log(product)
-  // },
+  async getBrands({ commit }) {
+    const brands = await axios.get('https://sinofarm-portal.4bees.io/brands')
+    commit('SET_BRANDS', brands.data)
+  },
+
+  getProductById({ commit, state }, id) {
+    const product = state.sinofarm.products.find(
+      (prod) => prod.id === id.id * 1
+    )
+    commit('SET_PRODUCT', product)
+  },
 }
 
 export const getters = {
   getArticleById: (state) => (id) => {
-    return state.articles.find((article) => (article.id = id))
+    return state.articles.find((article) => article.id === id)
   },
 }

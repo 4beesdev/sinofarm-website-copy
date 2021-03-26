@@ -5,21 +5,54 @@
       <div class="flex flex-col lg:flex-row lg:justify-between">
         <div class="flex mb-10 flex-col lg:w-80 lg:mr-20">
           <Collapsible
+            filter
             :link-title="$t('productspage.filter.categories')"
-            :data-info="sinofarm"
-          ></Collapsible>
+          >
+            <template v-slot:body>
+              <Collapsible
+                v-for="cat in sinofarm.categories"
+                :key="cat.name_sr"
+                category
+                :link-title="returnLang === 'sr' ? cat.name_sr : cat.name_en"
+              >
+                <template v-slot:body
+                  ><NuxtLink
+                    v-for="subcategory in returnSubcategories(
+                      cat,
+                      sinofarm.subcategories
+                    )"
+                    :key="subcategory.name_sr"
+                    :to="`/products/${subcategory.slug}`"
+                    class="mb-2 flex font-lato text-gray"
+                  >
+                    {{
+                      returnLang === 'sr'
+                        ? subcategory.name_sr
+                        : subcategory.name_en
+                    }}
+                  </NuxtLink>
+                </template>
+              </Collapsible>
+            </template>
+          </Collapsible>
           <button
             class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
           >
             {{ $t('productspage.filter.industries') }}
             <img src="@/assets/images/arrow-down.svg" class="w-6" alt="" />
           </button>
-          <button
-            class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
-          >
-            {{ $t('productspage.filter.brands') }}
-            <img src="@/assets/images/arrow-down.svg" class="w-6" alt="" />
-          </button>
+          <Collapsible filter :link-title="$t('productspage.filter.brands')">
+            <template v-slot:body>
+              <NuxtLink
+                v-for="brand in brands"
+                :key="brand.name"
+                :to="`/products/${brand.slug}`"
+                class="mb-2 flex font-lato text-gray"
+              >
+                {{ brand.name }}
+              </NuxtLink>
+            </template>
+          </Collapsible>
         </div>
         <div class="flex w-full flex-col">
           <p
@@ -53,11 +86,14 @@ export default {
       productsSubcategory: '',
     }
   },
-  computed: mapState(['sinofarm']),
+  computed: mapState(['sinofarm', 'brands']),
   methods: {
     categoryProducts(category, products) {
       const filteredProducts = products.filter((product) => {
-        if (product.subcategory.slug === category) {
+        if (
+          product.subcategory.slug === category ||
+          product.brand.slug === category
+        ) {
           return product
         }
       })
@@ -68,6 +104,12 @@ export default {
         this.productsSubcategory = filteredProducts[0].subcategory.name_sr
         return filteredProducts
       }
+    },
+    returnSubcategories(cat, subcategories) {
+      const subcat = subcategories.filter(
+        (sub) => sub.category.name_sr === cat.name_sr
+      )
+      return subcat
     },
   },
 }

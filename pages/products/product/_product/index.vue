@@ -14,6 +14,7 @@
         <div class="flex mb-10 flex-col lg:w-3/6 lg:mr-20 relative z-1">
           <button
             class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
+            @click="scrollOverview()"
           >
             {{ $t('product.overview') }}
             <img
@@ -22,9 +23,9 @@
               alt=""
             />
           </button>
-          <a
-            href="#"
+          <button
             class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
+            @click="scrollSpec()"
           >
             {{ $t('product.specification') }}
             <img
@@ -32,7 +33,7 @@
               class="w-6 transform -rotate-90"
               alt=""
             />
-          </a>
+          </button>
           <a
             href="#"
             class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6"
@@ -50,7 +51,10 @@
         <!-- Product info -->
         <div class="flex flex-col">
           <div class="flex flex-col mb-20 lg:flex-row">
-            <div class="w-full h-64 border-2 border-gray md:w-96 lg:mr-10">
+            <div
+              ref="overview"
+              class="w-full h-64 border-2 border-gray md:w-96 lg:mr-10"
+            >
               <img
                 :src="`https://sinofarm-portal.4bees.io${product.image.url}`"
                 class="w-full h-full object-cover"
@@ -71,7 +75,7 @@
             </div>
           </div>
           <!-- Specification -->
-          <div id="specification" class="mb-20">
+          <div id="specification" ref="specification" class="mb-20">
             <h2 class="font-lato font-bold text-2xl text-primary mb-6">
               {{ $t('product.specification') }}
             </h2>
@@ -114,14 +118,31 @@
 <script>
 import { mapState } from 'vuex'
 export default {
+  data() {
+    return {}
+  },
   computed: {
     returnLang() {
       return this.$i18n.locale
     },
     ...mapState(['product']),
   },
-  mounted() {
-    this.$store.dispatch('getProduct', this.$route.params.product)
+  created() {
+    this.$store.dispatch('getProductById', { id: this.$route.params.product })
+  },
+  methods: {
+    scrollOverview() {
+      this.$scrollTo(this.$refs.overview, 500, {
+        easing: 'ease-in',
+        offset: -150,
+      })
+    },
+    scrollSpec() {
+      this.$scrollTo(this.$refs.specification, 500, {
+        easing: 'ease-in',
+        offset: -250,
+      })
+    },
   },
 }
 </script>

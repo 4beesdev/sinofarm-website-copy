@@ -41,6 +41,13 @@
           >
             Koste Nađa 31, 11160 Beograd, Srbija
           </a>
+          <a
+            class="text-normal mt-2 text-gray font-lato font-normal"
+            href="http://maps.google.com/?q=66424 Homburg, Alte Reichsstr. 6"
+            target="_blank"
+          >
+            66424 Homburg, Alte Reichsstr. 6
+          </a>
         </div>
       </div>
       <form action="" class="w-full flex flex-col font-lato text-lg lg:w-2/4">
