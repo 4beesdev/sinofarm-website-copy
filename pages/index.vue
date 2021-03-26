@@ -91,10 +91,10 @@
       <!-- PRODUCTS -->
       <div class="flex flex-col md:flex-row py-16">
         <div class="md:w-2/6 mb-10 md:mr-10 lg:mr-40">
-          <h2 class="font-lato font-bold text-gray text-2xl mb-5">
+          <h2 class="font-bold text-gray text-2xl mb-5">
             {{ $t('homepage.findProduct.title') }}
           </h2>
-          <p class="font-lato text-gray mb-5">
+          <p class="text-gray mb-5">
             {{ $t('homepage.findProduct.text') }}
           </p>
           <NuxtLink

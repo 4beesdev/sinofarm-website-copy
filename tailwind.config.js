@@ -5,7 +5,6 @@ module.exports = {
     extend: {
       fontFamily: {
         mulish: ['Mulish', 'sans-serif'],
-        lato: ['Lato', 'sans-serif'],
       },
       colors: {
         primary: '#3c62bd',

@@ -19,4 +19,12 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+@font-face {
+  font-family: 'Lato';
+  src: local('Lato'), url(~assets/lato/Lato-Regular.ttf);
+}
+body {
+  font-family: 'Lato', sans-serif !important;
+}
+</style>

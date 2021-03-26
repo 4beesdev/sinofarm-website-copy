@@ -42,7 +42,7 @@ export const actions = {
   // Get all products
   async getProducts({ commit }) {
     const products = await axios.get(
-      'https://sinofarm-portal.4bees.io/products'
+      'https://sinofarm-portal.4bees.io/products?_limit=-1'
     )
     commit('SET_PRODUCTS', products.data)
   },

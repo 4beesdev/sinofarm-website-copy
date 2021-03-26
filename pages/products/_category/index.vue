@@ -86,7 +86,13 @@ export default {
       productsSubcategory: '',
     }
   },
-  computed: mapState(['sinofarm', 'brands']),
+  computed: {
+    returnLang() {
+      return this.$i18n.locale
+    },
+    ...mapState(['sinofarm', 'brands']),
+  },
+
   methods: {
     categoryProducts(category, products) {
       const filteredProducts = products.filter((product) => {
