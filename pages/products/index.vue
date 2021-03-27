@@ -55,12 +55,13 @@
           </Collapsible>
         </div>
         <div class="flex w-full flex-col">
+          <Spinner v-if="loading" size="large" />
           <ProductList :products="sinofarm.products" />
-          <button
+          <!-- <button
             class="mt-20 p-4 bg-primary block text-center mt-4 w-60 font-lato font-bold text-white self-center"
           >
             Show more
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -69,7 +70,11 @@
 
 <script>
 import { mapState } from 'vuex'
+import Spinner from 'vue-simple-spinner'
 export default {
+  components: {
+    Spinner,
+  },
   data() {
     return {}
   },
@@ -78,6 +83,9 @@ export default {
       return this.$i18n.locale
     },
     ...mapState(['sinofarm', 'brands']),
+    loading() {
+      return this.$store.getters.getLoadingStatus
+    },
   },
   methods: {
     returnSubcategories(cat, subcategories) {

@@ -5,13 +5,14 @@
       :items="$t('breadcrumb.products')"
     ></Breadcrumb>
     <Breadcrumb
+      v-if="product"
       class="hidden lg:block"
       :items="$t('breadcrumb.products')"
       :product-name="returnLang === 'sr' ? product.name_sr : product.name_en"
     ></Breadcrumb>
     <div class="container mx-auto px-4 py-10">
       <div class="flex flex-col lg:flex-row">
-        <div class="flex mb-10 flex-col lg:w-3/6 lg:mr-20 relative z-1">
+        <div class="flex mb-10 flex-col lg:w-80 lg:mr-20 relative z-1">
           <button
             class="flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6 focus:outline-none"
             @click="scrollOverview()"
@@ -47,15 +48,19 @@
             />
           </a>
         </div>
-
         <!-- Product info -->
-        <div class="flex flex-col">
+        <div v-if="loading" class="flex w-full justify-center">
+          <Spinner size="large" />
+        </div>
+
+        <div v-if="!loading" class="flex w-full flex-col">
           <div class="flex flex-col mb-20 lg:flex-row">
             <div
               ref="overview"
               class="w-full h-64 border-2 border-gray md:w-96 lg:mr-10"
             >
               <img
+                v-if="product.image.url"
                 :src="`https://sinofarm-portal.4bees.io${product.image.url}`"
                 class="w-full h-full object-cover"
                 alt=""
@@ -117,7 +122,11 @@
 
 <script>
 import { mapState } from 'vuex'
+import Spinner from 'vue-simple-spinner'
 export default {
+  components: {
+    Spinner,
+  },
   data() {
     return {}
   },
@@ -126,9 +135,12 @@ export default {
       return this.$i18n.locale
     },
     ...mapState(['product']),
+    loading() {
+      return this.$store.getters.getLoadingStatus
+    },
   },
-  created() {
-    this.$store.dispatch('getProductById', { id: this.$route.params.product })
+  mounted() {
+    this.$store.dispatch('getProduct', this.$route.params.product)
   },
   methods: {
     scrollOverview() {
