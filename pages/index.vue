@@ -111,16 +111,16 @@
           >
         </div>
         <div
-          ref="productsList"
-          class="w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 opacity-0 transform translate-x-32"
+          class="w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         >
           <NuxtLink
             :to="localePath('/products')"
-            class="border-2 border-primary h-64 overflow-hidden"
+            class="border-2 block border-primary h-64 overflow-hidden"
           >
             <img
+              ref="homeProduct1"
               src="@/assets/images/home-product-1.jpg"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 translate-x-32"
               alt=""
             />
           </NuxtLink>
@@ -129,8 +129,9 @@
             class="border-2 border-primary h-64 overflow-hidden"
           >
             <img
+              ref="homeProduct2"
               src="@/assets/images/home-product-2.png"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 transform translate-x-32"
               alt=""
             />
           </NuxtLink>
@@ -139,8 +140,9 @@
             class="border-2 border-primary h-64 overflow-hidden"
           >
             <img
+              ref="homeProduct3"
               src="@/assets/images/home-product-3.jpg"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 transform translate-x-32"
               alt=""
             />
           </NuxtLink>
@@ -149,8 +151,9 @@
             class="border-2 border-primary h-64 overflow-hidden"
           >
             <img
+              ref="homeProduct4"
               src="@/assets/images/home-product-4.jpg"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 transform translate-x-32"
               alt=""
             />
           </NuxtLink>
@@ -159,8 +162,9 @@
             class="border-2 border-primary h-64 overflow-hidden"
           >
             <img
+              ref="homeProduct5"
               src="@/assets/images/home-product-5.jpg"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 transform translate-x-32"
               alt=""
             />
           </NuxtLink>
@@ -169,8 +173,9 @@
             class="border-2 border-primary h-64 overflow-hidden"
           >
             <img
+              ref="homeProduct6"
               src="@/assets/images/home-product-6.jpg"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 transform translate-x-32"
               alt=""
             />
           </NuxtLink>
@@ -181,33 +186,36 @@
     <div class="w-full bg-lightGray py-16">
       <div class="container mx-auto px-4">
         <div
-          ref="news"
-          class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-10 lg:grid-cols-3 opacity-0 transform translate-y-32"
+          class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-10 lg:grid-cols-3"
         >
-          <NuxtLink
+          <div
             v-for="article in articles"
             :key="article.id"
-            :to="`/news/${article.id}`"
-            class="bg-white w-full h-full shadow-lg sm:w-96 mb-10 xl:mb-0 duration-300 transform hover:-translate-y-2"
+            :ref="`article${article.id}`"
+            class="bg-white w-full h-full shadow-lg sm:w-96 mb-10 xl:mb-0 duration-300 transform hover:-translate-y-2 opacity-0 translate-y-32"
           >
-            <img
-              class="w-full h-64 object-cover"
-              :src="`https://sinofarm-portal.4bees.io${article.image.url}`"
-              alt=""
-            />
-            <div class="p-6">
-              <h2 class="font-lato text-2xl font-bold text-gray mb-5">
-                {{ returnLang === 'sr' ? article.title_sr : article.title_en }}
-              </h2>
-              <p class="font-lato text-gray font-bold">
-                {{
-                  returnLang === 'sr'
-                    ? article.short_desc_sr
-                    : article.short_desc_en
-                }}
-              </p>
-            </div>
-          </NuxtLink>
+            <NuxtLink :to="`/news/${article.id}`">
+              <img
+                class="w-full h-64 object-cover"
+                :src="`https://sinofarm-portal.4bees.io${article.image.url}`"
+                alt=""
+              />
+              <div class="p-6">
+                <h2 class="font-lato text-2xl font-bold text-gray mb-5">
+                  {{
+                    returnLang === 'sr' ? article.title_sr : article.title_en
+                  }}
+                </h2>
+                <p class="font-lato text-gray font-bold">
+                  {{
+                    returnLang === 'sr'
+                      ? article.short_desc_sr
+                      : article.short_desc_en
+                  }}
+                </p>
+              </div>
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </div>
@@ -256,7 +264,7 @@
         >
           <div
             ref="infoContact"
-            class="flex flex-col items-center mb-10 md:mb-0 opacity-0 transform translate-y-36"
+            class="flex flex-col items-center mb-10 md:mb-0 opacity-0 transform -translate-y-36"
           >
             <img class="w-16 mb-5" src="@/assets/images/contact.svg" alt="" />
             <NuxtLink
@@ -273,7 +281,7 @@
           </div>
           <div
             ref="infoLocations"
-            class="flex flex-col items-center opacity-0 transform translate-y-36"
+            class="flex flex-col items-center opacity-0 transform -translate-y-36"
           >
             <img class="w-16 mb-5" src="@/assets/images/locations.svg" alt="" />
             <NuxtLink

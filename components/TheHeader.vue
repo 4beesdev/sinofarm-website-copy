@@ -134,11 +134,12 @@
       </header>
     </div>
     <div
-      v-if="toggled"
-      class="w-full h-full fixed bg-white flex justify-center py-10"
+      class="w-full h-0 fixed overflow-hidden bg-white flex justify-center transition-all duration-500 ease-in-out"
+      :class="toggled ? 'h-full py-16' : ''"
     >
       <div
-        class="flex flex-col font-lato font-bold text-gray text-3xl text-center"
+        class="flex flex-col font-lato font-bold text-gray text-3xl text-center opacity-0 transition-all duration-500 delay-300"
+        :class="toggled ? 'opacity-100' : ''"
       >
         <NuxtLink to="/" class="mb-5 p-2">{{
           $t('header.navigation.home')

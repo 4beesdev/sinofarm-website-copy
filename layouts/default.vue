@@ -24,7 +24,11 @@ export default {
   font-family: 'Lato';
   src: local('Lato'), url(~assets/lato/Lato-Regular.ttf);
 }
+html {
+  overflow-x: hidden;
+}
 body {
+  overflow-x: hidden;
   font-family: 'Lato', sans-serif !important;
 }
 </style>
