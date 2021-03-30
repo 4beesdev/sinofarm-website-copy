@@ -2,7 +2,8 @@
   <div class="container mx-auto px-4 pt-48 pb-10">
     <div class="flex flex-col lg:flex-row lg:justify-between">
       <div
-        class="bg-lightBlue px-2 py-10 contact__info rounded-lg mb-10 lg:w-3/6 lg:mr-5 lg:px-10"
+        ref="contactInfo"
+        class="bg-lightBlue px-2 py-10 contact__info rounded-lg mb-10 lg:w-3/6 lg:mr-5 lg:px-10 transform -translate-x-32 opacity-0"
       >
         <h2 class="text-3xl font-bold text-gray font-lato mb-5">
           {{ $t('contactpage.title') }}
@@ -50,7 +51,11 @@
           </a>
         </div>
       </div>
-      <form action="" class="w-full flex flex-col font-lato text-lg lg:w-2/4">
+      <form
+        ref="form"
+        action=""
+        class="w-full flex flex-col font-lato text-lg lg:w-2/4 transform translate-x-32 opacity-0"
+      >
         <div class="flex flex-col mb-5 lg:flex-row">
           <input
             id=""
@@ -105,7 +110,29 @@
 </template>
 
 <script>
-export default {}
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
+if (process.client) {
+  gsap.registerPlugin(ScrollTrigger)
+}
+export default {
+  mounted() {
+    const elements = this.$refs
+    for (const el in elements) {
+      gsap.to(elements[el], {
+        scrollTrigger: {
+          trigger: elements[el],
+          start: 'center bottom',
+        },
+        y: 0,
+        x: 0,
+        opacity: 1,
+        duration: 0.5,
+      })
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
