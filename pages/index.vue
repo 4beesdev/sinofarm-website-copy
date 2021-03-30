@@ -98,10 +98,10 @@
           ref="products"
           class="md:w-2/6 mb-10 md:mr-10 lg:mr-40 opacity-0 transform -translate-x-32"
         >
-          <h2 class="font-bold text-gray text-2xl mb-5">
+          <h2 class="font-medium text-gray text-3xl mb-5">
             {{ $t('homepage.findProduct.title') }}
           </h2>
-          <p class="text-gray mb-5">
+          <p class="text-gray text-lg mb-5">
             {{ $t('homepage.findProduct.text') }}
           </p>
           <NuxtLink

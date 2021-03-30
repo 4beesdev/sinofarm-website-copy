@@ -20,10 +20,6 @@ export default {
 </script>
 
 <style>
-@font-face {
-  font-family: 'Lato';
-  src: local('Lato'), url(~assets/lato/Lato-Regular.ttf);
-}
 html {
   overflow-x: hidden;
 }
