@@ -11,7 +11,10 @@
         <div
           class="w-full h-full absolute z-0 top-0 left-0 bg-black opacity-60"
         ></div>
-        <div class="px-6 sm:w-96 lg:px-12 relative z-2 banner-text">
+        <div
+          ref="bannerText"
+          class="px-6 sm:w-96 lg:px-12 relative z-2 banner-text opacity-0 transform translate-y-32"
+        >
           <h2 class="font-lato font-bold text-white text-5xl mb-2">Covid 19</h2>
           <p class="font-lato font-normal text-white text-lg">
             {{ $t('homepage.covid') }}
@@ -25,7 +28,8 @@
       </div>
       <!-- HOME NAVIGATION BUTTONS -->
       <div
-        class="flex flex-col lg:flex-row font-lato text-white font-normal text-lg"
+        ref="homeNavigation"
+        class="flex flex-col lg:flex-row font-lato text-white font-normal text-lg opacity-0 transform -translate-y-32"
       >
         <div class="flex mb-2 lg:w-6/12 lg:mb-0 lg:mr-2">
           <NuxtLink
@@ -90,7 +94,10 @@
       </div>
       <!-- PRODUCTS -->
       <div class="flex flex-col md:flex-row py-16">
-        <div class="md:w-2/6 mb-10 md:mr-10 lg:mr-40">
+        <div
+          ref="products"
+          class="md:w-2/6 mb-10 md:mr-10 lg:mr-40 opacity-0 transform -translate-x-32"
+        >
           <h2 class="font-bold text-gray text-2xl mb-5">
             {{ $t('homepage.findProduct.title') }}
           </h2>
@@ -104,7 +111,8 @@
           >
         </div>
         <div
-          class="w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          ref="productsList"
+          class="w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 opacity-0 transform translate-x-32"
         >
           <NuxtLink
             :to="localePath('/products')"
@@ -173,7 +181,8 @@
     <div class="w-full bg-lightGray py-16">
       <div class="container mx-auto px-4">
         <div
-          class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-10 lg:grid-cols-3"
+          ref="news"
+          class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-10 lg:grid-cols-3 opacity-0 transform translate-y-32"
         >
           <NuxtLink
             v-for="article in articles"
@@ -205,7 +214,10 @@
     <!-- ABOUT US TEXT -->
     <div class="container mx-auto py-16 px-4">
       <div class="flex flex-col md:flex-row">
-        <div class="md:w-3/6 md:mr-5">
+        <div
+          ref="homeAboutText"
+          class="md:w-3/6 md:mr-5 opacity-0 transform -translate-x-32"
+        >
           <h2 class="font-lato text-2xl font-bold text-gray mb-4">
             {{ $t('homepage.about.title') }}
           </h2>
@@ -228,7 +240,8 @@
         </div>
         <div class="w-full mt-5 md:w-3/6">
           <img
-            class="w-full h-full object-cover"
+            ref="homeAboutImg"
+            class="w-full h-full object-cover transform translate-x-32 opacity-0"
             src="@/assets/images/blood sample.jpg"
             alt=""
           />
@@ -241,7 +254,10 @@
         <div
           class="flex flex-col items-center md:flex-row md:items-start md:justify-around"
         >
-          <div class="flex flex-col items-center mb-10 md:mb-0">
+          <div
+            ref="infoContact"
+            class="flex flex-col items-center mb-10 md:mb-0 opacity-0 transform translate-y-36"
+          >
             <img class="w-16 mb-5" src="@/assets/images/contact.svg" alt="" />
             <NuxtLink
               :to="localePath('/contact')"
@@ -255,7 +271,10 @@
               {{ $t('homepage.contact.text') }}:
             </p>
           </div>
-          <div class="flex flex-col items-center">
+          <div
+            ref="infoLocations"
+            class="flex flex-col items-center opacity-0 transform translate-y-36"
+          >
             <img class="w-16 mb-5" src="@/assets/images/locations.svg" alt="" />
             <NuxtLink
               :to="localePath('/contact')"
@@ -277,6 +296,12 @@
 
 <script>
 import { mapState } from 'vuex'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
+if (process.client) {
+  gsap.registerPlugin(ScrollTrigger)
+}
 export default {
   data() {
     return {}
@@ -287,6 +312,21 @@ export default {
     },
     ...mapState(['articles']),
   },
+  mounted() {
+    const elements = this.$refs
+    for (const el in elements) {
+      gsap.to(elements[el], {
+        scrollTrigger: {
+          trigger: elements[el],
+          start: 'center bottom',
+        },
+        y: 0,
+        x: 0,
+        opacity: 1,
+        duration: 0.5,
+      })
+    }
+  },
 }
 </script>
 
@@ -295,8 +335,6 @@ export default {
   height: 60vh;
   img {
     z-index: -1;
-  }
-  &-text {
   }
 }
 .button-primary {
