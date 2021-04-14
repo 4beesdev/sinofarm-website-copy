@@ -139,7 +139,7 @@ export default {
       return this.$store.getters.getLoadingStatus
     },
   },
-  mounted() {
+  created() {
     this.$store.dispatch('getProduct', this.$route.params.product)
   },
   methods: {

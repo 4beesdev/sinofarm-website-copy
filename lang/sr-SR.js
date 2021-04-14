@@ -103,7 +103,9 @@ export default {
     info: {
       phone: 'Telefon',
       email: 'Email',
-      location: 'Lokacije',
+      location: 'Lokacija',
+      warehouse: 'Lokacija skladišta',
+      company: 'Lokacija kompanije',
     },
     input: {
       name: 'Ime',

@@ -10,6 +10,7 @@ export const state = () => ({
   articles: [],
   article: [],
   brands: [],
+  industries: [],
   loading: false,
 })
 
@@ -37,6 +38,9 @@ export const mutations = {
   },
   SET_LOADINGSTATUS(state, status) {
     state.loading = status
+  },
+  SET_INDUSTRIES(state, industries) {
+    state.industries = industries
   },
 }
 export const actions = {
@@ -66,10 +70,10 @@ export const actions = {
   // Get one products
   async getProduct({ commit }, id) {
     commit('SET_LOADINGSTATUS', true)
-    const product = await axios.get(
+    const productApi = await axios.get(
       `https://sinofarm-portal.4bees.io/products/` + id
     )
-    commit('SET_PRODUCT', product.data)
+    commit('SET_PRODUCT', productApi.data)
     commit('SET_LOADINGSTATUS', false)
   },
   // Get all articles
@@ -93,10 +97,20 @@ export const actions = {
     const brands = await axios.get('https://sinofarm-portal.4bees.io/brands')
     commit('SET_BRANDS', brands.data)
   },
+
+  async getIndustries({ commit }) {
+    const industries = await axios.get(
+      'https://sinofarm-portal.4bees.io/industries'
+    )
+    commit('SET_INDUSTRIES', industries.data)
+  },
 }
 
 export const getters = {
   getLoadingStatus: (state) => {
     return state.loading
+  },
+  getProductById: (state) => (id) => {
+    return state.products.find((product) => product.id === id)
   },
 }

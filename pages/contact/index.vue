@@ -1,60 +1,260 @@
 <template>
   <div class="container mx-auto px-4 pt-48 pb-10">
-    <div class="flex flex-col lg:flex-row lg:justify-between">
-      <div
-        ref="contactInfo"
-        class="bg-lightBlue px-2 py-10 contact__info rounded-lg mb-10 lg:w-3/6 lg:mr-5 lg:px-10 transform -translate-x-32 opacity-0"
-      >
-        <h2 class="text-3xl font-bold text-gray font-lato mb-5">
-          {{ $t('contactpage.title') }}
-        </h2>
-        <div class="flex flex-col">
-          <p class="text-lg text-gray font-lato font-bold">
-            {{ $t('contactpage.info.phone') }}:
-          </p>
-          <a
-            class="text-normal mt-2 text-gray font-lato font-normal"
-            href="tel:+381113431061"
-          >
-            +381 (11) 343 1061</a
-          >
-          <a
-            class="text-normal mt-2 mb-3 text-gray font-lato font-normal"
-            href="tel:+381113425934"
-          >
-            +381 (11) 342 5934</a
-          >
-          <p class="text-lg text-gray font-lato font-bold">
-            {{ $t('contactpage.info.email') }}:
-          </p>
-          <a
-            class="text-normal mt-2 text-gray font-lato font-normal"
-            href="mailto:office@sinofarm.rs"
-            >office@sinofarm.rs</a
-          >
-          <p class="text-lg mt-3 text-gray font-lato font-bold">
-            {{ $t('contactpage.info.location') }}:
-          </p>
-          <a
-            class="text-normal mt-2 text-gray font-lato font-normal"
-            href="http://maps.google.com/?q=Koste Nađa 31, 11160 Beograd, Srbija"
-            target="_blank"
-          >
-            Koste Nađa 31, 11160 Beograd, Srbija
-          </a>
-          <a
-            class="text-normal mt-2 text-gray font-lato font-normal"
-            href="http://maps.google.com/?q=66424 Homburg, Alte Reichsstr. 6"
-            target="_blank"
-          >
-            66424 Homburg, Alte Reichsstr. 6
-          </a>
+    <h2 class="text-3xl font-bold text-gray font-lato mb-5">
+      {{ $t('contactpage.title') }}
+    </h2>
+    <div class="flex flex-col lg:flex-row lg:justify-between relative">
+      <div class="w-full lg:w-3/6 lg:mr-5 flex flex-col">
+        <div
+          ref="contactInfo"
+          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
+        >
+          <div class="flex flex-col items-center md:items-start">
+            <h3 class="text-2xl font-bold text-gray mb-2">SINOFARM SRBIJA</h3>
+            <div class="flex flex-col md:flex-row items-center mb-2">
+              <p
+                class="text-lg text-center text-gray md:text-left md:mr-3 font-lato font-bold"
+              >
+                {{ $t('contactpage.info.phone') }}:
+              </p>
+              <a
+                class="text-normal mt-2 text-gray font-lato font-normal md:mr-4 md:mt-0"
+                href="tel:+381113431061"
+              >
+                +381 (11) 343 1061</a
+              >
+              <a
+                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0 md:mb-0"
+                href="tel:+381113425934"
+              >
+                +381 (11) 342 5934</a
+              >
+            </div>
+            <div class="flex flex-col md:flex-row items-center mb-2">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.email') }}:
+              </p>
+              <a
+                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                href="mailto:office@sinofarm.rs"
+                >office@sinofarm.rs</a
+              >
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.location') }}:
+              </p>
+              <div class="flex flex-col">
+                <a
+                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                  href="http://maps.google.com/?q=Koste Nađa 31, 11160 Beograd, Srbija"
+                  target="_blank"
+                >
+                  Koste Nađa 31, 11160 Beograd, Srbija
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Germany -->
+        <div
+          ref="contactInfo2"
+          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
+        >
+          <div class="flex flex-col items-center md:items-start">
+            <h3 class="text-2xl font-bold text-gray mb-2">
+              SINOFARM GERMANY GmbH
+            </h3>
+            <div class="flex flex-col md:flex-row items-center mb-2">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.email') }}:
+              </p>
+              <a
+                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                href="mailto:office@sinofarm.de"
+                >office@sinofarm.de</a
+              >
+            </div>
+            <div class="flex flex-col md:flex-row items-center mb-2">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.company') }}:
+              </p>
+              <div class="flex flex-col">
+                <a
+                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                  href="http://maps.google.com/?q=Alte Reichsstr 6, 66424 Homburg"
+                  target="_blank"
+                >
+                  Alte Reichsstr 6, 66424 Homburg
+                </a>
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.warehouse') }}:
+              </p>
+              <div class="flex flex-col">
+                <a
+                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                  href="http://maps.google.com/?q=Ringstrase 2, 66459 Kirkel-Limbach"
+                  target="_blank"
+                >
+                  Ringstrase 2, 66459 Kirkel-Limbach
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Austria -->
+        <div
+          ref="contactInfo3"
+          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
+        >
+          <div class="flex flex-col items-center md:items-start">
+            <h3 class="text-2xl font-bold text-gray mb-2">
+              SINOFARM AUSTRIA GmbH
+            </h3>
+            <div class="flex flex-col md:flex-row items-center mb-2">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.email') }}:
+              </p>
+              <a
+                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                href="mailto:office@sinofarm.at"
+                >office@sinofarm.at</a
+              >
+            </div>
+            <div class="flex flex-col md:flex-row items-center mb-2">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.location') }}:
+              </p>
+              <div class="flex flex-col">
+                <a
+                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                  href="http://maps.google.com/?q=Bloch Bauer Promenade, 24/1/8, 1100 Wien"
+                  target="_blank"
+                >
+                  Bloch Bauer Promenade, 24/1/8, 1100 Wien
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Romania -->
+        <div
+          ref="contactInfo4"
+          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
+        >
+          <div class="flex flex-col items-center md:items-start">
+            <h3 class="text-2xl font-bold text-gray mb-2">
+              SINOFARM ROMANIA S.R.L.
+            </h3>
+            <div class="flex flex-col md:flex-row items-center mb-2">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.email') }}:
+              </p>
+              <a
+                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                href="mailto:office@sinofarm.ro"
+                >office@sinofarm.ro</a
+              >
+            </div>
+            <div
+              class="flex flex-col items-center md:flex-row md:items-start mb-2"
+            >
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.location') }}:
+              </p>
+              <div class="flex flex-col">
+                <a
+                  class="text-normal mt-2 text-center text-gray font-lato font-normal md:mt-0"
+                  href="http://maps.google.com/?q=Sat Giroc, Comuna Giroc, Strada Destinului, Nr. 3, Ap. 2, Judet Timis, Timisoara"
+                  target="_blank"
+                >
+                  Sat Giroc, Comuna Giroc, Strada Destinului, Nr. 3, Ap. 2,
+                  Judet Timis, Timisoara
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Montenegro -->
+        <div
+          ref="contactInfo5"
+          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
+        >
+          <div class="flex flex-col items-center md:items-start">
+            <h3 class="text-2xl font-bold text-gray mb-2">
+              SINOFARM MONTENEGRO D.O.O
+            </h3>
+            <div class="flex flex-col md:flex-row items-center mb-2">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.email') }}:
+              </p>
+              <a
+                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                href="mailto:interpharm@interpharm.me"
+                >interpharm@interpharm.me</a
+              >
+            </div>
+            <div
+              class="flex flex-col md:flex-row items-center md:items-start mb-2"
+            >
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.location') }}:
+              </p>
+              <div class="flex flex-col">
+                <a
+                  class="text-normal mt-2 text-gray font-lato text-center font-normal md:mt-0"
+                  href="http://maps.google.com/"
+                  target="_blank"
+                >
+                  Bulevar JNA - Preko puta hotela "Sidro" 85000 Bar, Crna Gora
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- bosna -->
+        <div
+          ref="contactInfo6"
+          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
+        >
+          <div class="flex flex-col items-center md:items-start">
+            <h3 class="text-2xl font-bold text-gray mb-2">
+              SINOFARM BOSNA I HERCEGOVINA
+            </h3>
+            <!-- <div class="flex flex-col md:flex-row items-center mb-2">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.email') }}:
+              </p>
+              <a
+                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                href="mailto:interpharm@interpharm.me"
+                >interpharm@interpharm.me</a
+              >
+            </div>
+            <div class="flex flex-col md:flex-row items-start mb-2">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.location') }}:
+              </p>
+              <div class="flex flex-col">
+                <a
+                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                  href="http://maps.google.com/"
+                  target="_blank"
+                >
+                  Bulevar JNA - Preko puta hotela "Sidro" 85000 Bar, Crna Gora
+                </a>
+              </div>
+            </div> -->
+          </div>
         </div>
       </div>
       <form
         ref="form"
         action=""
-        class="w-full flex flex-col font-lato text-lg lg:w-2/4 transform translate-x-32 opacity-0"
+        class="w-full flex flex-col font-lato text-lg lg:w-2/4 transform translate-x-32 opacity-0 sticky"
       >
         <div class="flex flex-col mb-5 lg:flex-row">
           <input

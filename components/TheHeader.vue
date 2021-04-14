@@ -89,9 +89,11 @@
               class="mr-4 text-lg header-link"
               >{{ $t('header.navigation.products') }}</NuxtLink
             >
-            <NuxtLink :to="localePath('/')" class="mr-4 text-lg header-link">{{
-              $t('header.navigation.industries')
-            }}</NuxtLink>
+            <NuxtLink
+              :to="localePath('/products')"
+              class="mr-4 text-lg header-link"
+              >{{ $t('header.navigation.industries') }}</NuxtLink
+            >
             <a
               href="#"
               :class="`${brandsToggled ? 'brandsActive' : ''}`"

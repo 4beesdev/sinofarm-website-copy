@@ -100,7 +100,9 @@ export default {
     info: {
       phone: 'Phone',
       email: 'Email',
-      location: 'Locations',
+      location: 'Location',
+      warehouse: 'Warehouse Address',
+      company: 'Company Address',
     },
     input: {
       name: 'Name',

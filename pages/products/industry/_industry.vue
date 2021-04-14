@@ -4,10 +4,10 @@
       v-if="!hasProducts"
       class="text-center text-xl font-lato font-bold text-gray"
     >
-      Trenutno nemamo proizvode u ovoj kategoriji
+      Trenutno nemamo proizvode u ovoj industriji
     </p>
     <ProductList
-      :products="categoryProducts($route.params.category, sinofarm.products)"
+      :products="industryProducts($route.params.industry, sinofarm.products)"
     />
   </div>
 </template>
@@ -19,7 +19,6 @@ export default {
   data() {
     return {
       hasProducts: true,
-      productsSubcategory: '',
     }
   },
   computed: {
@@ -28,14 +27,14 @@ export default {
     },
     ...mapState(['sinofarm']),
   },
-
   methods: {
-    categoryProducts(category, products) {
+    industryProducts(industry, products) {
       const filteredProducts = products.filter((product) => {
-        if (
-          product.subcategory.slug === category ||
-          product.brand.slug === category
-        ) {
+        const industries = []
+        product.industries.forEach((ind) => {
+          industries.push(ind.slug)
+        })
+        if (industries.includes(`${industry}`)) {
           return product
         }
       })
@@ -43,7 +42,7 @@ export default {
         this.hasProducts = false
         return []
       } else {
-        this.productsSubcategory = filteredProducts[0].subcategory.name_sr
+        // this.productsSubcategory = filteredProducts[0].subcategory.name_sr
         return filteredProducts
       }
     },

@@ -15,6 +15,7 @@ export default {
     this.$store.dispatch('getProducts')
     this.$store.dispatch('getSubcategories')
     this.$store.dispatch('getBrands')
+    this.$store.dispatch('getIndustries')
   },
 }
 </script>
