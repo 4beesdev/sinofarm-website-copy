@@ -1,7 +1,7 @@
 <template>
   <div>
     <PrivacyPopup />
-    <TheHeader />
+    <TheHeader :header-data="{ sinofarm, brands, industries }" />
     <div class="pt-48">
       <Breadcrumb :items="$t('breadcrumb.products')"></Breadcrumb>
       <div class="container mx-auto px-4 py-10">
@@ -67,7 +67,7 @@
             </Collapsible>
           </div>
           <div class="flex w-full flex-col">
-            <Spinner v-if="loading" size="large" />
+            <Spinner v-if="loading" size="large" class="mb-10" />
             <Nuxt />
           </div>
         </div>

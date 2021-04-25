@@ -2,15 +2,15 @@
   <div class="w-full flex flex-col">
     <button
       v-if="filter"
-      class="w-full flex justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-6 focus:outline-none"
+      class="w-full flex items-center justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-4 focus:outline-none"
       @click="toggled = !toggled"
     >
       {{ linkTitle }}
-      <img src="@/assets/images/arrow-down.svg" class="w-6" alt="" />
+      <img src="@/assets/images/arrow-down.svg" class="w-4" alt="" />
     </button>
     <button
       v-if="category"
-      class="text-left w-full mb-3 flex justify-between items-center font-lato font-bold text-gray focus:outline-none"
+      class="text-left w-full mb-2 flex justify-between items-center font-lato font-bold text-gray focus:outline-none"
       @click="toggled = !toggled"
     >
       {{ linkTitle }}
@@ -18,14 +18,13 @@
     </button>
     <div
       v-if="toggled"
-      :class="`${category === true ? 'py-1' : 'py-5'}`"
+      :class="`${category === true ? 'py-1' : 'py-3'}`"
       class="flex flex-col px-2"
     >
       <slot name="body"></slot>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   props: {

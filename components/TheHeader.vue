@@ -1,9 +1,9 @@
 <template>
   <div class="fixed top-0 left-0 w-full z-30 bg-white">
     <div
-      v-if="brandsToggled"
+      v-if="brandsToggled || industriesToggled || productsToggled"
       class="fixed top-0 left-0 w-full h-full z-0 bg-black opacity-50"
-      @click="brandsToggled = !brandsToggled"
+      @click="clearToggles"
     ></div>
     <div class="container relative z-2 bg-white w-full mx-auto py-4 px-4">
       <header class="w-full bg-white flex flex-col">
@@ -49,12 +49,12 @@
             >
               <img
                 src="@/assets/images/earth-grid-symbol.svg"
-                class="w-8"
+                class="w-6"
                 alt=""
               />
               <img
                 src="@/assets/images/arrow-down.svg"
-                class="w-4 ml-4"
+                class="w-3 ml-3"
                 alt=""
               />
             </a>
@@ -84,54 +84,68 @@
           class="hidden lg:flex justify-end font-lato text-base font-bold text-gray items-center lg:justify-between"
         >
           <div class="flex">
-            <NuxtLink
-              :to="localePath('/products')"
+            <a
+              href="#"
+              :class="`${productsToggled ? 'active-link' : ''}`"
               class="mr-4 text-lg header-link"
-              >{{ $t('header.navigation.products') }}</NuxtLink
-            >
-            <NuxtLink
-              :to="localePath('/products')"
-              class="mr-4 text-lg header-link"
-              >{{ $t('header.navigation.industries') }}</NuxtLink
+              @click.prevent="toggleProducts"
+              >{{ $t('header.navigation.products') }}</a
             >
             <a
               href="#"
-              :class="`${brandsToggled ? 'brandsActive' : ''}`"
+              :class="`${industriesToggled ? 'active-link' : ''}`"
               class="mr-4 text-lg header-link"
-              @click.prevent="brandsToggled = !brandsToggled"
+              @click.prevent="toggleIndustries"
+              >{{ $t('header.navigation.industries') }}</a
+            >
+            <a
+              href="#"
+              :class="`${brandsToggled ? 'active-link' : ''}`"
+              class="mr-4 text-lg header-link"
+              @click.prevent="toggleBrands"
               >{{ $t('header.navigation.brands') }}</a
             >
           </div>
           <!-- <NuxtLink to="/">Account</NuxtLink> -->
         </div>
-        <div v-if="brandsToggled" class="flex flex-wrap pt-4 px-1">
+        <div v-if="brandsToggled" class="grid grid-cols-4 pt-6 px-1">
           <NuxtLink
-            :to="localePath('/products')"
-            class="w-64 px-8 py-16 flex flex-col items-center justify-center brand-item"
+            v-for="brand in headerData.brands"
+            :key="brand.name"
+            :to="`/products/${brand.slug}`"
+            class="text-lg text-left text-base text-gray p-4 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
           >
-            <img src="@/assets/images/sinomedic.svg" class="h-10" alt="" />
-            <p class="text-center text-lg text-primary mt-4 font-bold">
-              Sinomedic
-            </p>
+            {{ brand.name }}
           </NuxtLink>
+        </div>
+        <div v-if="industriesToggled" class="grid grid-cols-3 pt-6 px-1">
           <NuxtLink
-            :to="localePath('/products')"
-            class="w-64 px-8 py-16 flex flex-col items-center justify-center brand-item"
+            v-for="industry in headerData.industries"
+            :key="industry.title_sr"
+            :to="`/products/${industry.slug}`"
+            class="text-lg text-left text-base text-gray p-4 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
           >
-            <img src="@/assets/images/sinodreams.svg" class="h-10" alt="" />
-            <p class="text-center text-lg text-primary mt-4 font-bold">
-              Sinodreams
-            </p>
+            {{ industry.title_sr }}
           </NuxtLink>
+        </div>
+        <div
+          v-if="productsToggled"
+          class="grid grid-cols-3 xl:grid-cols-4 pt-6 px-1"
+        >
           <NuxtLink
-            :to="localePath('/products')"
-            class="w-64 px-8 py-16 flex flex-col items-center justify-center brand-item"
+            v-for="subcat in headerData.sinofarm.subcategories"
+            :key="subcat.slug"
+            :to="`/products/${subcat.slug}`"
+            class="truncate w-64 mb-2 text-gray hover:bg-lightGray transition duration-300 p-1"
+            >{{
+              returnLang === 'sr' ? subcat.name_sr : subcat.name_en
+            }}</NuxtLink
           >
-            <img src="@/assets/images/sinofine.svg" class="h-10" alt="" />
-            <p class="text-center text-lg text-primary mt-4 font-bold">
-              Sinofine
-            </p>
-          </NuxtLink>
+          <NuxtLink
+            to="/products"
+            class="col-span-full text-center font-bold text-gray mt-3 hover:bg-lightGray transition duration-300 p-1"
+            >{{ $t('header.products') }}</NuxtLink
+          >
         </div>
       </header>
     </div>
@@ -174,18 +188,61 @@
 
 <script>
 export default {
+  props: {
+    headerData: {
+      type: Object,
+      default() {
+        return {}
+      },
+    },
+  },
   data() {
     return {
       toggled: false,
       brandsToggled: false,
       langToggled: false,
+      industriesToggled: false,
+      productsToggled: false,
     }
+  },
+  computed: {
+    returnLang() {
+      return this.$i18n.locale
+    },
   },
   watch: {
     $route(newRoute) {
       this.toggled = false
-      this.brandsToggled = false
       this.langToggled = false
+      this.clearToggles()
+    },
+  },
+  methods: {
+    toggleBrands() {
+      this.brandsToggled = !this.brandsToggled
+      this.industriesToggled = false
+      this.productsToggled = false
+    },
+    toggleProducts() {
+      this.productsToggled = !this.productsToggled
+      this.industriesToggled = false
+      this.brandsToggled = false
+    },
+    toggleIndustries() {
+      this.industriesToggled = !this.industriesToggled
+      this.productsToggled = false
+      this.brandsToggled = false
+    },
+    clearToggles() {
+      this.productsToggled = false
+      this.industriesToggled = false
+      this.brandsToggled = false
+    },
+    returnSubcategories(cat, subcategories) {
+      const subcat = subcategories.filter(
+        (sub) => sub.category.name_sr === cat.name_sr
+      )
+      return subcat
     },
   },
 }
@@ -210,7 +267,7 @@ export default {
   width: 100%;
 }
 
-.brandsActive {
+.active-link {
   &::after {
     width: 100%;
   }

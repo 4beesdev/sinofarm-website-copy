@@ -7,6 +7,7 @@ export default {
       industries: 'Industrije',
       brands: 'Brendovi',
     },
+    products: 'Pogledajte sve naše proizvode',
   },
   homepage: {
     covid:
@@ -113,6 +114,18 @@ export default {
       email: 'Email',
       message: 'Vaša poruka',
       btn: 'Pošalji',
+    },
+    market: {
+      default: 'Izaberite tržište',
+      locations: [
+        'Srbija',
+        'Nemačka',
+        'Austrija',
+        'Rumunija',
+        'Montenegro',
+        'Kina',
+        'Bosna i Hercegovina',
+      ],
     },
   },
   productspage: {

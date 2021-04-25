@@ -1,13 +1,14 @@
 <template>
   <div>
     <PrivacyPopup />
-    <TheHeader />
+    <TheHeader :header-data="{ sinofarm, brands, industries }" />
     <Nuxt />
     <TheFooter />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   created() {
     this.$store.dispatch('getArticles')
@@ -16,6 +17,12 @@ export default {
     this.$store.dispatch('getSubcategories')
     this.$store.dispatch('getBrands')
     this.$store.dispatch('getIndustries')
+  },
+  computed: {
+    returnLang() {
+      return this.$i18n.locale
+    },
+    ...mapState(['sinofarm', 'brands', 'industries']),
   },
 }
 </script>

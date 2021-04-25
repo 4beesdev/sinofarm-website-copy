@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <Popup></Popup> -->
     <div class="container mx-auto px-4 pt-48">
       <!-- BANNER -->
       <div class="w-full banner relative flex items-center mb-2">
@@ -265,7 +266,11 @@
             ref="infoContact"
             class="flex flex-col items-center mb-10 md:mb-0 opacity-0 transform -translate-y-36"
           >
-            <img class="w-16 mb-5" src="@/assets/images/contact.svg" alt="" />
+            <img
+              class="w-16 mb-5 transform hover:-translate-y-2 transition duration-300"
+              src="@/assets/images/contact.svg"
+              alt=""
+            />
             <NuxtLink
               :to="localePath('/contact')"
               class="text-xl text-gray font-lato font-bold mb-2 header-link"
@@ -282,7 +287,11 @@
             ref="infoLocations"
             class="flex flex-col items-center opacity-0 transform -translate-y-36"
           >
-            <img class="w-16 mb-5" src="@/assets/images/locations.svg" alt="" />
+            <img
+              class="w-16 mb-5 transform hover:-translate-y-2 transition duration-300"
+              src="@/assets/images/locations.svg"
+              alt=""
+            />
             <NuxtLink
               :to="localePath('/contact')"
               class="text-xl text-gray font-lato font-bold mb-2 header-link"

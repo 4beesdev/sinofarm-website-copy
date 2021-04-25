@@ -10,7 +10,9 @@
           class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
         >
           <div class="flex flex-col items-center md:items-start">
-            <h3 class="text-2xl font-bold text-gray mb-2">SINOFARM SRBIJA</h3>
+            <h3 class="text-2xl font-bold text-gray mb-2">
+              SINOFARM SRBIJA D.O.O.
+            </h3>
             <div class="flex flex-col md:flex-row items-center mb-2">
               <p
                 class="text-lg text-center text-gray md:text-left md:mr-3 font-lato font-bold"
@@ -46,7 +48,7 @@
               </p>
               <div class="flex flex-col">
                 <a
-                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0 lg:text-left"
                   href="http://maps.google.com/?q=Koste Nađa 31, 11160 Beograd, Srbija"
                   target="_blank"
                 >
@@ -95,7 +97,7 @@
               </p>
               <div class="flex flex-col">
                 <a
-                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0 lg:text-left"
                   href="http://maps.google.com/?q=Ringstrase 2, 66459 Kirkel-Limbach"
                   target="_blank"
                 >
@@ -130,7 +132,7 @@
               </p>
               <div class="flex flex-col">
                 <a
-                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0 lg:text-left"
                   href="http://maps.google.com/?q=Bloch Bauer Promenade, 24/1/8, 1100 Wien"
                   target="_blank"
                 >
@@ -167,7 +169,7 @@
               </p>
               <div class="flex flex-col">
                 <a
-                  class="text-normal mt-2 text-center text-gray font-lato font-normal md:mt-0"
+                  class="text-normal mt-2 text-center text-gray font-lato font-normal md:mt-0 lg:text-left"
                   href="http://maps.google.com/?q=Sat Giroc, Comuna Giroc, Strada Destinului, Nr. 3, Ap. 2, Judet Timis, Timisoara"
                   target="_blank"
                 >
@@ -205,7 +207,7 @@
               </p>
               <div class="flex flex-col">
                 <a
-                  class="text-normal mt-2 text-gray font-lato text-center font-normal md:mt-0"
+                  class="text-normal mt-2 text-gray font-lato text-center lg:text-left font-normal md:mt-0"
                   href="http://maps.google.com/"
                   target="_blank"
                 >
@@ -215,9 +217,48 @@
             </div>
           </div>
         </div>
-        <!-- bosna -->
+        <!-- China -->
         <div
           ref="contactInfo6"
+          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
+        >
+          <div class="flex flex-col items-center md:items-start">
+            <h3 class="text-2xl font-bold text-gray mb-2">
+              Head of China office Sinofarm
+            </h3>
+            <div class="flex flex-col md:flex-row items-center mb-2">
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.email') }}:
+              </p>
+              <a
+                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                href="mailto:interpharm@interpharm.me"
+                >sinogroupcn@outlook.com</a
+              >
+            </div>
+            <div
+              class="flex flex-col md:flex-row items-center md:items-start mb-2"
+            >
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.location') }}:
+              </p>
+              <div class="flex flex-col">
+                <a
+                  class="text-normal mt-2 text-gray font-lato text-center lg:text-left font-normal md:mt-0"
+                  href="http://maps.google.com/?q=Rm.207, Building B, No.6 Kangding Street, YiZhuang Economic
+                  Development Area, Beijing, China. 100176"
+                  target="_blank"
+                >
+                  Rm.207, Building B, No.6 Kangding Street, YiZhuang Economic
+                  Development Area, Beijing, China. 100176
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- bosna -->
+        <div
+          ref="contactInfo7"
           class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
         >
           <div class="flex flex-col items-center md:items-start">
@@ -256,6 +297,10 @@
         action=""
         class="w-full flex flex-col font-lato text-lg lg:w-2/4 transform translate-x-32 opacity-0 sticky"
       >
+        <Select
+          :default="$t('contactpage.market.default')"
+          :options="$t('contactpage.market.locations')"
+        ></Select>
         <div class="flex flex-col mb-5 lg:flex-row">
           <input
             id=""
@@ -291,7 +336,7 @@
           :placeholder="$t('contactpage.input.message')"
         ></textarea>
         <input
-          class="bg-primary w-full text-white p-4 lg:w-64 ml-auto"
+          class="bg-primary w-full text-white p-4 lg:w-64 ml-auto cursor-pointer"
           type="submit"
           :value="$t('contactpage.input.btn')"
         />

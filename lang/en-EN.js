@@ -7,6 +7,7 @@ export default {
       industries: 'Industries',
       brands: 'Brands',
     },
+    products: 'Check all products',
   },
   homepage: {
     covid:
@@ -110,6 +111,18 @@ export default {
       email: 'Email',
       message: 'Your message',
       btn: 'Send',
+    },
+    market: {
+      default: 'Choose market location',
+      locations: [
+        'Serbia',
+        'Germany',
+        'Austria',
+        'Romania',
+        'Montenegro',
+        'China',
+        'Bosnia',
+      ],
     },
   },
   careers: {

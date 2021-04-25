@@ -34,8 +34,8 @@ export default {
         product.industries.forEach((ind) => {
           industries.push(ind.slug)
         })
-        if (industries.includes(`${industry}`)) {
-          return product
+        if (industries.includes(industry)) {
+          console.log(industry)
         }
       })
       if (filteredProducts.length === 0) {
