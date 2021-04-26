@@ -51,7 +51,7 @@ export default {
     },
     ...mapState(['article', 'loading']),
   },
-  mounted() {
+  created() {
     this.$store.dispatch('getArticle', this.$route.params.id)
   },
 }

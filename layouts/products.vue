@@ -2,7 +2,8 @@
   <div>
     <PrivacyPopup />
     <TheHeader :header-data="{ sinofarm, brands, industries }" />
-    <div class="pt-48">
+    <ScrollTop></ScrollTop>
+    <div class="pt-48 productList">
       <Breadcrumb :items="$t('breadcrumb.products')"></Breadcrumb>
       <div class="container mx-auto px-4 py-10">
         <div class="flex flex-col lg:flex-row lg:justify-between">

@@ -201,12 +201,12 @@
                 alt=""
               />
               <div class="p-6">
-                <h2 class="font-lato text-2xl font-bold text-gray mb-5">
+                <h2 class="font-lato text-2xl font-medium text-gray mb-5">
                   {{
                     returnLang === 'sr' ? article.title_sr : article.title_en
                   }}
                 </h2>
-                <p class="font-lato text-gray font-bold">
+                <p class="font-lato text-gray font-regular">
                   {{
                     returnLang === 'sr'
                       ? article.short_desc_sr
@@ -266,11 +266,14 @@
             ref="infoContact"
             class="flex flex-col items-center mb-10 md:mb-0 opacity-0 transform -translate-y-36"
           >
-            <img
-              class="w-16 mb-5 transform hover:-translate-y-2 transition duration-300"
-              src="@/assets/images/contact.svg"
-              alt=""
-            />
+            <NuxtLink :to="localePath('/contact')">
+              <img
+                class="w-16 mb-5 transform hover:-translate-y-2 transition duration-300"
+                src="@/assets/images/contact.svg"
+                alt=""
+              />
+            </NuxtLink>
+
             <NuxtLink
               :to="localePath('/contact')"
               class="text-xl text-gray font-lato font-bold mb-2 header-link"
@@ -287,11 +290,13 @@
             ref="infoLocations"
             class="flex flex-col items-center opacity-0 transform -translate-y-36"
           >
-            <img
-              class="w-16 mb-5 transform hover:-translate-y-2 transition duration-300"
-              src="@/assets/images/locations.svg"
-              alt=""
-            />
+            <NuxtLink :to="localePath('/contact')">
+              <img
+                class="w-16 mb-5 transform hover:-translate-y-2 transition duration-300"
+                src="@/assets/images/locations.svg"
+                alt=""
+              />
+            </NuxtLink>
             <NuxtLink
               :to="localePath('/contact')"
               class="text-xl text-gray font-lato font-bold mb-2 header-link"
