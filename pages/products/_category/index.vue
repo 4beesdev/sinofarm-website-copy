@@ -44,6 +44,7 @@ export default {
         return []
       } else {
         this.productsSubcategory = filteredProducts[0].subcategory.name_sr
+        this.hasProducts = true
         return filteredProducts
       }
     },

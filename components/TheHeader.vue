@@ -113,17 +113,27 @@
             v-for="brand in headerData.brands"
             :key="brand.name"
             :to="`/products/${brand.slug}`"
-            class="text-lg text-left text-base text-gray p-4 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
+            class="flex flex-col items-center text-normal text-center text-base text-gray p-4 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
           >
-            {{ brand.name }}
+            <div v-if="brand.logo">
+              <img
+                :src="`https://sinofarm-portal.4bees.io${brand.logo.url}`"
+                alt=""
+                class="w-44 h-8"
+              />
+            </div>
+            <p v-if="!brand.logo">{{ brand.name }}</p>
           </NuxtLink>
         </div>
-        <div v-if="industriesToggled" class="grid grid-cols-3 pt-6 px-1">
+        <div
+          v-if="industriesToggled"
+          class="grid grid-cols-3 xl:grid-cols-4 pt-6 px-1"
+        >
           <NuxtLink
             v-for="industry in headerData.industries"
             :key="industry.title_sr"
             :to="`/products/${industry.slug}`"
-            class="text-lg text-left text-base text-gray p-4 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
+            class="text-normal text-left text-base text-gray py-2 px-3 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
           >
             {{ industry.title_sr }}
           </NuxtLink>

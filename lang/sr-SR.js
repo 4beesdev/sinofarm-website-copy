@@ -9,6 +9,12 @@ export default {
     },
     products: 'Pogledajte sve naše proizvode',
   },
+  langPopup: {
+    close: 'Zatvorite',
+    title: 'Izaberite jezik za platformu',
+    langSr: 'Srpski',
+    langEn: 'Engleski',
+  },
   homepage: {
     covid:
       'Pomažemo u opremanju prvih redova u borbi protiv pandemije COVID-19.',

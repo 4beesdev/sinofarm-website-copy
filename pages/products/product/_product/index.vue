@@ -5,7 +5,7 @@
       :items="$t('breadcrumb.products')"
     ></Breadcrumb>
     <Breadcrumb
-      v-if="product"
+      v-if="!loading"
       class="hidden lg:block"
       :items="$t('breadcrumb.products')"
       :product-name="returnLang === 'sr' ? product.name_sr : product.name_en"

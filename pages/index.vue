@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <Popup></Popup> -->
+    <Popup></Popup>
     <div class="container mx-auto px-4 pt-48">
       <!-- BANNER -->
       <div class="w-full banner relative flex items-center mb-2">

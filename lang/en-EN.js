@@ -9,6 +9,12 @@ export default {
     },
     products: 'Check all products',
   },
+  langPopup: {
+    close: 'Close',
+    title: 'Choose your preferred languange',
+    langSr: 'Serbian',
+    langEn: 'English',
+  },
   homepage: {
     covid:
       'We provide the protective equipment to the front line fighters with COVID-19 pandemic.',
