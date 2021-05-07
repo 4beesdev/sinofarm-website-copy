@@ -4,7 +4,7 @@
       v-if="!hasProducts"
       class="text-center text-xl font-lato font-bold text-gray"
     >
-      Trenutno nemamo proizvode u ovoj kategoriji
+      {{ $t('productspage.error') }}
     </p>
     <ProductList
       :products="categoryProducts($route.params.query, sinofarm.products)"

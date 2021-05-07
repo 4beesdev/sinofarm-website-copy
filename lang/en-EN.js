@@ -146,6 +146,12 @@ export default {
       industries: 'Industries',
       brands: 'Brends',
     },
+    filterIcon: {
+      category: 'Category',
+      industry: 'Industry',
+      brand: 'Brand',
+    },
+    error: 'There are no products under this selection',
   },
   product: {
     overview: 'Overview',

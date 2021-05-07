@@ -140,6 +140,12 @@ export default {
       industries: 'Industrije',
       brands: 'Brendovi',
     },
+    filterIcon: {
+      category: 'Kategorija',
+      industry: 'Industrija',
+      brand: 'Brend',
+    },
+    error: 'Nemamo proizvode sa ovom selekcijom',
   },
 
   product: {

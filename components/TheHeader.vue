@@ -112,7 +112,7 @@
           <NuxtLink
             v-for="brand in headerData.brands"
             :key="brand.name"
-            :to="`/products/${brand.slug}`"
+            :to="localePath(`/products/${brand.slug}`)"
             class="flex flex-col items-center text-normal text-center text-base text-gray p-4 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
           >
             <div v-if="brand.logo">
@@ -132,7 +132,7 @@
           <NuxtLink
             v-for="industry in headerData.industries"
             :key="industry.title_sr"
-            :to="`/products/${industry.slug}`"
+            :to="localePath(`/products/${industry.slug}`)"
             class="text-normal text-left text-base text-gray py-2 px-3 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
           >
             {{ industry.title_sr }}
@@ -145,7 +145,7 @@
           <NuxtLink
             v-for="subcat in headerData.sinofarm.subcategories"
             :key="subcat.slug"
-            :to="`/products/${subcat.slug}`"
+            :to="localePath(`/products/${subcat.slug}`)"
             class="truncate w-64 mb-2 text-gray hover:bg-lightGray transition duration-300 p-1"
             >{{
               returnLang === 'sr' ? subcat.name_sr : subcat.name_en
@@ -170,13 +170,13 @@
         <NuxtLink to="/" class="mb-5 p-2">{{
           $t('header.navigation.home')
         }}</NuxtLink>
-        <NuxtLink to="/products" class="mb-5 p-2">{{
+        <NuxtLink :to="localePath('/products')" class="mb-5 p-2">{{
           $t('header.navigation.products')
         }}</NuxtLink>
-        <NuxtLink to="/products" class="mb-5 p-2">{{
+        <NuxtLink :to="localePath('/products')" class="mb-5 p-2">{{
           $t('header.navigation.industries')
         }}</NuxtLink>
-        <NuxtLink to="/products" class="mb-5 p-2">{{
+        <NuxtLink :to="localePath('/products')" class="mb-5 p-2">{{
           $t('header.navigation.brands')
         }}</NuxtLink>
         <div

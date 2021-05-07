@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    :to="`/products/product/${productInfo.id}`"
+    :to="localePath(`/products/product/${productInfo.id}`)"
     class="flex flex-col border-b-2 border-gray"
   >
     <div class="w-full h-60 border-2 border-primary mb-3 overflow-hidden">
