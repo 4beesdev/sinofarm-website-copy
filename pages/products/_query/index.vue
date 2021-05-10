@@ -2,7 +2,7 @@
   <div>
     <p
       v-if="!hasProducts"
-      class="text-center text-xl font-lato font-bold text-gray"
+      class="text-left text-xl font-lato font-bold text-gray"
     >
       {{ $t('productspage.error') }}
     </p>

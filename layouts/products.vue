@@ -104,7 +104,7 @@
               <div v-if="hasFilters" class="flex flex-wrap pb-6">
                 <button
                   v-if="categoryQuery !== 'none'"
-                  class="border-2 flex items-center border-primary px-4 py-2 font-bold text-gray mb-3 lg:mr-3 lg:mb-0"
+                  class="border-2 flex items-center border-primary px-4 py-2 font-bold text-gray mb-3 lg:mr-3"
                   @click="removeFilter('category')"
                 >
                   {{ $t('productspage.filterIcon.category') }}:
@@ -119,7 +119,7 @@
                 </button>
                 <button
                   v-if="industryQuery !== 'none'"
-                  class="border-2 flex items-center border-primary px-4 py-2 font-bold text-gray mb-3 lg:mr-3 lg:mb-0"
+                  class="border-2 flex items-center border-primary px-4 py-2 font-bold text-gray mb-3 lg:mr-3"
                   @click="removeFilter('industry')"
                 >
                   {{ $t('productspage.filterIcon.industry') }}:
@@ -134,7 +134,7 @@
                 </button>
                 <button
                   v-if="brandQuery !== 'none'"
-                  class="border-2 flex items-center border-primary px-4 py-2 font-bold text-gray mb-3 lg:mr-3 lg:mb-0"
+                  class="border-2 flex items-center border-primary px-4 py-2 font-bold text-gray mb-3 lg:mr-3"
                   @click="removeFilter('brand')"
                 >
                   {{ $t('productspage.filterIcon.brand') }}:
@@ -313,6 +313,7 @@ export default {
     },
     setBrand(brand, brandName) {
       // check if this brand is already selected
+      this.closeBrandCollapse = true
       if (this.brandQuery === brand) {
         this.brandQuery = 'none'
         if (

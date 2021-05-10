@@ -46,6 +46,11 @@ export default {
       toggled: false,
     }
   },
+  watch: {
+    $route(newRoute) {
+      this.toggled = false
+    },
+  },
 }
 </script>
 
