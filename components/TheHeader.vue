@@ -87,26 +87,32 @@
             <a
               href="#"
               :class="`${productsToggled ? 'active-link' : ''}`"
-              class="mr-4 text-lg header-link"
+              class="mr-4 text-2xl header-link"
               @click.prevent="toggleProducts"
               >{{ $t('header.navigation.products') }}</a
             >
             <a
               href="#"
               :class="`${industriesToggled ? 'active-link' : ''}`"
-              class="mr-4 text-lg header-link"
+              class="mr-4 text-2xl header-link"
               @click.prevent="toggleIndustries"
               >{{ $t('header.navigation.industries') }}</a
             >
             <a
               href="#"
               :class="`${brandsToggled ? 'active-link' : ''}`"
-              class="mr-4 text-lg header-link"
+              class="mr-4 text-2xl header-link"
               @click.prevent="toggleBrands"
               >{{ $t('header.navigation.brands') }}</a
             >
           </div>
-          <!-- <NuxtLink to="/">Account</NuxtLink> -->
+          <NuxtLink to="http://www.apotekasinofarm.rs/">
+            <img
+              src="@/assets/images/Apoteka-Sinofarm-Logo-svg-1.svg"
+              class="w-40"
+              alt=""
+            />
+          </NuxtLink>
         </div>
         <div v-if="brandsToggled" class="grid grid-cols-4 pt-6 px-1">
           <NuxtLink
@@ -143,13 +149,11 @@
           class="grid grid-cols-3 xl:grid-cols-4 pt-6 px-1"
         >
           <NuxtLink
-            v-for="subcat in headerData.sinofarm.subcategories"
-            :key="subcat.slug"
-            :to="localePath(`/products/${subcat.slug}`)"
+            v-for="cat in headerData.sinofarm.categories"
+            :key="cat.slug"
+            :to="localePath(`/products/${cat.slug}`)"
             class="truncate w-64 mb-2 text-gray hover:bg-lightGray transition duration-300 p-1"
-            >{{
-              returnLang === 'sr' ? subcat.name_sr : subcat.name_en
-            }}</NuxtLink
+            >{{ returnLang === 'sr' ? cat.name_sr : cat.name_en }}</NuxtLink
           >
           <NuxtLink
             to="/products"

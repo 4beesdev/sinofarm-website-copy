@@ -5,6 +5,7 @@
   >
     <div class="w-full h-60 border-2 border-primary mb-3 overflow-hidden">
       <img
+        v-if="productInfo.image.url"
         :src="`https://sinofarm-portal.4bees.io${productInfo.image.url}`"
         class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
         alt=""

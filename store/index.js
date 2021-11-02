@@ -110,7 +110,24 @@ export const getters = {
   getLoadingStatus: (state) => {
     return state.loading
   },
+  getProducts: (state) => {
+    return state.sinofarm.products
+  },
   getProductById: (state) => (id) => {
-    return state.products.find((product) => product.id === id)
+    return state.sinofarm.products.find((product) => product.id === id)
+  },
+  getSubCatFilter: (state) => (slug) => {
+    return state.sinofarm.subcategories.filter(
+      (el) => el.category.slug === slug
+    )
+  },
+  getCategory: (state) => (slug) => {
+    return state.sinofarm.categories.find((el) => el.slug === slug)
+  },
+  getSubcategory: (state) => (slug) => {
+    return state.sinofarm.subcategories.find((el) => el.slug === slug)
+  },
+  getProductsBySubcat: (state) => (slug) => {
+    return state.sinofarm.products.filter((el) => el.subcategory.slug === slug)
   },
 }

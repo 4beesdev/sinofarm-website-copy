@@ -50,18 +50,9 @@
         </div>
         <div class="flex lg:w-6/12">
           <div class="w-6/12 relative mr-2">
-            <div class="">
-              <div
-                class="absolute bg-black opacity-40 z-10 w-full h-full top-0 left-0 flex justify-center items-center"
-              ></div>
-              <p
-                class="px-4 py-1 bg-primary border-2 border-white absolute z-20 top-10 right-0"
-              >
-                {{ $t('homepage.navigation.soon') }}
-              </p>
-            </div>
-            <NuxtLink
-              to="/"
+            <a
+              href="http://www.apotekasinofarm.rs/"
+              target="_blank"
               class="p-4 bg-primary flex flex-col items-center justify-center navigation-button"
             >
               <img
@@ -70,7 +61,7 @@
                 alt=""
               />
               {{ $t('homepage.navigation.pharmacy') }}
-            </NuxtLink>
+            </a>
           </div>
           <div class="w-6/12 relative">
             <div class="">
@@ -184,7 +175,7 @@
       </div>
     </div>
     <!-- NEWS -->
-    <div class="w-full bg-lightGray py-16">
+    <div class="w-full bg-primary py-16">
       <div class="container mx-auto px-4">
         <div
           class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-10 lg:grid-cols-3"

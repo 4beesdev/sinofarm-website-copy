@@ -38,8 +38,8 @@
               </p>
               <a
                 class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
-                href="mailto:office@sinofarm.rs"
-                >office@sinofarm.rs</a
+                href="mailto:office@sinofarm.co.rs"
+                >office@sinofarm.co.rs</a
               >
             </div>
             <div class="flex flex-col md:flex-row items-center">
@@ -77,7 +77,7 @@
                 >office@sinofarm.de</a
               >
             </div>
-            <div class="flex flex-col md:flex-row items-center mb-2">
+            <!-- <div class="flex flex-col md:flex-row items-center mb-2">
               <p class="text-lg text-gray font-lato font-bold md:mr-3">
                 {{ $t('contactpage.info.company') }}:
               </p>
@@ -90,8 +90,8 @@
                   Alte Reichsstr 6, 66424 Homburg
                 </a>
               </div>
-            </div>
-            <div class="flex flex-col md:flex-row items-center">
+            </div> -->
+            <!-- <div class="flex flex-col md:flex-row items-center">
               <p class="text-lg text-gray font-lato font-bold md:mr-3">
                 {{ $t('contactpage.info.warehouse') }}:
               </p>
@@ -104,7 +104,7 @@
                   Ringstrase 2, 66459 Kirkel-Limbach
                 </a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- Austria -->

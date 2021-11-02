@@ -173,6 +173,7 @@ export default {
     help: {
       title: 'Help',
       help: 'Help Center',
+      contact: 'Contact',
     },
   },
   button: {

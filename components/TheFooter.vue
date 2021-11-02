@@ -47,6 +47,11 @@
             class="font-lato font-normal mb-2"
             >{{ $t('footer.help.help') }}</NuxtLink
           >
+          <NuxtLink
+            :to="localePath('/contact')"
+            class="font-lato font-normal mb-2"
+            >{{ $t('footer.help.contact') }}</NuxtLink
+          >
         </div>
       </div>
     </div>

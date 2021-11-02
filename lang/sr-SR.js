@@ -177,6 +177,7 @@ export default {
     help: {
       title: 'Pomoć',
       help: 'Pomoćni centar',
+      contact: 'Kontakt',
     },
   },
   button: {
