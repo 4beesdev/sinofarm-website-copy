@@ -13,6 +13,8 @@ module.exports = {
         lightBlue: '#7fc9ef',
         gray: '#555556',
         lightGray: '#f2f2f2',
+        poPrimary: '#6E6E6E',
+        laPrimary: '#0038AE',
         danger: '#fa1e0e',
       },
       container: {

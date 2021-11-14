@@ -1,7 +1,15 @@
 <template>
   <div
     v-if="products.length > 0"
-    class="w-full grid gap-5 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+    class="
+      w-full
+      grid
+      gap-5
+      grid-columns-1
+      sm:grid-cols-2
+      lg:grid-cols-3
+      xl:grid-cols-4
+    "
   >
     <NuxtLink
       v-for="product in products"
@@ -12,7 +20,15 @@
       <div class="w-full h-60 border-2 border-primary mb-3 overflow-hidden">
         <img
           :src="`https://sinofarm-portal.4bees.io${product.image.url}`"
-          class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+          class="
+            w-full
+            h-full
+            object-cover
+            transition
+            duration-300
+            transform
+            hover:scale-110
+          "
           alt=""
         />
       </div>

@@ -32,18 +32,15 @@ export default {
     news: {
       first: {
         title: '(1.3.2021) – Sinofarm Germany has officialy started operating',
-        text:
-          'Our warehouse in Hamburg has started working. Sinofarm company has strategic plan to open new markets, and this is the first step in that mission.',
+        text: 'Our warehouse in Hamburg has started working. Sinofarm company has strategic plan to open new markets, and this is the first step in that mission.',
       },
       second: {
         title: '(15.1.2021) – Welcome to Sinopharm Pharmacy',
-        text:
-          'Visit our pharmacy in Resavska street in Belgrade and check out our offer.',
+        text: 'Visit our pharmacy in Resavska street in Belgrade and check out our offer.',
       },
       third: {
         title: '(1.3.2021) – Sinofarm Pharmacy giving away free masks',
-        text:
-          'All customers in Sinofarm Pharmacy can get free mask from the pharmacist.',
+        text: 'All customers in Sinofarm Pharmacy can get free mask from the pharmacist.',
       },
     },
     about: {

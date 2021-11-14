@@ -6,22 +6,44 @@
       <div class="w-full banner relative flex items-center mb-2">
         <img
           class="w-full h-full object-cover absolute z-1 top-0 left-0"
-          src="@/assets/images/cover-image.jpg"
+          src="@/assets/images/Cover-photo.jpg"
           alt=""
         />
-        <div
+        <!-- <div
           class="w-full h-full absolute z-0 top-0 left-0 bg-black opacity-60"
-        ></div>
+        ></div> -->
         <div
           ref="bannerText"
-          class="px-6 sm:w-96 lg:px-12 relative z-2 banner-text opacity-0 transform translate-y-32"
+          class="
+            px-6
+            sm:w-96
+            lg:px-12
+            relative
+            z-2
+            banner-text
+            opacity-0
+            transform
+            translate-y-32
+          "
         >
-          <h2 class="font-lato font-bold text-white text-5xl mb-2">Covid 19</h2>
+          <span class="banner-heading font-bold text-white text-5xl mb-4"
+            >Covid 19</span
+          >
           <p class="font-lato font-normal text-white text-lg">
             {{ $t('homepage.covid') }}
           </p>
           <NuxtLink
-            class="p-4 bg-primary block text-center mt-4 w-60 font-lato font-bold text-white button-primary"
+            class="
+              p-4
+              bg-primary
+              block
+              text-center
+              mt-4
+              w-60
+              font-lato font-bold
+              text-white
+              button-primary
+            "
             :to="localePath('/covid')"
             >{{ $t('button.more') }}</NuxtLink
           >
@@ -30,19 +52,46 @@
       <!-- HOME NAVIGATION BUTTONS -->
       <div
         ref="homeNavigation"
-        class="flex flex-col lg:flex-row font-lato text-white font-normal text-lg opacity-0 transform -translate-y-32"
+        class="
+          flex flex-col
+          lg:flex-row
+          font-lato
+          text-white
+          font-normal
+          text-lg
+          opacity-0
+          transform
+          -translate-y-32
+        "
       >
         <div class="flex mb-2 lg:w-6/12 lg:mb-0 lg:mr-2">
           <NuxtLink
             :to="localePath('/products')"
-            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2 navigation-button"
+            class="
+              w-6/12
+              p-4
+              bg-primary
+              flex flex-col
+              items-center
+              justify-center
+              mr-2
+              navigation-button
+            "
           >
             <img src="@/assets/images/products.svg" class="w-12 mb-2" alt="" />
             {{ $t('homepage.navigation.products') }}
           </NuxtLink>
           <NuxtLink
             :to="localePath('/careers')"
-            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center navigation-button"
+            class="
+              w-6/12
+              p-4
+              bg-primary
+              flex flex-col
+              items-center
+              justify-center
+              navigation-button
+            "
           >
             <img src="@/assets/images/careers.svg" class="mb-2 w-12" alt="" />
             {{ $t('homepage.navigation.careers') }}
@@ -53,7 +102,14 @@
             <a
               href="http://www.apotekasinofarm.rs/"
               target="_blank"
-              class="p-4 bg-primary flex flex-col items-center justify-center navigation-button"
+              class="
+                p-4
+                bg-primary
+                flex flex-col
+                items-center
+                justify-center
+                navigation-button
+              "
             >
               <img
                 src="@/assets/images/pharmacy.svg"
@@ -66,17 +122,47 @@
           <div class="w-6/12 relative">
             <div class="">
               <div
-                class="absolute bg-black opacity-40 z-10 w-full h-full top-0 left-0 flex justify-center items-center"
+                class="
+                  absolute
+                  bg-black
+                  opacity-40
+                  z-10
+                  w-full
+                  h-full
+                  top-0
+                  left-0
+                  flex
+                  justify-center
+                  items-center
+                "
               ></div>
               <p
-                class="px-4 py-1 bg-primary border-2 border-white absolute z-20 top-10 right-0"
+                class="
+                  px-4
+                  py-1
+                  bg-primary
+                  border-2 border-white
+                  absolute
+                  z-20
+                  top-10
+                  right-0
+                "
               >
                 {{ $t('homepage.navigation.soon') }}
               </p>
             </div>
             <NuxtLink
               to="/"
-              class="w-full h-full p-4 bg-primary flex flex-col items-center justify-center navigation-button"
+              class="
+                w-full
+                h-full
+                p-4
+                bg-primary
+                flex flex-col
+                items-center
+                justify-center
+                navigation-button
+              "
             >
               <img src="@/assets/images/portal.svg" class="mb-2 w-12" alt="" />
               {{ $t('homepage.navigation.portal') }}
@@ -85,89 +171,201 @@
         </div>
       </div>
       <!-- PRODUCTS -->
-      <div class="flex flex-col md:flex-row py-16">
-        <div
-          ref="products"
-          class="md:w-2/6 mb-10 md:mr-10 lg:mr-40 opacity-0 transform -translate-x-32"
-        >
-          <h2 class="font-medium text-gray text-3xl mb-5">
-            {{ $t('homepage.findProduct.title') }}
-          </h2>
-          <p class="text-gray text-lg mb-5">
-            {{ $t('homepage.findProduct.text') }}
-          </p>
-          <NuxtLink
-            class="p-4 bg-primary block text-center w-60 font-lato font-bold text-white button-primary"
-            :to="localePath('/products')"
-            >{{ $t('button.more') }}</NuxtLink
-          >
+      <div class="flex flex-col py-16">
+        <div class="flex flex-col lg:flex-row lg:items-center">
+          <div class="lg:w-6/12 text-center lg:px-12 lg:mr-2">
+            <h2 class="font-medium text-gray text-3xl mb-5">
+              {{ $t('homepage.findProduct.title') }}
+            </h2>
+            <p class="text-gray text-lg mb-5">
+              {{ $t('homepage.findProduct.text') }}
+            </p>
+          </div>
+          <div class="flex flex-col lg:flex-row lg:w-6/12">
+            <NuxtLink
+              :to="localePath('/products')"
+              class="
+                border-2
+                lg:w-6/12
+                mb-2
+                mt-4
+                lg:mt-0
+                block
+                border-primary
+                h-64
+                overflow-hidden
+                lg:mr-2
+              "
+            >
+              <img
+                ref="homeProduct1"
+                src="@/assets/images/home-product-1.jpg"
+                class="
+                  w-full
+                  h-full
+                  object-cover
+                  transition
+                  duration-300
+                  transform
+                  hover:scale-110
+                  opacity-0
+                  translate-x-32
+                "
+                alt=""
+              />
+            </NuxtLink>
+            <NuxtLink
+              :to="localePath('/products')"
+              class="
+                border-2
+                block
+                border-primary
+                mb-2
+                lg:w-6/12
+                h-64
+                overflow-hidden
+              "
+            >
+              <img
+                ref="homeProduct2"
+                src="@/assets/images/home-product-1.jpg"
+                class="
+                  w-full
+                  h-full
+                  object-cover
+                  transition
+                  duration-300
+                  transform
+                  hover:scale-110
+                  opacity-0
+                  translate-x-32
+                "
+                alt=""
+              />
+            </NuxtLink>
+          </div>
         </div>
-        <div
-          class="w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <div class="flex flex-col lg:flex-row">
           <NuxtLink
             :to="localePath('/products')"
-            class="border-2 block border-primary h-64 overflow-hidden"
-          >
-            <img
-              ref="homeProduct1"
-              src="@/assets/images/home-product-1.jpg"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 translate-x-32"
-              alt=""
-            />
-          </NuxtLink>
-          <NuxtLink
-            :to="localePath('/products')"
-            class="border-2 border-primary h-64 overflow-hidden"
-          >
-            <img
-              ref="homeProduct2"
-              src="@/assets/images/home-product-2.png"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 transform translate-x-32"
-              alt=""
-            />
-          </NuxtLink>
-          <NuxtLink
-            :to="localePath('/products')"
-            class="border-2 border-primary h-64 overflow-hidden"
+            class="
+              border-2
+              lg:w-3/12
+              mb-2
+              lg:mb-0 lg:mt-0
+              block
+              border-primary
+              h-64
+              overflow-hidden
+              lg:mr-2
+            "
           >
             <img
               ref="homeProduct3"
-              src="@/assets/images/home-product-3.jpg"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 transform translate-x-32"
+              src="@/assets/images/home-product-1.jpg"
+              class="
+                w-full
+                h-full
+                object-cover
+                transition
+                duration-300
+                transform
+                hover:scale-110
+                opacity-0
+                translate-x-32
+              "
               alt=""
             />
           </NuxtLink>
           <NuxtLink
             :to="localePath('/products')"
-            class="border-2 border-primary h-64 overflow-hidden"
+            class="
+              border-2
+              lg:w-3/12
+              mb-2
+              lg:mb-0 lg:mt-0
+              block
+              border-primary
+              h-64
+              overflow-hidden
+              lg:mr-2
+            "
           >
             <img
               ref="homeProduct4"
-              src="@/assets/images/home-product-4.jpg"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 transform translate-x-32"
+              src="@/assets/images/home-product-1.jpg"
+              class="
+                w-full
+                h-full
+                object-cover
+                transition
+                duration-300
+                transform
+                hover:scale-110
+                opacity-0
+                translate-x-32
+              "
               alt=""
             />
           </NuxtLink>
           <NuxtLink
             :to="localePath('/products')"
-            class="border-2 border-primary h-64 overflow-hidden"
+            class="
+              border-2
+              lg:w-3/12
+              mb-2
+              lg:mb-0 lg:mt-0
+              block
+              border-primary
+              h-64
+              overflow-hidden
+              lg:mr-2
+            "
           >
             <img
               ref="homeProduct5"
-              src="@/assets/images/home-product-5.jpg"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 transform translate-x-32"
+              src="@/assets/images/home-product-1.jpg"
+              class="
+                w-full
+                h-full
+                object-cover
+                transition
+                duration-300
+                transform
+                hover:scale-110
+                opacity-0
+                translate-x-32
+              "
               alt=""
             />
           </NuxtLink>
           <NuxtLink
             :to="localePath('/products')"
-            class="border-2 border-primary h-64 overflow-hidden"
+            class="
+              border-2
+              lg:w-3/12
+              mb-2
+              lg:mb-0 lg:mt-0
+              block
+              border-primary
+              h-64
+              overflow-hidden
+            "
           >
             <img
               ref="homeProduct6"
-              src="@/assets/images/home-product-6.jpg"
-              class="w-full h-full object-cover transition duration-300 transform hover:scale-110 opacity-0 transform translate-x-32"
+              src="@/assets/images/home-product-1.jpg"
+              class="
+                w-full
+                h-full
+                object-cover
+                transition
+                duration-300
+                transform
+                hover:scale-110
+                opacity-0
+                translate-x-32
+              "
               alt=""
             />
           </NuxtLink>
@@ -178,12 +376,29 @@
     <div class="w-full bg-primary py-16">
       <div class="container mx-auto px-4">
         <div
-          class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-10 lg:grid-cols-3"
+          class="
+            grid grid-cols-1
+            justify-items-center
+            md:grid-cols-2
+            gap-10
+            lg:grid-cols-3
+          "
         >
           <div
             v-for="article in articles"
             :key="article.id"
-            class="bg-white w-full h-full shadow-lg sm:w-96 mb-10 xl:mb-0 duration-300 transform hover:-translate-y-2"
+            class="
+              bg-white
+              w-full
+              h-full
+              shadow-lg
+              sm:w-96
+              mb-10
+              xl:mb-0
+              duration-300
+              transform
+              hover:-translate-y-2
+            "
           >
             <NuxtLink :to="`/news/${article.id}`">
               <img
@@ -217,7 +432,17 @@
           ref="homeAboutText"
           class="md:w-3/6 md:mr-5 opacity-0 transform -translate-x-32"
         >
-          <h2 class="font-lato text-2xl font-bold text-gray mb-4">
+          <h2
+            class="
+              font-lato
+              section-heading
+              text-3xl
+              underline
+              font-bold
+              text-gray
+              mb-4
+            "
+          >
             {{ $t('homepage.about.title') }}
           </h2>
           <p
@@ -227,21 +452,24 @@
           >
             {{ text }}
           </p>
-          <div class="flex flex-col">
-            <NuxtLink
-              v-for="(link, index) in $t('homepage.about.links')"
-              :key="index"
-              class="text-primary border-b-2 border-primary w-max mb-2"
-              :to="localePath(`/${link.link}`)"
-              >{{ link.title }}</NuxtLink
-            >
+          <div class="flex flex-wrap justify-between mt-10">
+            <img src="@/assets/images/sinomedic.svg" class="w-36" alt="" />
+            <img src="@/assets/images/sinodreams.svg" class="w-36" alt="" />
+            <img src="@/assets/images/sinofine.svg" class="w-32" alt="" />
           </div>
         </div>
         <div class="w-full mt-5 md:w-3/6">
           <img
             ref="homeAboutImg"
-            class="w-full h-full object-cover transform translate-x-32 opacity-0"
-            src="@/assets/images/blood sample.jpg"
+            class="
+              w-full
+              h-full
+              object-cover
+              transform
+              translate-x-32
+              opacity-0
+            "
+            src="@/assets/images/O-nama-3.jpg"
             alt=""
           />
         </div>
@@ -251,15 +479,34 @@
     <div class="w-full bg-lightGray">
       <div class="container mx-auto py-16 px-4">
         <div
-          class="flex flex-col items-center md:flex-row md:items-start md:justify-around"
+          class="
+            flex flex-col
+            items-center
+            md:flex-row md:items-start md:justify-around
+          "
         >
           <div
             ref="infoContact"
-            class="flex flex-col items-center mb-10 md:mb-0 opacity-0 transform -translate-y-36"
+            class="
+              flex flex-col
+              items-center
+              mb-10
+              md:mb-0
+              opacity-0
+              transform
+              -translate-y-36
+            "
           >
             <NuxtLink :to="localePath('/contact')">
               <img
-                class="w-16 mb-5 transform hover:-translate-y-2 transition duration-300"
+                class="
+                  w-16
+                  mb-5
+                  transform
+                  hover:-translate-y-2
+                  transition
+                  duration-300
+                "
                 src="@/assets/images/contact.svg"
                 alt=""
               />
@@ -272,18 +519,37 @@
               {{ $t('homepage.contact.title') }}
             </NuxtLink>
             <p
-              class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96"
+              class="
+                text-normal text-gray
+                font-lato font-normal
+                w-64
+                text-center
+                lg:w-96
+              "
             >
               {{ $t('homepage.contact.text') }}:
             </p>
           </div>
           <div
             ref="infoLocations"
-            class="flex flex-col items-center opacity-0 transform -translate-y-36"
+            class="
+              flex flex-col
+              items-center
+              opacity-0
+              transform
+              -translate-y-36
+            "
           >
             <NuxtLink :to="localePath('/contact')">
               <img
-                class="w-16 mb-5 transform hover:-translate-y-2 transition duration-300"
+                class="
+                  w-16
+                  mb-5
+                  transform
+                  hover:-translate-y-2
+                  transition
+                  duration-300
+                "
                 src="@/assets/images/locations.svg"
                 alt=""
               />
@@ -295,7 +561,13 @@
               {{ $t('homepage.locations.title') }}
             </NuxtLink>
             <p
-              class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96"
+              class="
+                text-normal text-gray
+                font-lato font-normal
+                w-64
+                text-center
+                lg:w-96
+              "
             >
               {{ $t('homepage.locations.text') }}
             </p>
@@ -348,6 +620,9 @@ export default {
   img {
     z-index: -1;
   }
+}
+.banner-heading {
+  font-family: 'Lato', sans-serif !important;
 }
 .button-primary {
   transition: background-color 0.4s;

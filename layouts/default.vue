@@ -18,6 +18,12 @@ export default {
       ready: false,
     }
   },
+  computed: {
+    returnLang() {
+      return this.$i18n.locale
+    },
+    ...mapState(['sinofarm', 'brands', 'industries']),
+  },
   async created() {
     await Promise.all([
       this.$store.dispatch('getArticles'),
@@ -29,22 +35,27 @@ export default {
     ])
     this.ready = true
   },
-  computed: {
-    returnLang() {
-      return this.$i18n.locale
-    },
-    ...mapState(['sinofarm', 'brands', 'industries']),
-  },
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;700&display=swap');
 html {
   overflow-x: hidden;
 }
 body {
   overflow-x: hidden;
+  font-family: 'Poppins', sans-serif !important;
+  color: #6e6e6e !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: 'Lato', sans-serif !important;
+  font-weight: 700 !important;
+  color: #0038ae !important;
 }
 .fade-enter-active,
 .fade-leave-active {

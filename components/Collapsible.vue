@@ -2,7 +2,17 @@
   <div class="w-full flex flex-col">
     <button
       v-if="filter"
-      class="w-full flex items-center justify-between font-lato font-bold text-gray text-xl border-b-2 border-gray py-4 focus:outline-none"
+      class="
+        w-full
+        flex
+        items-center
+        justify-between
+        font-lato font-bold
+        text-gray text-xl
+        border-b-2 border-gray
+        py-4
+        focus:outline-none
+      "
       @click="toggled = !toggled"
     >
       {{ linkTitle }}
@@ -10,7 +20,17 @@
     </button>
     <button
       v-if="category"
-      class="text-left w-full mb-2 flex justify-between items-center font-lato font-bold text-gray focus:outline-none"
+      class="
+        text-left
+        w-full
+        mb-2
+        flex
+        justify-between
+        items-center
+        font-lato font-bold
+        text-gray
+        focus:outline-none
+      "
       @click="toggled = !toggled"
     >
       {{ linkTitle }}

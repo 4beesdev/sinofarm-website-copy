@@ -26,25 +26,21 @@ export default {
       soon: 'Uskoro',
     },
     findProduct: {
-      title: 'Pronađite svoj proizvod:',
-      text:
-        'Naša misija je da vas uvek iznenadimo novom ponudom. Pogledajte naše proizvode.',
+      title: 'Novo u ponudi',
+      text: 'Naša misija je da vas uvek iznenadimo novom ponudom. Pogledajte naše proizvode.',
     },
     news: {
       first: {
         title: '(1.3.2021) – Sinofarm Germany je počeo sa radom',
-        text:
-          'Naše skladište u Hamburgu u Nemačkoj počelo je sa radom. Kompanija Sinofarm time je ostvarila svoj prvi korak ka svojim strateškim ciljevima širenja na evropska tržišta.',
+        text: 'Naše skladište u Hamburgu u Nemačkoj počelo je sa radom. Kompanija Sinofarm time je ostvarila svoj prvi korak ka svojim strateškim ciljevima širenja na evropska tržišta.',
       },
       second: {
         title: '(15.1.2021) – Dobrodošli u Apoteku Sinofarm',
-        text:
-          'Posetite našu apoteku u Resavskoj ulici u Beogradu i pogledajte veći deo iz palete naših proizvoda uživo.',
+        text: 'Posetite našu apoteku u Resavskoj ulici u Beogradu i pogledajte veći deo iz palete naših proizvoda uživo.',
       },
       third: {
         title: '(1.3.2021) – Apoteka Sinofarm deli maske besplatno',
-        text:
-          'Svaki kupac Apoteke Sinofarm u Resavskoj ulici može besplatno preuzeti masku od farmaceuta.',
+        text: 'Svaki kupac Apoteke Sinofarm u Resavskoj ulici može besplatno preuzeti masku od farmaceuta.',
       },
     },
     about: {
@@ -75,8 +71,7 @@ export default {
     },
     contact: {
       title: 'Kontakt',
-      text:
-        'Ukoliko vam je potrebna pomoć ili informacija, stojimo Vam na raspolaganju',
+      text: 'Ukoliko vam je potrebna pomoć ili informacija, stojimo Vam na raspolaganju',
     },
     locations: {
       title: 'Lokacije',

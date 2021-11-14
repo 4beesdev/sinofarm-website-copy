@@ -8,7 +8,14 @@
       {{ returnLang === 'en' ? categoryName.name_en : categoryName.name_sr }}
     </h1>
     <div
-      class="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:grid-cols-4 pt-6 px-1 justify-center"
+      class="
+        grid grid-cols-1
+        md:grid-cols-2 md:gap-4
+        lg:grid-cols-4
+        pt-6
+        px-1
+        justify-center
+      "
     >
       <NuxtLink
         v-for="subCat in subcategories"

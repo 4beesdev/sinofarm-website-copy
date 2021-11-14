@@ -1,20 +1,16 @@
 <template>
   <div class="flex flex-wrap border-t-2 py-4 px-4 border-b-2 border-primary">
-    <NuxtLink class="font-lato font-bold text-gray mr-2" :to="localePath('/')">
+    <NuxtLink class="mr-2" :to="localePath('/')">
       {{ returnLang === 'en' ? 'Home' : 'Početna' }}
       <span class="ml-2">/</span>
     </NuxtLink>
-    <NuxtLink
-      v-if="products"
-      class="font-lato font-bold text-gray mr-2"
-      :to="localePath('/products')"
-    >
+    <NuxtLink v-if="products" class="mr-2" :to="localePath('/products')">
       {{ returnLang === 'en' ? 'Products' : 'Proizvodi' }}
       <span class="ml-2">/</span>
     </NuxtLink>
     <NuxtLink
       v-if="category"
-      class="font-lato font-bold text-gray mr-2"
+      class="mr-2"
       :to="localePath(`/products/${category.slug}`)"
     >
       {{ returnLang === 'en' ? category.name_en : category.name_sr }}
@@ -22,13 +18,13 @@
     </NuxtLink>
     <NuxtLink
       v-if="subcategory"
-      class="font-lato font-bold text-gray mr-2"
+      class="mr-2"
       :to="localePath(`/products/${category.slug}/${subcategory.slug}`)"
     >
       {{ returnLang === 'en' ? subcategory.name_en : subcategory.name_sr }}
       <span class="ml-2">/</span>
     </NuxtLink>
-    <span v-if="current" class="font-lato font-bold text-gray mr-2">{{
+    <span v-if="current" class="mr-2">{{
       returnLang === 'en' ? current.name_en : current.name_sr
     }}</span>
   </div>

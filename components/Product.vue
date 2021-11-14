@@ -7,7 +7,15 @@
       <img
         v-if="productInfo.image.url"
         :src="`https://sinofarm-portal.4bees.io${productInfo.image.url}`"
-        class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+        class="
+          w-full
+          h-full
+          object-cover
+          transition
+          duration-300
+          transform
+          hover:scale-110
+        "
         alt=""
       />
     </div>

@@ -8,7 +8,10 @@
     <div class="container relative z-2 bg-white w-full mx-auto py-4 px-4">
       <header class="w-full bg-white flex flex-col">
         <div
-          class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mb-6"
+          class="
+            flex flex-col
+            lg:flex-row lg:justify-between lg:items-center lg:mb-6
+          "
         >
           <div class="flex justify-between items-center mb-6 lg:mb-0">
             <NuxtLink :to="localePath('/')" class="mr-3">
@@ -16,7 +19,14 @@
             </NuxtLink>
             <a
               href="#"
-              class="flex flex-col lg:hidden justify-center items-center w-14 h-14"
+              class="
+                flex flex-col
+                lg:hidden
+                justify-center
+                items-center
+                w-14
+                h-14
+              "
               @click.prevent="toggled = !toggled"
             >
               <span class="block h-1 w-12 bg-primary mb-2"></span>
@@ -27,20 +37,42 @@
           <div class="relative w-full h-full lg:w-96">
             <input
               id=""
-              class="w-full border-2 border-primary p-2 rounded-2xl focus:outline-none"
+              class="
+                w-full
+                border-2 border-primary
+                p-2
+                rounded-2xl
+                focus:outline-none
+              "
               type="text"
               name=""
               :placeholder="$t('header.search')"
             />
             <button
               type="submit"
-              class="absolute w-12 flex justify-center items-center h-full right-0 top-0"
+              class="
+                absolute
+                w-12
+                flex
+                justify-center
+                items-center
+                h-full
+                right-0
+                top-0
+              "
             >
               <img src="@/assets/images/search.svg" class="w-6" alt="" />
             </button>
           </div>
           <div
-            class="hidden text-base text-gray font-lato relative font-bold lg:flex lg:flex-col"
+            class="
+              hidden
+              text-base text-gray
+              font-lato
+              relative
+              font-bold
+              lg:flex lg:flex-col
+            "
           >
             <a
               href="#"
@@ -60,7 +92,16 @@
             </a>
             <div
               v-if="langToggled"
-              class="p-2 flex flex-col items-center w-full absolute transform translate-y-10 bg-white"
+              class="
+                p-2
+                flex flex-col
+                items-center
+                w-full
+                absolute
+                transform
+                translate-y-10
+                bg-white
+              "
             >
               <NuxtLink :to="switchLocalePath('sr')" class="mb-2">
                 SR
@@ -81,7 +122,14 @@
           </div>
         </div>
         <div
-          class="hidden lg:flex justify-end font-lato text-base font-bold text-gray items-center lg:justify-between"
+          class="
+            hidden
+            lg:flex
+            justify-end
+            text-base text-gray
+            items-center
+            lg:justify-between
+          "
         >
           <div class="flex">
             <a
@@ -119,7 +167,17 @@
             v-for="brand in headerData.brands"
             :key="brand.name"
             :to="localePath(`/products/${brand.slug}`)"
-            class="flex flex-col items-center text-normal text-center text-base text-gray p-4 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
+            class="
+              flex flex-col
+              items-center
+              text-normal text-center text-base text-gray
+              p-4
+              my-2
+              hover:bg-lightGray
+              transition
+              duration-300
+              ease-in-out
+            "
           >
             <div v-if="brand.logo">
               <img
@@ -139,7 +197,16 @@
             v-for="industry in headerData.industries"
             :key="industry.title_sr"
             :to="localePath(`/products/${industry.slug}`)"
-            class="text-normal text-left text-base text-gray py-2 px-3 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
+            class="
+              text-normal text-left text-base text-gray
+              py-2
+              px-3
+              my-2
+              hover:bg-lightGray
+              transition
+              duration-300
+              ease-in-out
+            "
           >
             {{ industry.title_sr }}
           </NuxtLink>
@@ -152,23 +219,61 @@
             v-for="cat in headerData.sinofarm.categories"
             :key="cat.slug"
             :to="localePath(`/products/${cat.slug}`)"
-            class="truncate w-64 mb-2 text-gray hover:bg-lightGray transition duration-300 p-1"
+            class="
+              truncate
+              w-64
+              mb-2
+              text-gray
+              hover:bg-lightGray
+              transition
+              duration-300
+              p-1
+            "
             >{{ returnLang === 'sr' ? cat.name_sr : cat.name_en }}</NuxtLink
           >
           <NuxtLink
             to="/products"
-            class="col-span-full text-center font-bold text-gray mt-3 hover:bg-lightGray transition duration-300 p-1"
+            class="
+              col-span-full
+              text-center
+              font-bold
+              text-gray
+              mt-3
+              hover:bg-lightGray
+              transition
+              duration-300
+              p-1
+            "
             >{{ $t('header.products') }}</NuxtLink
           >
         </div>
       </header>
     </div>
     <div
-      class="w-full h-0 fixed overflow-hidden bg-white flex justify-center transition-all duration-500 ease-in-out"
+      class="
+        w-full
+        h-0
+        fixed
+        overflow-hidden
+        bg-white
+        flex
+        justify-center
+        transition-all
+        duration-500
+        ease-in-out
+      "
       :class="toggled ? 'h-full py-16' : ''"
     >
       <div
-        class="flex flex-col font-lato font-bold text-gray text-3xl text-center opacity-0 transition-all duration-500 delay-300"
+        class="
+          flex flex-col
+          font-lato font-bold
+          text-gray text-3xl text-center
+          opacity-0
+          transition-all
+          duration-500
+          delay-300
+        "
         :class="toggled ? 'opacity-100' : ''"
       >
         <NuxtLink to="/" class="mb-5 p-2">{{
@@ -184,7 +289,13 @@
           $t('header.navigation.brands')
         }}</NuxtLink>
         <div
-          class="text-base text-gray font-lato font-bold flex justify-center items-center"
+          class="
+            text-base text-gray
+            font-lato font-bold
+            flex
+            justify-center
+            items-center
+          "
         >
           <NuxtLink :to="switchLocalePath('sr')">
             <img src="@/assets/images/serbia.svg" class="w-8" alt="" />

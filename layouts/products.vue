@@ -26,7 +26,16 @@
                         sinofarm.subcategories
                       )"
                       :key="subcategory.name_sr"
-                      class="mb-1 flex justify-between items-center text-left font-lato text-gray focus:outline-none focus:text-black"
+                      class="
+                        mb-1
+                        flex
+                        justify-between
+                        items-center
+                        text-left
+                        font-lato
+                        text-gray
+                        focus:outline-none focus:text-black
+                      "
                       @click="
                         setCategory(
                           subcategory.slug,
@@ -60,7 +69,16 @@
                 <button
                   v-for="industry in industries"
                   :key="industry.title_sr"
-                  class="mb-2 flex justify-between items-center text-left font-lato text-gray focus:outline-none focus:text-black"
+                  class="
+                    mb-2
+                    flex
+                    justify-between
+                    items-center
+                    text-left
+                    font-lato
+                    text-gray
+                    focus:outline-none focus:text-black
+                  "
                   @click="
                     setIndustry(
                       industry.slug,
@@ -85,7 +103,15 @@
                 <button
                   v-for="brand in brands"
                   :key="brand.name"
-                  class="mb-2 flex justify-between items-center font-lato text-gray text-left focus:outline-none focus:text-black"
+                  class="
+                    mb-2
+                    flex
+                    justify-between
+                    items-center
+                    font-lato
+                    text-gray text-left
+                    focus:outline-none focus:text-black
+                  "
                   @click="setBrand(brand.slug, brand.name)"
                 >
                   {{ brand.name }}
@@ -104,7 +130,18 @@
               <div v-if="hasFilters" class="flex flex-wrap pb-6">
                 <button
                   v-if="categoryQuery !== 'none'"
-                  class="border-2 flex items-center border-primary px-4 py-2 font-bold text-gray mb-3 lg:mr-3"
+                  class="
+                    border-2
+                    flex
+                    items-center
+                    border-primary
+                    px-4
+                    py-2
+                    font-bold
+                    text-gray
+                    mb-3
+                    lg:mr-3
+                  "
                   @click="removeFilter('category')"
                 >
                   {{ $t('productspage.filterIcon.category') }}:
@@ -119,7 +156,18 @@
                 </button>
                 <button
                   v-if="industryQuery !== 'none'"
-                  class="border-2 flex items-center border-primary px-4 py-2 font-bold text-gray mb-3 lg:mr-3"
+                  class="
+                    border-2
+                    flex
+                    items-center
+                    border-primary
+                    px-4
+                    py-2
+                    font-bold
+                    text-gray
+                    mb-3
+                    lg:mr-3
+                  "
                   @click="removeFilter('industry')"
                 >
                   {{ $t('productspage.filterIcon.industry') }}:
@@ -134,7 +182,18 @@
                 </button>
                 <button
                   v-if="brandQuery !== 'none'"
-                  class="border-2 flex items-center border-primary px-4 py-2 font-bold text-gray mb-3 lg:mr-3"
+                  class="
+                    border-2
+                    flex
+                    items-center
+                    border-primary
+                    px-4
+                    py-2
+                    font-bold
+                    text-gray
+                    mb-3
+                    lg:mr-3
+                  "
                   @click="removeFilter('brand')"
                 >
                   {{ $t('productspage.filterIcon.brand') }}:

@@ -2,7 +2,16 @@
   <transition name="slideUp">
     <button
       v-if="scrollPosition > 300"
-      class="bg-primary p-6 fixed z-30 bottom-5 right-5 lg:bottom-10 lg:right-10 focus:outline-none"
+      class="
+        bg-primary
+        p-6
+        fixed
+        z-30
+        bottom-5
+        right-5
+        lg:bottom-10 lg:right-10
+        focus:outline-none
+      "
       @click="scrollTop"
     >
       <img
