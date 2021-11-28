@@ -33,10 +33,7 @@
         </h2>
       </NuxtLink>
     </div>
-    <h1 class="mt-6 mb-6 font-lato font-bold text-2xl text-primary">
-      {{ returnLang === 'en' ? 'All products' : 'Svi proizvodi' }}
-    </h1>
-    <!-- <Products v-if="sinofarm.products" :products="sinofarm.products"></Products> -->
+    <ProductsMain></ProductsMain>
   </div>
 </template>
 

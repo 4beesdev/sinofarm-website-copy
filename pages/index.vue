@@ -171,6 +171,7 @@
         </div>
       </div>
       <!-- PRODUCTS -->
+      {{ latestProducts(products) }}
       <div class="flex flex-col py-16">
         <div class="flex flex-col lg:flex-row lg:items-center">
           <div class="lg:w-6/12 text-center lg:px-12 lg:mr-2">
@@ -183,7 +184,7 @@
           </div>
           <div class="flex flex-col lg:flex-row lg:w-6/12">
             <NuxtLink
-              :to="localePath('/products')"
+              :to="localePath(productUrl(newOffers[0]))"
               class="
                 border-2
                 lg:w-6/12
@@ -198,8 +199,9 @@
               "
             >
               <img
+                v-if="newOffers[0].image"
                 ref="homeProduct1"
-                src="@/assets/images/home-product-1.jpg"
+                :src="`https://sinofarm-portal.4bees.io${newOffers[0].image.url}`"
                 class="
                   w-full
                   h-full
@@ -215,7 +217,7 @@
               />
             </NuxtLink>
             <NuxtLink
-              :to="localePath('/products')"
+              :to="localePath(productUrl(newOffers[1]))"
               class="
                 border-2
                 block
@@ -227,8 +229,9 @@
               "
             >
               <img
+                v-if="newOffers[1].image"
                 ref="homeProduct2"
-                src="@/assets/images/home-product-1.jpg"
+                :src="`https://sinofarm-portal.4bees.io${newOffers[1].image.url}`"
                 class="
                   w-full
                   h-full
@@ -247,7 +250,7 @@
         </div>
         <div class="flex flex-col lg:flex-row">
           <NuxtLink
-            :to="localePath('/products')"
+            :to="localePath(productUrl(newOffers[2]))"
             class="
               border-2
               lg:w-3/12
@@ -261,8 +264,9 @@
             "
           >
             <img
+              v-if="newOffers[2].image"
               ref="homeProduct3"
-              src="@/assets/images/home-product-1.jpg"
+              :src="`https://sinofarm-portal.4bees.io${newOffers[2].image.url}`"
               class="
                 w-full
                 h-full
@@ -278,7 +282,7 @@
             />
           </NuxtLink>
           <NuxtLink
-            :to="localePath('/products')"
+            :to="localePath(productUrl(newOffers[3]))"
             class="
               border-2
               lg:w-3/12
@@ -292,8 +296,9 @@
             "
           >
             <img
+              v-if="newOffers[3].image"
               ref="homeProduct4"
-              src="@/assets/images/home-product-1.jpg"
+              :src="`https://sinofarm-portal.4bees.io${newOffers[3].image.url}`"
               class="
                 w-full
                 h-full
@@ -309,7 +314,7 @@
             />
           </NuxtLink>
           <NuxtLink
-            :to="localePath('/products')"
+            :to="localePath(productUrl(newOffers[4]))"
             class="
               border-2
               lg:w-3/12
@@ -323,8 +328,9 @@
             "
           >
             <img
+              v-if="newOffers[4].image"
               ref="homeProduct5"
-              src="@/assets/images/home-product-1.jpg"
+              :src="`https://sinofarm-portal.4bees.io${newOffers[4].image.url}`"
               class="
                 w-full
                 h-full
@@ -340,7 +346,7 @@
             />
           </NuxtLink>
           <NuxtLink
-            :to="localePath('/products')"
+            :to="localePath(productUrl(newOffers[5]))"
             class="
               border-2
               lg:w-3/12
@@ -353,8 +359,9 @@
             "
           >
             <img
+              v-if="newOffers[5].image"
               ref="homeProduct6"
-              src="@/assets/images/home-product-1.jpg"
+              :src="`https://sinofarm-portal.4bees.io${newOffers[5].image.url}`"
               class="
                 w-full
                 h-full
@@ -588,11 +595,16 @@ if (process.client) {
 }
 export default {
   data() {
-    return {}
+    return {
+      newOffers: [],
+    }
   },
   computed: {
     returnLang() {
       return this.$i18n.locale
+    },
+    products() {
+      return this.$store.getters.getProducts
     },
     ...mapState(['articles']),
   },
@@ -610,6 +622,31 @@ export default {
         duration: 0.5,
       })
     }
+  },
+  methods: {
+    latestProducts(products) {
+      const temp = products.map((el) => el)
+      const latestProducts = []
+      temp.sort((a, b) => {
+        const aDate = new Date(a.created_at)
+        const bDate = new Date(b.created_at)
+        return bDate - aDate
+      })
+      for (let i = 0; i < 6; i++) {
+        latestProducts.push(temp[i])
+      }
+      this.newOffers = latestProducts
+    },
+    productUrl(product) {
+      const subcategory = this.$store.getters.getSubcategory(
+        product.subcategory.slug
+      )
+      if (subcategory) {
+        return `/products/${subcategory.category.slug}/${subcategory.slug}/${product.id}`
+      } else {
+        return '/'
+      }
+    },
   },
 }
 </script>

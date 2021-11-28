@@ -113,6 +113,12 @@ export const getters = {
   getProducts: (state) => {
     return state.sinofarm.products
   },
+  getCategories: (state) => {
+    return state.sinofarm.categories
+  },
+  getSubcategories: (state) => {
+    return state.sinofarm.subcategories
+  },
   getProductById: (state) => (id) => {
     return state.sinofarm.products.find((product) => product.id === id)
   },

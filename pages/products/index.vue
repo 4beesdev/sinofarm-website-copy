@@ -1,21 +1,21 @@
 <template>
-  <div>
+  <div class="container mx-auto px-4 pt-48 pb-10">
+    <BreadcrumbN
+      :current="{ name_sr: 'Proizvodi', name_en: 'Products' }"
+    ></BreadcrumbN>
     <transition name="fade">
-      <ProductList :products="sinofarm.products" />
+      <!-- <ProductList :products="sinofarm.products" /> -->
+      <ProductsMain></ProductsMain>
     </transition>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
-  layout: 'products',
-
   computed: {
     returnLang() {
       return this.$i18n.locale
     },
-    ...mapState(['sinofarm']),
   },
 }
 </script>

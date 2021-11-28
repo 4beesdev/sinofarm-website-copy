@@ -15,6 +15,7 @@
       :products="products"
       :link="`/products/${subcategory.category.slug}/${subcategory.slug}`"
     ></Products>
+    <ProductsMain></ProductsMain>
   </div>
 </template>
 

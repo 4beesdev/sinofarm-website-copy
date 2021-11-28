@@ -12,7 +12,6 @@
             class="
               flex
               justify-between
-              font-lato font-bold
               text-gray text-xl
               border-b-2 border-gray
               py-6
@@ -31,7 +30,6 @@
             class="
               flex
               justify-between
-              font-lato font-bold
               text-gray text-xl
               border-b-2 border-gray
               py-6
@@ -51,7 +49,6 @@
             class="
               flex
               justify-between
-              font-lato font-bold
               text-gray text-xl
               border-b-2 border-gray
               py-6
@@ -98,17 +95,100 @@
             </div>
           </div>
           <!-- Specification -->
-          <div id="specification" ref="specification" class="mb-20">
+          <div
+            v-if="product.refNumber !== null"
+            id="specification"
+            ref="specification"
+            class="mb-20"
+          >
             <h2 class="font-lato font-bold text-2xl text-primary mb-6">
               {{ $t('product.specification') }}
             </h2>
-            <p class="font-lato font-normal text-lg text-gray">
+            <div class="overflow-x-auto">
+              <div class="bg-primary flex text-white p-2 row-container">
+                <div class="flex-1">REF Number</div>
+                <div class="flex-1">Type</div>
+                <div class="flex-1">Size</div>
+                <div class="flex-1">Color</div>
+                <div class="flex-1">Package</div>
+              </div>
+              <div
+                v-for="spec in formatSpec(product)"
+                :key="spec.ref"
+                class="
+                  border-primary border-b border-l border-r
+                  flex
+                  row-container
+                "
+              >
+                <div class="flex-1 border-r border-primary p-2">
+                  {{ spec.ref }}
+                </div>
+                <div class="flex-1 border-r border-primary p-2">
+                  {{ spec.type }}
+                </div>
+                <div class="flex-1 border-r border-primary p-2">
+                  {{ spec.size }}
+                </div>
+                <div class="flex-1 border-r border-primary p-2">
+                  {{ spec.color }}
+                </div>
+                <div class="flex-1 p-2">
+                  {{ spec.pack }}
+                </div>
+              </div>
+            </div>
+            <!-- <p class="font-lato font-normal text-lg text-gray">
               {{
                 returnLang === 'sr'
                   ? product.specification_sr
                   : product.specification_en
               }}
-            </p>
+            </p> -->
+            <!-- <div class="flex flex-col lg:flex-row border border-primary">
+              <div
+                class="flex flex-1 flex-col border-b lg:border-r border-primary"
+              >
+                <span class="p-2 border-b border-primary bg-primary text-white"
+                  >REF Number</span
+                >
+                <div class="p-2">{{ product.refNumber }}</div>
+              </div>
+              <div
+                class="flex flex-1 flex-col lg:border-r border-b border-primary"
+              >
+                <span class="p-2 border-b border-primary bg-primary text-white"
+                  >Type</span
+                >
+                <div class="p-2">
+                  {{ product.type }}
+                </div>
+              </div>
+              <div
+                class="flex flex-1 flex-col border-b lg:border-r border-primary"
+              >
+                <span class="p-2 border-b border-primary bg-primary text-white"
+                  >Size</span
+                >
+                <div class="p-2">{{ product.size }}</div>
+              </div>
+              <div
+                class="flex flex-1 flex-col border-b lg:border-r border-primary"
+              >
+                <span class="p-2 border-b border-primary bg-primary text-white"
+                  >Color</span
+                >
+                <div class="p-2">{{ product.color }}</div>
+              </div>
+              <div
+                class="flex flex-1 flex-col border-b lg:border-r border-primary"
+              >
+                <span class="p-2 border-b border-primary bg-primary text-white"
+                  >Package</span
+                >
+                <div class="p-2">{{ product.package }}</div>
+              </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -147,8 +227,33 @@ export default {
         offset: -250,
       })
     },
+    formatSpec(product) {
+      const ref = product.refNumber.split('-').map((item) => item.trim())
+      const type = product.type.split('-').map((item) => item.trim())
+      const size = product.size.split('-').map((item) => item.trim())
+      const color = product.color.split('-').map((item) => item.trim())
+      const pack = product.package.split('-').map((item) => item.trim())
+
+      const specification = []
+      ref.forEach((el, i) => {
+        const temp = {}
+        temp.ref = el
+        temp.type = type[i]
+        temp.size = size[i]
+        temp.color = color[i]
+        temp.pack = pack[i]
+        specification.push(temp)
+      })
+      return specification
+    },
   },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@media only screen and(max-width: 1024px) {
+  .row-container {
+    min-width: 800px;
+  }
+}
+</style>

@@ -7,7 +7,6 @@
         flex
         items-center
         justify-between
-        font-lato font-bold
         text-gray text-xl
         border-b-2 border-gray
         py-4
@@ -27,7 +26,6 @@
         flex
         justify-between
         items-center
-        font-lato font-bold
         text-gray
         focus:outline-none
       "
