@@ -22,6 +22,11 @@
 <script>
 import { mapState } from 'vuex'
 export default {
+  data() {
+    return {
+      pageTitle: '',
+    }
+  },
   computed: {
     returnLang() {
       return this.$i18n.locale
@@ -33,6 +38,26 @@ export default {
       return this.$store.getters.getProductsBySubcat(this.$route.params.subcat)
     },
     ...mapState(['sinofarm']),
+  },
+  mounted() {
+    this.setPageTitle()
+  },
+  methods: {
+    setPageTitle() {
+      const category = this.$store.getters.getSubcategory(
+        this.$route.params.subcat
+      )
+      if (this.returnLang === 'en') {
+        this.pageTitle = category.name_en
+      } else {
+        this.pageTitle = category.name_sr
+      }
+    },
+  },
+  head() {
+    return {
+      title: `Sinofarm | ${this.pageTitle}`,
+    }
   },
 }
 </script>

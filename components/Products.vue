@@ -11,11 +11,12 @@
       xl:grid-cols-4
     "
   >
-    <NuxtLink
+    <a
       v-for="product in products"
       :key="product.id"
-      :to="localePath(`${link}/${product.id}`)"
+      :href="localePath(`${link}/${product.id}`)"
       class="flex flex-col border-b-2 border-gray"
+      target="_blank"
     >
       <div class="w-full h-60 border-2 border-primary mb-3 overflow-hidden">
         <img
@@ -35,7 +36,7 @@
       <h3 class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end">
         {{ returnLang === 'sr' ? product.name_sr : product.name_en }}
       </h3>
-    </NuxtLink>
+    </a>
   </div>
 </template>
 

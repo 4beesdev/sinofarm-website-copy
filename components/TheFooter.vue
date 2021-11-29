@@ -16,9 +16,9 @@
           </p>
         </div>
         <div class="mb-4 flex flex-col md:mr-10 lg:mr-0">
-          <h3 class="font-lato text-lg uppercase mb-2">
+          <span class="font-lato text-lg text-lightBlue uppercase mb-2">
             {{ $t('footer.company.title') }}
-          </h3>
+          </span>
           <NuxtLink
             :to="localePath('/about-us')"
             class="font-lato font-normal mb-2"
@@ -36,17 +36,17 @@
           >
         </div>
         <div class="mb-4 flex flex-col">
-          <h3 class="font-lato text-lg uppercase mb-2">
+          <span class="font-lato text-lightBlue text-lg uppercase mb-2">
             {{ $t('footer.news.title') }}
-          </h3>
+          </span>
           <NuxtLink to="/" class="font-lato font-normal mb-2">{{
             $t('footer.news.news')
           }}</NuxtLink>
         </div>
         <div class="flex flex-col">
-          <h3 class="font-lato text-lg uppercase mb-2">
+          <span class="font-lato text-lg text-lightBlue uppercase mb-2">
             {{ $t('footer.help.title') }}
-          </h3>
+          </span>
           <NuxtLink
             :to="localePath('/contact')"
             class="font-lato font-normal mb-2"

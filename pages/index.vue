@@ -14,17 +14,7 @@
         ></div> -->
         <div
           ref="bannerText"
-          class="
-            px-6
-            sm:w-96
-            lg:px-12
-            relative
-            z-2
-            banner-text
-            opacity-0
-            transform
-            translate-y-32
-          "
+          class="px-6 sm:w-96 lg:px-12 relative z-2 banner-text"
         >
           <span class="banner-heading font-bold text-white text-5xl mb-4"
             >Covid 19</span
@@ -59,9 +49,6 @@
           text-white
           font-normal
           text-lg
-          opacity-0
-          transform
-          -translate-y-32
         "
       >
         <div class="flex mb-2 lg:w-6/12 lg:mb-0 lg:mr-2">
@@ -210,8 +197,6 @@
                   duration-300
                   transform
                   hover:scale-110
-                  opacity-0
-                  translate-x-32
                 "
                 alt=""
               />
@@ -240,8 +225,6 @@
                   duration-300
                   transform
                   hover:scale-110
-                  opacity-0
-                  translate-x-32
                 "
                 alt=""
               />
@@ -275,8 +258,6 @@
                 duration-300
                 transform
                 hover:scale-110
-                opacity-0
-                translate-x-32
               "
               alt=""
             />
@@ -307,8 +288,6 @@
                 duration-300
                 transform
                 hover:scale-110
-                opacity-0
-                translate-x-32
               "
               alt=""
             />
@@ -339,8 +318,6 @@
                 duration-300
                 transform
                 hover:scale-110
-                opacity-0
-                translate-x-32
               "
               alt=""
             />
@@ -370,8 +347,6 @@
                 duration-300
                 transform
                 hover:scale-110
-                opacity-0
-                translate-x-32
               "
               alt=""
             />
@@ -435,10 +410,7 @@
     <!-- ABOUT US TEXT -->
     <div class="container mx-auto py-16 px-4">
       <div class="flex flex-col md:flex-row">
-        <div
-          ref="homeAboutText"
-          class="md:w-3/6 md:mr-5 opacity-0 transform -translate-x-32"
-        >
+        <div ref="homeAboutText" class="md:w-3/6 md:mr-5">
           <h2
             class="
               font-lato
@@ -468,14 +440,7 @@
         <div class="w-full mt-5 md:w-3/6">
           <img
             ref="homeAboutImg"
-            class="
-              w-full
-              h-full
-              object-cover
-              transform
-              translate-x-32
-              opacity-0
-            "
+            class="w-full h-full object-cover"
             src="@/assets/images/O-nama-3.jpg"
             alt=""
           />
@@ -494,15 +459,7 @@
         >
           <div
             ref="infoContact"
-            class="
-              flex flex-col
-              items-center
-              mb-10
-              md:mb-0
-              opacity-0
-              transform
-              -translate-y-36
-            "
+            class="flex flex-col items-center mb-10 md:mb-0"
           >
             <NuxtLink :to="localePath('/contact')">
               <img
@@ -537,16 +494,7 @@
               {{ $t('homepage.contact.text') }}:
             </p>
           </div>
-          <div
-            ref="infoLocations"
-            class="
-              flex flex-col
-              items-center
-              opacity-0
-              transform
-              -translate-y-36
-            "
-          >
+          <div ref="infoLocations" class="flex flex-col items-center">
             <NuxtLink :to="localePath('/contact')">
               <img
                 class="
@@ -609,19 +557,19 @@ export default {
     ...mapState(['articles']),
   },
   mounted() {
-    const elements = this.$refs
-    for (const el in elements) {
-      gsap.to(elements[el], {
-        scrollTrigger: {
-          trigger: elements[el],
-          start: 'center bottom',
-        },
-        y: 0,
-        x: 0,
-        opacity: 1,
-        duration: 0.5,
-      })
-    }
+    // const elements = this.$refs
+    // for (const el in elements) {
+    //   gsap.to(elements[el], {
+    //     scrollTrigger: {
+    //       trigger: elements[el],
+    //       start: '-100px top',
+    //     },
+    //     y: 0,
+    //     x: 0,
+    //     opacity: 1,
+    //     duration: 0.5,
+    //   })
+    // }
   },
   methods: {
     latestProducts(products) {

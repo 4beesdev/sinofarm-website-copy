@@ -162,11 +162,12 @@
             xl:grid-cols-4
           "
         >
-          <NuxtLink
+          <a
             v-for="product in watchProducts"
             :key="product.id"
-            :to="localePath(productUrl(product))"
+            :href="localePath(productUrl(product))"
             class="w-full flex flex-col"
+            target="_blank"
           >
             <div
               class="w-full h-60 border-2 border-primary mb-3 overflow-hidden"
@@ -191,7 +192,7 @@
             >
               {{ returnLang === 'sr' ? product.name_sr : product.name_en }}
             </h3>
-          </NuxtLink>
+          </a>
         </div>
       </div>
     </div>
