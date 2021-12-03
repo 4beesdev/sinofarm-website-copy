@@ -3,18 +3,31 @@
     <Popup></Popup>
     <div class="container mx-auto px-4 pt-48">
       <!-- BANNER -->
-      <div class="w-full banner relative flex items-center mb-2">
-        <img
-          class="w-full h-full object-cover absolute z-1 top-0 left-0"
-          src="@/assets/images/Cover-photo.jpg"
-          alt=""
-        />
-        <!-- <div
-          class="w-full h-full absolute z-0 top-0 left-0 bg-black opacity-60"
-        ></div> -->
+      <div
+        class="
+          w-full
+          banner
+          relative
+          flex flex-col
+          lg:flex-row
+          items-center
+          mb-2
+          overflow-hidden
+        "
+      >
         <div
           ref="bannerText"
-          class="px-6 sm:w-96 lg:px-12 relative z-2 banner-text"
+          class="
+            px-6
+            sm:w-96
+            lg:px-12
+            bg-lightBlue
+            h-full
+            py-6
+            banner-text
+            flex flex-col
+            justify-center
+          "
         >
           <span class="banner-heading font-bold text-white text-5xl mb-4"
             >Covid 19</span
@@ -38,6 +51,11 @@
             >{{ $t('button.more') }}</NuxtLink
           >
         </div>
+        <img
+          class="w-full h-full object-cover"
+          src="@/assets/images/banner-lake.jpg"
+          alt=""
+        />
       </div>
       <!-- HOME NAVIGATION BUTTONS -->
       <div

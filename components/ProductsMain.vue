@@ -5,13 +5,23 @@
     </h1>
     <div class="flex flex-col lg:flex-row">
       <div class="flex mb-10 flex-col w-full filterContainer lg:mr-10">
-        <Collapsible filter :link-title="$t('productspage.filter.categories')">
+        <Collapsible
+          filter
+          :link-title="$t('productspage.filter.categories')"
+          text-color="text-primary"
+          :is-toggled="watchToggled.category"
+          main
+          @click.native="setToggled($event, 'category', !toggled.category)"
+        >
           <template v-slot:body>
             <Collapsible
               v-for="cat in sinofarm.categories"
               :key="cat.name_sr"
               category
               :link-title="returnLang === 'sr' ? cat.name_sr : cat.name_en"
+              text-color="text-primary"
+              :is-toggled="isCatToggled(watchCategories, cat)"
+              @click.native="setCatToggled(cat)"
             >
               <template v-slot:body
                 ><button
@@ -51,7 +61,14 @@
             </Collapsible>
           </template>
         </Collapsible>
-        <Collapsible filter :link-title="$t('productspage.filter.industries')">
+        <Collapsible
+          filter
+          :link-title="$t('productspage.filter.industries')"
+          text-color="text-primary"
+          :is-toggled="watchToggled.industry"
+          main
+          @click.native="setToggled($event, 'industry', !toggled.industry)"
+        >
           <template v-slot:body>
             <button
               v-for="industry in industries"
@@ -63,7 +80,7 @@
                 items-center
                 text-left
                 font-lato
-                text-gray
+                text-primary
                 focus:outline-none focus:text-black
               "
               @click="setFilter(industry, 'industry')"
@@ -78,7 +95,14 @@
             </button>
           </template>
         </Collapsible>
-        <Collapsible filter :link-title="$t('productspage.filter.brands')">
+        <Collapsible
+          filter
+          :link-title="$t('productspage.filter.brands')"
+          text-color="text-primary"
+          :is-toggled="watchToggled.brand"
+          main
+          @click.native="setToggled($event, 'brand', !toggled.brand)"
+        >
           <template v-slot:body>
             <button
               v-for="brand in brands"
@@ -89,7 +113,7 @@
                 justify-between
                 items-center
                 font-lato
-                text-gray text-left
+                text-primary text-left
                 focus:outline-none focus:text-black
               "
               @click="setFilter(brand, 'brand')"
@@ -211,19 +235,32 @@ export default {
         brand: null,
         industry: null,
       },
+      toggled: {
+        category: false,
+        industry: false,
+        brand: false,
+      },
+      categories: [],
     }
   },
   computed: {
     returnLang() {
       return this.$i18n.locale
     },
+    watchToggled() {
+      return this.toggled
+    },
     watchProducts() {
       return this.filteredProducts
+    },
+    watchCategories() {
+      return this.categories
     },
     ...mapState(['sinofarm', 'brands', 'industries']),
   },
   mounted() {
     this.getProducts()
+    this.fillCategories()
   },
   methods: {
     getProducts() {
@@ -351,6 +388,54 @@ export default {
         this.filter.brand = null
       }
       this.filteredProducts = this.products.filter(this.filterProducts)
+    },
+    setToggled(event, type, value) {
+      if (event.target.classList.contains('main')) {
+        if (type === 'category') {
+          this.toggled.category = value
+          this.toggled.brand = false
+          this.toggled.industry = false
+        } else if (type === 'brand') {
+          this.toggled.category = false
+          this.toggled.brand = value
+          this.toggled.industry = false
+        } else if (type === 'industry') {
+          this.toggled.category = false
+          this.toggled.brand = false
+          this.toggled.industry = value
+        }
+      }
+    },
+    setCatToggled(category) {
+      this.categories.forEach((cat) => {
+        if (cat.slug === category.slug) {
+          cat.toggled = true
+        } else {
+          cat.toggled = false
+        }
+      })
+    },
+    isCatToggled(categories, cat) {
+      let isToggled = false
+      categories.forEach((el) => {
+        if (el.slug === cat.slug) {
+          if (el.toggled) {
+            isToggled = true
+          } else {
+            isToggled = false
+          }
+        }
+      })
+      return isToggled
+    },
+    fillCategories() {
+      const categories = this.$store.getters.getCategories
+      categories.forEach((cat) => {
+        const item = {}
+        item.slug = cat.slug
+        item.toggled = false
+        this.categories.push(item)
+      })
     },
   },
 }

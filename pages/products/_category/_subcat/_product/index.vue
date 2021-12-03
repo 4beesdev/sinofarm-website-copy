@@ -63,16 +63,13 @@
             />
           </a>
         </div>
-        <!-- Product info -->
-        <!-- <div v-if="loading" class="flex w-full justify-center">
-          <Spinner size="large" />
-        </div> -->
-
         <div v-if="product" class="flex w-full flex-col">
           <div class="flex flex-col mb-20 lg:flex-row">
-            <div
+            <a
               ref="overview"
-              class="w-full h-64 border-2 border-gray md:w-96 lg:mr-10"
+              :href="`https://sinofarm-portal.4bees.io${product.image.url}`"
+              target="_blank"
+              class="product-image border-2 border-primary md:w-96 lg:mr-10"
             >
               <img
                 v-if="product.image.url"
@@ -80,7 +77,7 @@
                 class="w-full h-full object-cover"
                 alt=""
               />
-            </div>
+            </a>
             <div class="lg:w-4/6">
               <h1 class="font-lato font-bold text-2xl text-primary mt-6 mb-6">
                 {{ returnLang === 'sr' ? product.name_sr : product.name_en }}
@@ -138,57 +135,6 @@
                 </div>
               </div>
             </div>
-            <!-- <p class="font-lato font-normal text-lg text-gray">
-              {{
-                returnLang === 'sr'
-                  ? product.specification_sr
-                  : product.specification_en
-              }}
-            </p> -->
-            <!-- <div class="flex flex-col lg:flex-row border border-primary">
-              <div
-                class="flex flex-1 flex-col border-b lg:border-r border-primary"
-              >
-                <span class="p-2 border-b border-primary bg-primary text-white"
-                  >REF Number</span
-                >
-                <div class="p-2">{{ product.refNumber }}</div>
-              </div>
-              <div
-                class="flex flex-1 flex-col lg:border-r border-b border-primary"
-              >
-                <span class="p-2 border-b border-primary bg-primary text-white"
-                  >Type</span
-                >
-                <div class="p-2">
-                  {{ product.type }}
-                </div>
-              </div>
-              <div
-                class="flex flex-1 flex-col border-b lg:border-r border-primary"
-              >
-                <span class="p-2 border-b border-primary bg-primary text-white"
-                  >Size</span
-                >
-                <div class="p-2">{{ product.size }}</div>
-              </div>
-              <div
-                class="flex flex-1 flex-col border-b lg:border-r border-primary"
-              >
-                <span class="p-2 border-b border-primary bg-primary text-white"
-                  >Color</span
-                >
-                <div class="p-2">{{ product.color }}</div>
-              </div>
-              <div
-                class="flex flex-1 flex-col border-b lg:border-r border-primary"
-              >
-                <span class="p-2 border-b border-primary bg-primary text-white"
-                  >Package</span
-                >
-                <div class="p-2">{{ product.package }}</div>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
@@ -199,7 +145,9 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      pageTitle: '',
+    }
   },
   computed: {
     returnLang() {
@@ -214,6 +162,9 @@ export default {
       return this.$store.getters.getSubcategory(this.product.subcategory.slug)
     },
   },
+  mounted() {
+    this.setPageTitle()
+  },
   methods: {
     scrollOverview() {
       this.$scrollTo(this.$refs.overview, 500, {
@@ -226,6 +177,16 @@ export default {
         easing: 'ease-in',
         offset: -250,
       })
+    },
+    setPageTitle() {
+      const product = this.$store.getters.getProductById(
+        parseInt(this.$route.params.product)
+      )
+      if (this.returnLang === 'en') {
+        this.pageTitle = product.name_en
+      } else {
+        this.pageTitle = product.name_sr
+      }
     },
     formatSpec(product) {
       const ref = product.refNumber.split('-').map((item) => item.trim())
@@ -247,13 +208,24 @@ export default {
       return specification
     },
   },
+  head() {
+    return {
+      title: `Sinofarm | ${this.pageTitle}`,
+    }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
+.product-image {
+  width: 50%;
+}
 @media only screen and(max-width: 1024px) {
   .row-container {
     min-width: 800px;
+  }
+  .product-image {
+    width: 100%;
   }
 }
 </style>

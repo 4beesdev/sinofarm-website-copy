@@ -7,12 +7,12 @@
         flex
         items-center
         justify-between
-        text-gray text-xl
+        text-xl
         border-b-2 border-gray
         py-4
         focus:outline-none
       "
-      @click="toggled = !toggled"
+      :class="textColor + main ? 'main' : ''"
     >
       {{ linkTitle }}
       <img src="@/assets/images/arrow-down.svg" class="w-4" alt="" />
@@ -26,16 +26,15 @@
         flex
         justify-between
         items-center
-        text-gray
         focus:outline-none
       "
-      @click="toggled = !toggled"
+      :class="textColor"
     >
       {{ linkTitle }}
       <img src="@/assets/images/arrow-down.svg" class="w-3 ml-2" alt="" />
     </button>
     <div
-      v-if="toggled"
+      v-if="isToggled"
       :class="`${category === true ? 'py-1' : 'py-3'}`"
       class="flex flex-col px-2"
     >
@@ -58,11 +57,21 @@ export default {
       type: Boolean,
       default: false,
     },
+    textColor: {
+      type: String,
+      default: 'text-gray',
+    },
+    isToggled: {
+      type: Boolean,
+      default: false,
+    },
+    main: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
-    return {
-      toggled: false,
-    }
+    return {}
   },
   watch: {
     $route(newRoute) {
