@@ -228,10 +228,10 @@
           >
             {{ text }}
           </p>
-          <div class="flex flex-wrap justify-between mt-10">
-            <img src="@/assets/images/sinomedic.svg" class="w-36" alt="" />
-            <img src="@/assets/images/sinodreams.svg" class="w-36" alt="" />
-            <img src="@/assets/images/sinofine.svg" class="w-32" alt="" />
+          <div class="flex flex-wrap justify-between gap-2 mt-10">
+            <img src="@/assets/images/sinomedic.svg" class="h-8" alt="" />
+            <img src="@/assets/images/sinodreams.svg" class="h-8" alt="" />
+            <img src="@/assets/images/sinofine.svg" class="h-8" alt="" />
           </div>
         </div>
         <div
