@@ -2,12 +2,7 @@
   <div class="w-full bg-secondary">
     <div class="container mx-auto py-16 px-4">
       <div
-        class="
-          flex flex-col
-          text-white
-          md:flex-row md:flex-wrap md:justify-center
-          lg:justify-between
-        "
+        class="flex flex-col text-white md:flex-row md:flex-wrap md:justify-center lg:justify-between"
       >
         <div class="mb-4 md:mr-10 lg:mr-0">
           <img src="@/assets/images/logo-white.svg" class="w-48 mb-2" alt="" />

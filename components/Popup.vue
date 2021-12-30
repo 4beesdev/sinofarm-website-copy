@@ -2,18 +2,7 @@
   <transition name="fade">
     <div
       v-if="ifShow"
-      class="
-        w-full
-        flex
-        items-center
-        px-4
-        justify-center
-        h-full
-        fixed
-        top-0
-        left-0
-        z-30
-      "
+      class="w-full flex items-center px-4 justify-center h-full fixed top-0 left-0 z-30"
     >
       <div
         class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-25 z-30"
@@ -37,15 +26,7 @@
         <div class="flex flex-col h-64 justify-center bg-lightGray p-2">
           <a
             href="#"
-            class="
-              w-full
-              flex
-              items-center
-              mb-5
-              hover:bg-white
-              transition
-              duration-300
-            "
+            class="w-full flex items-center mb-5 hover:bg-white transition duration-300"
             @click.prevent="setLang('sr')"
           >
             <img
@@ -59,14 +40,7 @@
           </a>
           <a
             href="#"
-            class="
-              w-full
-              flex
-              items-center
-              hover:bg-white
-              transition
-              duration-300
-            "
+            class="w-full flex items-center hover:bg-white transition duration-300"
             @click.prevent="setLang('en')"
           >
             <img

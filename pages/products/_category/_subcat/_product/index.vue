@@ -9,14 +9,7 @@
       <div class="flex flex-col lg:flex-row mt-4 lg:mt-16">
         <div class="flex mb-10 flex-col lg:w-80 lg:mr-20 relative z-1">
           <button
-            class="
-              flex
-              justify-between
-              text-gray text-xl
-              border-b-2 border-gray
-              py-6
-              focus:outline-none
-            "
+            class="flex justify-between text-gray text-xl border-b-2 border-gray py-6 focus:outline-none"
             @click="scrollOverview()"
           >
             {{ $t('product.overview') }}
@@ -27,14 +20,7 @@
             />
           </button>
           <button
-            class="
-              flex
-              justify-between
-              text-gray text-xl
-              border-b-2 border-gray
-              py-6
-              focus:outline-none
-            "
+            class="flex justify-between text-gray text-xl border-b-2 border-gray py-6 focus:outline-none"
             @click="scrollSpec()"
           >
             {{ $t('product.specification') }}
@@ -46,13 +32,7 @@
           </button>
           <a
             href="#"
-            class="
-              flex
-              justify-between
-              text-gray text-xl
-              border-b-2 border-gray
-              py-6
-            "
+            class="flex justify-between text-gray text-xl border-b-2 border-gray py-6"
             @click.prevent=""
           >
             {{ $t('product.details') }}
@@ -112,11 +92,7 @@
               <div
                 v-for="spec in formatSpec(product)"
                 :key="spec.ref"
-                class="
-                  border-primary border-b border-l border-r
-                  flex
-                  row-container
-                "
+                class="border-primary border-b border-l border-r flex row-container"
               >
                 <div class="flex-1 border-r border-primary p-2">
                   {{ spec.ref }}

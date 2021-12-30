@@ -39,16 +39,7 @@
                       `/products/${subcategory.category.slug}/${subcategory.slug}`
                     )
                   "
-                  class="
-                    mb-1
-                    flex
-                    justify-between
-                    items-center
-                    text-left
-                    font-lato
-                    text-gray
-                    focus:outline-none focus:text-black
-                  "
+                  class="mb-1 flex justify-between items-center text-left font-lato text-gray focus:outline-none focus:text-black"
                 >
                   {{
                     returnLang === 'sr'
@@ -81,16 +72,7 @@
             <button
               v-for="industry in industries"
               :key="industry.title_sr"
-              class="
-                mb-2
-                flex
-                justify-between
-                items-center
-                text-left
-                font-lato
-                text-primary
-                focus:outline-none focus:text-black
-              "
+              class="mb-2 flex justify-between items-center text-left font-lato text-primary focus:outline-none focus:text-black"
               @click="setFilter(industry, 'industry')"
             >
               {{ industry.title_sr }}
@@ -115,15 +97,7 @@
             <button
               v-for="brand in brands"
               :key="brand.name"
-              class="
-                mb-2
-                flex
-                justify-between
-                items-center
-                font-lato
-                text-primary text-left
-                focus:outline-none focus:text-black
-              "
+              class="mb-2 flex justify-between items-center font-lato text-primary text-left focus:outline-none focus:text-black"
               @click="setFilter(brand, 'brand')"
             >
               {{ brand.name }}
@@ -138,14 +112,7 @@
         </Collapsible>
       </div>
       <div
-        class="
-          grid grid-cols-1
-          md:grid-cols-2 md:gap-4
-          lg:grid-cols-4
-          pt-6
-          px-1
-          justify-center
-        "
+        class="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:grid-cols-4 pt-6 px-1 justify-center"
       >
         <NuxtLink
           v-for="subCat in subcategories"
@@ -158,9 +125,9 @@
             class="w-full h-52 object-cover mb-2 border-2 border-primary"
             alt=""
           />
-          <h2 class="text-center text-xl">
+          <p class="text-center text-lg text-gray font-medium">
             {{ returnLang === 'en' ? subCat.name_en : subCat.name_sr }}
-          </h2>
+          </p>
         </NuxtLink>
       </div>
     </div>

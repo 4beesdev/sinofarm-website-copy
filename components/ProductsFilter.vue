@@ -1,15 +1,7 @@
 <template>
   <div class="flex flex-col w-full lg:mr-10">
     <button
-      class="
-        flex
-        justify-between
-        items-center
-        text-primary text-gray text-xl
-        border-b-2 border-gray
-        py-4
-        focus:outline-none
-      "
+      class="flex justify-between items-center text-primary text-gray text-xl border-b-2 border-gray py-4 focus:outline-none"
       @click="categoriesToggled = !categoriesToggled"
     >
       {{ $t('productspage.filter.categories') }}
@@ -25,15 +17,7 @@
       </template>
     </ProductsFilterItem>
     <button
-      class="
-        flex
-        justify-between
-        items-center
-        text-primary text-gray text-xl
-        border-b-2 border-gray
-        py-4
-        focus:outline-none
-      "
+      class="flex justify-between items-center text-primary text-gray text-xl border-b-2 border-gray py-4 focus:outline-none"
       @click="brandsToggled = !brandsToggled"
     >
       {{ $t('productspage.filter.brands') }}
@@ -41,15 +25,7 @@
     </button>
     <ProductsFilterItem :toggled="brandsToggled"></ProductsFilterItem>
     <button
-      class="
-        flex
-        justify-between
-        items-center
-        text-primary text-gray text-xl
-        border-b-2 border-gray
-        py-4
-        focus:outline-none
-      "
+      class="flex justify-between items-center text-primary text-gray text-xl border-b-2 border-gray py-4 focus:outline-none"
       @click="industriesToggled = !industriesToggled"
     >
       {{ $t('productspage.filter.categories') }}

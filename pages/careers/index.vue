@@ -4,30 +4,13 @@
       <img
         ref="bannerImg"
         src="@/assets/images/careers.jpg"
-        class="
-          w-full
-          h-full
-          object-cover
-          mb-10
-          transform
-          -translate-y-32
-          opacity-0
-        "
+        class="w-full h-full object-cover mb-10 transform -translate-y-32 opacity-0"
         alt=""
       />
     </div>
     <h2
       ref="heading"
-      class="
-        text-3xl
-        font-bold
-        text-gray
-        font-lato
-        mb-5
-        transform
-        -translate-x-32
-        opacity-0
-      "
+      class="text-3xl font-bold text-gray font-lato mb-5 transform -translate-x-32 opacity-0"
     >
       {{ $t('careers.title') }}
     </h2>
@@ -47,59 +30,21 @@
     </div>
     <div
       ref="icons"
-      class="
-        flex flex-col
-        items-center
-        py-10
-        lg:flex-row lg:justify-between
-        transform
-        -translate-x-32
-        opacity-0
-      "
+      class="flex flex-col items-center py-10 lg:flex-row lg:justify-between transform -translate-x-32 opacity-0"
     >
       <div class="w-44 h-2 bg-lightBlue mb-10 lg:mb-0"></div>
       <div
-        class="
-          w-44
-          h-44
-          bg-lightBlue
-          flex
-          justify-center
-          items-center
-          rounded-full
-          mb-5
-          lg:mb-0
-        "
+        class="w-44 h-44 bg-lightBlue flex justify-center items-center rounded-full mb-5 lg:mb-0"
       >
         <img src="@/assets/images/careers-people.svg" class="w-20" alt="" />
       </div>
       <div
-        class="
-          w-44
-          h-44
-          bg-lightBlue
-          flex
-          justify-center
-          items-center
-          rounded-full
-          mb-5
-          lg:mb-0
-        "
+        class="w-44 h-44 bg-lightBlue flex justify-center items-center rounded-full mb-5 lg:mb-0"
       >
         <img src="@/assets/images/careers-hand.svg" class="w-20" alt="" />
       </div>
       <div
-        class="
-          w-44
-          h-44
-          bg-lightBlue
-          flex
-          justify-center
-          items-center
-          rounded-full
-          mb-10
-          lg:mb-0
-        "
+        class="w-44 h-44 bg-lightBlue flex justify-center items-center rounded-full mb-10 lg:mb-0"
       >
         <img src="@/assets/images/careers-up.svg" class="w-20" alt="" />
       </div>
@@ -107,32 +52,12 @@
     </div>
     <h2
       ref="cta"
-      class="
-        text-3xl
-        font-bold
-        text-gray
-        font-lato
-        mb-5
-        lg:text-center
-        transform
-        -translate-x-32
-        opacity-0
-      "
+      class="text-3xl font-bold text-gray font-lato mb-5 lg:text-center transform -translate-x-32 opacity-0"
     >
       {{ $t('careers.cta') }}
     </h2>
     <NuxtLink
-      class="
-        p-4
-        bg-primary
-        block
-        text-center
-        mt-4
-        w-60
-        font-lato font-bold
-        text-white
-        lg:mx-auto
-      "
+      class="p-4 bg-primary block text-center mt-4 w-60 font-lato font-bold text-white lg:mx-auto"
       :to="localePath('/contact')"
       >{{ $t('careers.btn') }}</NuxtLink
     >

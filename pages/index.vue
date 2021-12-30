@@ -4,30 +4,11 @@
     <div class="container mx-auto px-4 pt-48">
       <!-- BANNER -->
       <div
-        class="
-          w-full
-          banner
-          relative
-          flex flex-col
-          lg:flex-row
-          items-center
-          mb-2
-          overflow-hidden
-        "
+        class="w-full banner relative flex flex-col lg:flex-row items-center mb-2 overflow-hidden"
       >
         <div
           ref="bannerText"
-          class="
-            px-6
-            sm:w-96
-            lg:px-12
-            bg-lightBlue
-            h-full
-            py-6
-            banner-text
-            flex flex-col
-            justify-center
-          "
+          class="px-6 sm:w-96 lg:px-12 bg-lightBlue h-full py-6 banner-text flex flex-col justify-center"
         >
           <span class="banner-heading font-bold text-white text-5xl mb-4"
             >Covid 19</span
@@ -36,17 +17,7 @@
             {{ $t('homepage.covid') }}
           </p>
           <NuxtLink
-            class="
-              p-4
-              bg-primary
-              block
-              text-center
-              mt-4
-              w-60
-              font-lato font-bold
-              text-white
-              button-primary
-            "
+            class="p-4 bg-primary block text-center mt-4 w-60 font-lato font-bold text-white button-primary"
             :to="localePath('/covid')"
             >{{ $t('button.more') }}</NuxtLink
           >
@@ -60,43 +31,19 @@
       <!-- HOME NAVIGATION BUTTONS -->
       <div
         ref="homeNavigation"
-        class="
-          flex flex-col
-          lg:flex-row
-          font-lato
-          text-white
-          font-normal
-          text-lg
-        "
+        class="flex flex-col lg:flex-row font-lato text-white font-normal text-lg"
       >
         <div class="flex mb-2 lg:w-6/12 lg:mb-0 lg:mr-2">
           <NuxtLink
             :to="localePath('/products')"
-            class="
-              w-6/12
-              p-4
-              bg-primary
-              flex flex-col
-              items-center
-              justify-center
-              mr-2
-              navigation-button
-            "
+            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center mr-2 navigation-button"
           >
             <img src="@/assets/images/products.svg" class="w-12 mb-2" alt="" />
             {{ $t('homepage.navigation.products') }}
           </NuxtLink>
           <NuxtLink
             :to="localePath('/careers')"
-            class="
-              w-6/12
-              p-4
-              bg-primary
-              flex flex-col
-              items-center
-              justify-center
-              navigation-button
-            "
+            class="w-6/12 p-4 bg-primary flex flex-col items-center justify-center navigation-button"
           >
             <img src="@/assets/images/careers.svg" class="mb-2 w-12" alt="" />
             {{ $t('homepage.navigation.careers') }}
@@ -107,14 +54,7 @@
             <a
               href="http://www.apotekasinofarm.rs/"
               target="_blank"
-              class="
-                p-4
-                bg-primary
-                flex flex-col
-                items-center
-                justify-center
-                navigation-button
-              "
+              class="p-4 bg-primary flex flex-col items-center justify-center navigation-button"
             >
               <img
                 src="@/assets/images/pharmacy.svg"
@@ -127,47 +67,17 @@
           <div class="w-6/12 relative">
             <div class="">
               <div
-                class="
-                  absolute
-                  bg-black
-                  opacity-40
-                  z-10
-                  w-full
-                  h-full
-                  top-0
-                  left-0
-                  flex
-                  justify-center
-                  items-center
-                "
+                class="absolute bg-black opacity-40 z-10 w-full h-full top-0 left-0 flex justify-center items-center"
               ></div>
               <p
-                class="
-                  px-4
-                  py-1
-                  bg-primary
-                  border-2 border-white
-                  absolute
-                  z-20
-                  top-10
-                  right-0
-                "
+                class="px-4 py-1 bg-primary border-2 border-white absolute z-20 top-10 right-0"
               >
                 {{ $t('homepage.navigation.soon') }}
               </p>
             </div>
             <NuxtLink
               to="/"
-              class="
-                w-full
-                h-full
-                p-4
-                bg-primary
-                flex flex-col
-                items-center
-                justify-center
-                navigation-button
-              "
+              class="w-full h-full p-4 bg-primary flex flex-col items-center justify-center navigation-button"
             >
               <img src="@/assets/images/portal.svg" class="mb-2 w-12" alt="" />
               {{ $t('homepage.navigation.portal') }}
@@ -190,60 +100,25 @@
           <div class="flex flex-col lg:flex-row lg:w-6/12">
             <NuxtLink
               :to="localePath(productUrl(newOffers[0]))"
-              class="
-                border-2
-                lg:w-6/12
-                mb-2
-                mt-4
-                lg:mt-0
-                block
-                border-primary
-                h-64
-                overflow-hidden
-                lg:mr-2
-              "
+              class="border-2 lg:w-6/12 mb-2 mt-4 lg:mt-0 block border-primary h-64 overflow-hidden lg:mr-2"
             >
               <img
                 v-if="newOffers[0].image"
                 ref="homeProduct1"
                 :src="`https://sinofarm-portal.4bees.io${newOffers[0].image.url}`"
-                class="
-                  w-full
-                  h-full
-                  object-cover
-                  transition
-                  duration-300
-                  transform
-                  hover:scale-110
-                "
+                class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
                 alt=""
               />
             </NuxtLink>
             <NuxtLink
               :to="localePath(productUrl(newOffers[1]))"
-              class="
-                border-2
-                block
-                border-primary
-                mb-2
-                lg:w-6/12
-                h-64
-                overflow-hidden
-              "
+              class="border-2 block border-primary mb-2 lg:w-6/12 h-64 overflow-hidden"
             >
               <img
                 v-if="newOffers[1].image"
                 ref="homeProduct2"
                 :src="`https://sinofarm-portal.4bees.io${newOffers[1].image.url}`"
-                class="
-                  w-full
-                  h-full
-                  object-cover
-                  transition
-                  duration-300
-                  transform
-                  hover:scale-110
-                "
+                class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
                 alt=""
               />
             </NuxtLink>
@@ -252,120 +127,49 @@
         <div class="flex flex-col lg:flex-row">
           <NuxtLink
             :to="localePath(productUrl(newOffers[2]))"
-            class="
-              border-2
-              lg:w-3/12
-              mb-2
-              lg:mb-0 lg:mt-0
-              block
-              border-primary
-              h-64
-              overflow-hidden
-              lg:mr-2
-            "
+            class="border-2 lg:w-3/12 mb-2 lg:mb-0 lg:mt-0 block border-primary h-64 overflow-hidden lg:mr-2"
           >
             <img
               v-if="newOffers[2].image"
               ref="homeProduct3"
               :src="`https://sinofarm-portal.4bees.io${newOffers[2].image.url}`"
-              class="
-                w-full
-                h-full
-                object-cover
-                transition
-                duration-300
-                transform
-                hover:scale-110
-              "
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
               alt=""
             />
           </NuxtLink>
           <NuxtLink
             :to="localePath(productUrl(newOffers[3]))"
-            class="
-              border-2
-              lg:w-3/12
-              mb-2
-              lg:mb-0 lg:mt-0
-              block
-              border-primary
-              h-64
-              overflow-hidden
-              lg:mr-2
-            "
+            class="border-2 lg:w-3/12 mb-2 lg:mb-0 lg:mt-0 block border-primary h-64 overflow-hidden lg:mr-2"
           >
             <img
               v-if="newOffers[3].image"
               ref="homeProduct4"
               :src="`https://sinofarm-portal.4bees.io${newOffers[3].image.url}`"
-              class="
-                w-full
-                h-full
-                object-cover
-                transition
-                duration-300
-                transform
-                hover:scale-110
-              "
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
               alt=""
             />
           </NuxtLink>
           <NuxtLink
             :to="localePath(productUrl(newOffers[4]))"
-            class="
-              border-2
-              lg:w-3/12
-              mb-2
-              lg:mb-0 lg:mt-0
-              block
-              border-primary
-              h-64
-              overflow-hidden
-              lg:mr-2
-            "
+            class="border-2 lg:w-3/12 mb-2 lg:mb-0 lg:mt-0 block border-primary h-64 overflow-hidden lg:mr-2"
           >
             <img
               v-if="newOffers[4].image"
               ref="homeProduct5"
               :src="`https://sinofarm-portal.4bees.io${newOffers[4].image.url}`"
-              class="
-                w-full
-                h-full
-                object-cover
-                transition
-                duration-300
-                transform
-                hover:scale-110
-              "
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
               alt=""
             />
           </NuxtLink>
           <NuxtLink
             :to="localePath(productUrl(newOffers[5]))"
-            class="
-              border-2
-              lg:w-3/12
-              mb-2
-              lg:mb-0 lg:mt-0
-              block
-              border-primary
-              h-64
-              overflow-hidden
-            "
+            class="border-2 lg:w-3/12 mb-2 lg:mb-0 lg:mt-0 block border-primary h-64 overflow-hidden"
           >
             <img
               v-if="newOffers[5].image"
               ref="homeProduct6"
               :src="`https://sinofarm-portal.4bees.io${newOffers[5].image.url}`"
-              class="
-                w-full
-                h-full
-                object-cover
-                transition
-                duration-300
-                transform
-                hover:scale-110
-              "
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
               alt=""
             />
           </NuxtLink>
@@ -376,29 +180,12 @@
     <div class="w-full bg-primary py-16">
       <div class="container mx-auto px-4">
         <div
-          class="
-            grid grid-cols-1
-            justify-items-center
-            md:grid-cols-2
-            gap-10
-            lg:grid-cols-3
-          "
+          class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-10 lg:grid-cols-3"
         >
           <div
             v-for="article in articles"
             :key="article.id"
-            class="
-              bg-white
-              w-full
-              h-full
-              shadow-lg
-              sm:w-96
-              mb-10
-              xl:mb-0
-              duration-300
-              transform
-              hover:-translate-y-2
-            "
+            class="bg-white w-full h-full shadow-lg sm:w-96 mb-10 xl:mb-0 duration-300 transform hover:-translate-y-2"
           >
             <NuxtLink :to="`/news/${article.id}`">
               <img
@@ -430,15 +217,7 @@
       <div class="flex flex-col md:flex-row">
         <div ref="homeAboutText" class="md:w-3/6 md:mr-5">
           <h2
-            class="
-              font-lato
-              section-heading
-              text-3xl
-              underline
-              font-bold
-              text-gray
-              mb-4
-            "
+            class="font-lato section-heading text-3xl underline font-bold text-gray mb-4"
           >
             {{ $t('homepage.about.title') }}
           </h2>
@@ -469,11 +248,7 @@
     <div class="w-full bg-lightGray">
       <div class="container mx-auto py-16 px-4">
         <div
-          class="
-            flex flex-col
-            items-center
-            md:flex-row md:items-start md:justify-around
-          "
+          class="flex flex-col items-center md:flex-row md:items-start md:justify-around"
         >
           <div
             ref="infoContact"
@@ -481,14 +256,7 @@
           >
             <NuxtLink :to="localePath('/contact')">
               <img
-                class="
-                  w-16
-                  mb-5
-                  transform
-                  hover:-translate-y-2
-                  transition
-                  duration-300
-                "
+                class="w-16 mb-5 transform hover:-translate-y-2 transition duration-300"
                 src="@/assets/images/contact.svg"
                 alt=""
               />
@@ -501,13 +269,7 @@
               {{ $t('homepage.contact.title') }}
             </NuxtLink>
             <p
-              class="
-                text-normal text-gray
-                font-lato font-normal
-                w-64
-                text-center
-                lg:w-96
-              "
+              class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96"
             >
               {{ $t('homepage.contact.text') }}:
             </p>
@@ -515,14 +277,7 @@
           <div ref="infoLocations" class="flex flex-col items-center">
             <NuxtLink :to="localePath('/contact')">
               <img
-                class="
-                  w-16
-                  mb-5
-                  transform
-                  hover:-translate-y-2
-                  transition
-                  duration-300
-                "
+                class="w-16 mb-5 transform hover:-translate-y-2 transition duration-300"
                 src="@/assets/images/locations.svg"
                 alt=""
               />
@@ -534,13 +289,7 @@
               {{ $t('homepage.locations.title') }}
             </NuxtLink>
             <p
-              class="
-                text-normal text-gray
-                font-lato font-normal
-                w-64
-                text-center
-                lg:w-96
-              "
+              class="text-normal text-gray font-lato font-normal w-64 text-center lg:w-96"
             >
               {{ $t('homepage.locations.text') }}
             </p>

@@ -10,30 +10,14 @@
     </div>
     <h2
       ref="covidTitle"
-      class="
-        text-3xl
-        font-bold
-        text-gray
-        font-lato
-        mb-5
-        opacity-0
-        transform
-        -translate-x-32
-      "
+      class="text-3xl font-bold text-gray font-lato mb-5 opacity-0 transform -translate-x-32"
     >
       Covid
     </h2>
     <div class="grid grid-cols-1 gap-10 sm:grid-cols-2">
       <p
         ref="par1"
-        class="
-          text-lg
-          font-lato
-          text-gray text-justify
-          opacity-0
-          transform
-          -translate-x-32
-        "
+        class="text-lg font-lato text-gray text-justify opacity-0 transform -translate-x-32"
       >
         {{ $t('covidpage.text1') }}
       </p>
@@ -49,63 +33,26 @@
       </div>
       <p
         ref="covidDanger"
-        class="
-          text-lg
-          font-lato
-          text-white
-          bg-danger
-          p-4
-          col-span-full
-          text-center
-          opacity-0
-          transform
-          translate-y-32
-        "
+        class="text-lg font-lato text-white bg-danger p-4 col-span-full text-center opacity-0 transform translate-y-32"
       >
         {{ $t('covidpage.text3') }}
       </p>
       <div class="grid col-span-full gap-x-10 grid-col-1 sm:grid-cols-2">
         <h2
           ref="covidTitle2"
-          class="
-            text-3xl
-            font-bold
-            text-gray
-            font-lato
-            mb-5
-            col-span-full
-            opacity-0
-            transform
-            -translate-x-32
-          "
+          class="text-3xl font-bold text-gray font-lato mb-5 col-span-full opacity-0 transform -translate-x-32"
         >
           {{ $t('covidpage.title2') }}
         </h2>
         <p
           ref="text3"
-          class="
-            text-lg
-            font-lato
-            text-gray
-            mb-2
-            text-justify
-            opacity-0
-            transform
-            -translate-x-32
-          "
+          class="text-lg font-lato text-gray mb-2 text-justify opacity-0 transform -translate-x-32"
         >
           {{ $t('covidpage.text4') }}
         </p>
         <p
           ref="text4"
-          class="
-            text-lg
-            font-lato
-            text-gray text-justify
-            opacity-0
-            transform
-            translate-x-32
-          "
+          class="text-lg font-lato text-gray text-justify opacity-0 transform translate-x-32"
         >
           {{ $t('covidpage.text5') }}
         </p>

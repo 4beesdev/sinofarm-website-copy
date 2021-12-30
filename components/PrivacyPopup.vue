@@ -1,20 +1,7 @@
 <template>
   <div
     v-if="active"
-    class="
-      w-full
-      py-10
-      fixed
-      left-0
-      bottom-0
-      opacity-90
-      bg-white
-      z-30
-      font-lato
-      flex
-      justify-center
-      px-10
-    "
+    class="w-full py-10 fixed left-0 bottom-0 opacity-90 bg-white z-30 font-lato flex justify-center px-10"
   >
     <div class="flex flex-col sm:flex-row">
       <div class="sm:mr-10 text-center lg:text-left">
@@ -27,17 +14,7 @@
       </div>
       <div class="flex flex-col sm:flex-row items-center">
         <button
-          class="
-            mb-5
-            bg-primary
-            w-44
-            text-white
-            px-4
-            py-3
-            font-semibold
-            text-lg
-            sm:mb-0 sm:mr-10
-          "
+          class="mb-5 bg-primary w-44 text-white px-4 py-3 font-semibold text-lg sm:mb-0 sm:mr-10"
           @click="hideModal"
         >
           {{ $t('privacyPolicy.accept') }}
@@ -45,15 +22,7 @@
         <a
           href="/pdf/SINOFARM PRIVACY POLICY.pdf"
           target="_blank"
-          class="
-            border-2 border-primary
-            w-44
-            text-center text-primary
-            px-4
-            py-3
-            font-semibold
-            text-lg
-          "
+          class="border-2 border-primary w-44 text-center text-primary px-4 py-3 font-semibold text-lg"
           >{{ $t('privacyPolicy.read') }}</a
         >
       </div>

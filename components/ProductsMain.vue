@@ -30,16 +30,7 @@
                     sinofarm.subcategories
                   )"
                   :key="subcategory.name_sr"
-                  class="
-                    mb-1
-                    flex
-                    justify-between
-                    items-center
-                    text-left
-                    font-lato
-                    text-gray
-                    focus:outline-none focus:text-black
-                  "
+                  class="mb-1 flex justify-between items-center text-left font-lato text-gray focus:outline-none focus:text-black"
                   @click="setFilter(subcategory, 'category')"
                 >
                   {{
@@ -73,16 +64,7 @@
             <button
               v-for="industry in industries"
               :key="industry.title_sr"
-              class="
-                mb-2
-                flex
-                justify-between
-                items-center
-                text-left
-                font-lato
-                text-primary
-                focus:outline-none focus:text-black
-              "
+              class="mb-2 flex justify-between items-center text-left font-lato text-primary focus:outline-none focus:text-black"
               @click="setFilter(industry, 'industry')"
             >
               {{ industry.title_sr }}
@@ -107,15 +89,7 @@
             <button
               v-for="brand in brands"
               :key="brand.name"
-              class="
-                mb-2
-                flex
-                justify-between
-                items-center
-                font-lato
-                text-primary text-left
-                focus:outline-none focus:text-black
-              "
+              class="mb-2 flex justify-between items-center font-lato text-primary text-left focus:outline-none focus:text-black"
               @click="setFilter(brand, 'brand')"
             >
               {{ brand.name }}
@@ -177,21 +151,14 @@
           </div>
         </div>
         <div
-          class="
-            grid
-            gap-5
-            grid-columns-1
-            sm:grid-cols-2
-            lg:grid-cols-3
-            xl:grid-cols-4
-          "
+          class="grid gap-5 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
-          <a
+          <nuxt-link
             v-for="product in watchProducts"
             :key="product.id"
-            :href="localePath(productUrl(product))"
+            :to="localePath(productUrl(product))"
             class="w-full flex flex-col"
-            target="_blank"
+            target=""
           >
             <div
               class="w-full h-60 border-2 border-primary mb-3 overflow-hidden"
@@ -199,24 +166,16 @@
               <img
                 v-if="product.image !== null"
                 :src="`https://sinofarm-portal.4bees.io${product.image.url}`"
-                class="
-                  w-full
-                  h-full
-                  object-cover
-                  transition
-                  duration-300
-                  transform
-                  hover:scale-110
-                "
+                class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
                 alt=""
               />
             </div>
-            <h3
+            <p
               class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end"
             >
               {{ returnLang === 'sr' ? product.name_sr : product.name_en }}
-            </h3>
-          </a>
+            </p>
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -409,7 +368,7 @@ export default {
     setCatToggled(category) {
       this.categories.forEach((cat) => {
         if (cat.slug === category.slug) {
-          cat.toggled = true
+          cat.toggled = !cat.toggled
         } else {
           cat.toggled = false
         }

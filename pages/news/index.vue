@@ -3,30 +3,13 @@
     <Breadcrumb :items="$t('breadcrumb.news')"></Breadcrumb>
     <div class="container mx-auto px-4 py-10">
       <div
-        class="
-          grid grid-cols-1
-          justify-items-center
-          md:grid-cols-2
-          gap-10
-          lg:grid-cols-3
-        "
+        class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-10 lg:grid-cols-3"
       >
         <NuxtLink
           v-for="article in articles"
           :key="article.id"
           :to="`/news/${article.id}`"
-          class="
-            bg-white
-            w-full
-            h-full
-            shadow-lg
-            sm:w-96
-            mb-10
-            xl:mb-0
-            duration-300
-            transform
-            hover:-translate-y-2
-          "
+          class="bg-white w-full h-full shadow-lg sm:w-96 mb-10 xl:mb-0 duration-300 transform hover:-translate-y-2"
         >
           <img
             class="w-full h-64 object-cover"

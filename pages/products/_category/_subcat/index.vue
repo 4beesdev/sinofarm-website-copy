@@ -43,16 +43,7 @@
                       `/products/${subcategory.category.slug}/${subcategory.slug}`
                     )
                   "
-                  class="
-                    mb-1
-                    flex
-                    justify-between
-                    items-center
-                    text-left
-                    font-lato
-                    text-gray
-                    focus:outline-none focus:text-black
-                  "
+                  class="mb-1 flex justify-between items-center text-left font-lato text-gray focus:outline-none focus:text-black"
                 >
                   {{
                     returnLang === 'sr'
@@ -82,16 +73,7 @@
             <button
               v-for="industry in industries"
               :key="industry.title_sr"
-              class="
-                mb-2
-                flex
-                justify-between
-                items-center
-                text-left
-                font-lato
-                text-primary
-                focus:outline-none focus:text-black
-              "
+              class="mb-2 flex justify-between items-center text-left font-lato text-primary focus:outline-none focus:text-black"
               @click="setFilter(industry, 'industry')"
             >
               {{ industry.title_sr }}
@@ -116,15 +98,7 @@
             <button
               v-for="brand in brands"
               :key="brand.name"
-              class="
-                mb-2
-                flex
-                justify-between
-                items-center
-                font-lato
-                text-primary text-left
-                focus:outline-none focus:text-black
-              "
+              class="mb-2 flex justify-between items-center font-lato text-primary text-left focus:outline-none focus:text-black"
               @click="setFilter(brand, 'brand')"
             >
               {{ brand.name }}
