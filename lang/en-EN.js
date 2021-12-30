@@ -156,7 +156,7 @@ export default {
     details: 'Details',
   },
   footer: {
-    copy: 'Sinofarm. All rights reserved 2021.',
+    copy: 'Sinofarm. All rights reserved 2022.',
     company: {
       title: 'Our company',
       link1: 'About Sinofarm',

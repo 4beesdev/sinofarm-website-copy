@@ -158,7 +158,7 @@ export default {
     btn: 'Aplicirajte ovde',
   },
   footer: {
-    copy: 'Sinofarm. Sva prava zadržana 2021.',
+    copy: 'Sinofarm. Sva prava zadržana 2022.',
     company: {
       title: 'O nama',
       link1: 'Više o Sinofarm',
