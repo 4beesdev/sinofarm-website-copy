@@ -3,12 +3,12 @@
     v-if="products.length > 0"
     class="w-full grid gap-5 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
   >
-    <a
+    <nuxt-link
       v-for="product in products"
       :key="product.id"
-      :href="localePath(`${link}/${product.id}`)"
+      :to="localePath(`${link}/${product.id}`)"
       class="flex flex-col border-b-2 border-gray"
-      target="_blank"
+      target=""
     >
       <div class="w-full h-60 border-2 border-primary mb-3 overflow-hidden">
         <img
@@ -20,7 +20,7 @@
       <h3 class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end">
         {{ returnLang === 'sr' ? product.name_sr : product.name_en }}
       </h3>
-    </a>
+    </nuxt-link>
   </div>
 </template>
 
