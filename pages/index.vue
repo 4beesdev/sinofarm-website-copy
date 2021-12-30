@@ -214,8 +214,8 @@
     </div>
     <!-- ABOUT US TEXT -->
     <div class="container mx-auto py-16 px-4">
-      <div class="flex flex-col md:flex-row">
-        <div ref="homeAboutText" class="md:w-3/6 md:mr-5">
+      <div class="flex flex-col lg:flex-row">
+        <div ref="homeAboutText" class="lg:w-3/6 md:mr-5">
           <h2
             class="font-lato section-heading text-3xl underline font-bold text-gray mb-4"
           >
@@ -234,11 +234,28 @@
             <img src="@/assets/images/sinofine.svg" class="w-32" alt="" />
           </div>
         </div>
-        <div class="w-full mt-5 md:w-3/6">
+        <div
+          class="carousel-mobile flex gap-4 overflow-x-scroll w-full max-h-full mt-5 lg:w-3/6 lg:w-auto lg:flex-wrap lg:gap-0"
+        >
           <img
             ref="homeAboutImg"
-            class="w-full h-full object-cover"
+            class="w-11/12 lg:w-1/2 h-full lg:h-48 object-cover lg:p-2"
+            src="@/assets/images/O-nama-1.jpg"
+            alt=""
+          />
+          <img
+            class="w-11/12 lg:w-1/2 h-full lg:h-48 object-cover lg:p-2"
+            src="@/assets/images/O-nama-2.jpg"
+            alt=""
+          />
+          <img
+            class="w-11/12 lg:w-1/2 h-full lg:h-48 object-cover lg:p-2"
             src="@/assets/images/O-nama-3.jpg"
+            alt=""
+          />
+          <img
+            class="w-11/12 lg:w-1/2 h-full lg:h-48 object-cover lg:p-2"
+            src="@/assets/images/O-nama-4.jpg"
             alt=""
           />
         </div>
@@ -410,5 +427,19 @@ export default {
 }
 .header-link:hover.header-link::after {
   width: 100%;
+}
+
+.carousel-mobile {
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  * {
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 </style>
