@@ -78,7 +78,7 @@
             >
               {{ industry.title_sr }}
               <img
-                v-if="filter.industry && filter.industry.slug === industry.slug"
+                v-if="selectedSubcat === industry.slug"
                 src="~/assets/images/checked.svg"
                 alt=""
                 class="w-4 h-4"
@@ -103,7 +103,7 @@
             >
               {{ brand.name }}
               <img
-                v-if="filter.brand && filter.brand.name === brand.name"
+                v-if="selectedSubcat === brand.slug"
                 src="~/assets/images/checked.svg"
                 alt=""
                 class="w-4 h-4"
@@ -220,11 +220,21 @@ export default {
       this.categories.forEach((cat) => {
         if (cat.slug === slug.category) {
           cat.toggled = true
+          this.selectedSubcat = slug.subcat
         } else {
           cat.toggled = false
         }
       })
-      this.selectedSubcat = slug.subcat
+      this.industries.forEach((ind) => {
+        if (ind.slug === slug) {
+          this.selectedSubcat = slug.slug
+        }
+      })
+      this.brands.forEach((brand) => {
+        if (brand.slug === slug) {
+          this.selectedSubcat = slug.slug
+        }
+      })
     },
     isCatToggled(categories, cat) {
       let isToggled = false

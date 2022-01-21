@@ -102,7 +102,7 @@
             >
               {{ brand.name }}
               <img
-                v-if="filter.brand && filter.brand.name === brand.name"
+                v-if="$route.params.slug === brand.slug"
                 src="~/assets/images/checked.svg"
                 alt=""
                 class="w-4 h-4"

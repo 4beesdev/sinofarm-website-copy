@@ -31,7 +31,7 @@
                   )"
                   :key="subcategory.name_sr"
                   class="mb-1 flex justify-between items-center text-left font-lato text-gray focus:outline-none focus:text-black"
-                  @click="setFilter(subcategory, 'category')"
+                  @click.stop="setFilter(subcategory, 'category')"
                 >
                   {{
                     returnLang === 'sr'
@@ -61,11 +61,11 @@
           @click.native="setToggled($event, 'industry', !toggled.industry)"
         >
           <template v-slot:body>
-            <NuxtLink
+            <button
               v-for="industry in industries"
               :key="industry.title_sr"
-              :to="localePath(`/industries/${industry.slug}`)"
-              class="mb-2 flex justify-between items-center text-left font-lato text-primary focus:outline-none focus:text-black"
+              class="mb-1 flex justify-between items-center text-left font-lato text-gray focus:outline-none focus:text-black"
+              @click="setFilter(industry, 'industry')"
             >
               {{ industry.title_sr }}
               <img
@@ -74,7 +74,7 @@
                 alt=""
                 class="w-4 h-4"
               />
-            </NuxtLink>
+            </button>
           </template>
         </Collapsible>
         <Collapsible
@@ -86,11 +86,11 @@
           @click.native="setToggled($event, 'brand', !toggled.brand)"
         >
           <template v-slot:body>
-            <NuxtLink
+            <button
               v-for="brand in brands"
               :key="brand.name"
-              :to="localePath(`/brands/${brand.slug}`)"
               class="mb-2 flex justify-between items-center font-lato text-primary text-left focus:outline-none focus:text-black"
+              @click="setFilter(brand, 'brand')"
             >
               {{ brand.name }}
               <img
@@ -99,7 +99,7 @@
                 alt=""
                 class="w-4 h-4"
               />
-            </NuxtLink>
+            </button>
           </template>
         </Collapsible>
       </div>
@@ -366,6 +366,7 @@ export default {
       }
     },
     setCatToggled(category) {
+      console.log('click')
       this.categories.forEach((cat) => {
         if (cat.slug === category.slug) {
           cat.toggled = !cat.toggled

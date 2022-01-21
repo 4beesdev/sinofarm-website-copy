@@ -77,7 +77,7 @@
             >
               {{ industry.title_sr }}
               <img
-                v-if="filter.industry && filter.industry.slug === industry.slug"
+                v-if="$route.params.slug === industry.slug"
                 src="~/assets/images/checked.svg"
                 alt=""
                 class="w-4 h-4"
@@ -154,6 +154,7 @@ export default {
         industry: null,
       },
       categories: [],
+      selectedIndustry: null,
     }
   },
   computed: {
@@ -180,7 +181,7 @@ export default {
   mounted() {
     this.setPageTitle()
     this.fillCategories()
-    this.setCatToggledOnMount(this.$route.params.category)
+    this.setCatToggledOnMount(this.$route.params.slug)
   },
   methods: {
     setPageTitle() {
@@ -234,13 +235,11 @@ export default {
       })
     },
     setCatToggledOnMount(slug) {
-      this.categories.forEach((cat) => {
-        if (cat.slug === slug) {
-          cat.toggled = true
-        } else {
-          cat.toggled = false
-        }
-      })
+      // this.industries.forEach((ind) => {
+      //   if (ind.slug === slug) {
+      //     // this.selectedIndustry = ind
+      //   }
+      // })
     },
     isCatToggled(categories, cat) {
       let isToggled = false
