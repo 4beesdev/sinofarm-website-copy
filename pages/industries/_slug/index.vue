@@ -145,7 +145,7 @@ export default {
       pageTitle: '',
       toggled: {
         category: false,
-        industry: false,
+        industry: true,
         brand: false,
       },
       filter: {

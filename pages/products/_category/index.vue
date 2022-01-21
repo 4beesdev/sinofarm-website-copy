@@ -141,7 +141,7 @@ export default {
     return {
       pageTitle: '',
       toggled: {
-        category: false,
+        category: true,
         industry: false,
         brand: false,
       },

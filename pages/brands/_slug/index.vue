@@ -146,7 +146,7 @@ export default {
       toggled: {
         category: false,
         industry: false,
-        brand: false,
+        brand: true,
       },
       filter: {
         category: null,
