@@ -1,15 +1,11 @@
 <template>
   <div class="container mx-auto px-4 pt-48 pb-10">
-    <BreadcrumbN
-      products
-      :category="subcategory.category"
-      :current="subcategory"
-    ></BreadcrumbN>
+    <BreadcrumbN products :current="brandName"></BreadcrumbN>
     <h1
-      v-if="subcategory"
+      v-if="brandName"
       class="mt-6 mb-6 font-lato font-bold text-2xl text-primary"
     >
-      {{ returnLang === 'en' ? subcategory.name_en : subcategory.name_sr }}
+      {{ returnLang === 'en' ? brandName.title_en : brandName.title_sr }}
     </h1>
     <div class="flex flex-col lg:flex-row">
       <div class="flex mb-10 flex-col w-full filterContainer lg:mr-10">
@@ -51,7 +47,10 @@
                       : subcategory.name_en
                   }}
                   <img
-                    v-if="selectedSubcat === subcategory.slug"
+                    v-if="
+                      filter.category &&
+                      filter.category.slug === subcategory.slug
+                    "
                     src="~/assets/images/checked.svg"
                     alt=""
                     class="w-4 h-4"
@@ -70,11 +69,11 @@
           @click.native="setToggled($event, 'industry', !toggled.industry)"
         >
           <template v-slot:body>
-            <button
+            <NuxtLink
               v-for="industry in industries"
               :key="industry.title_sr"
+              :to="localePath(`/industries/${industry.slug}`)"
               class="mb-2 flex justify-between items-center text-left font-lato text-primary focus:outline-none focus:text-black"
-              @click="setFilter(industry, 'industry')"
             >
               {{ industry.title_sr }}
               <img
@@ -83,7 +82,7 @@
                 alt=""
                 class="w-4 h-4"
               />
-            </button>
+            </NuxtLink>
           </template>
         </Collapsible>
         <Collapsible
@@ -95,11 +94,11 @@
           @click.native="setToggled($event, 'brand', !toggled.brand)"
         >
           <template v-slot:body>
-            <button
+            <NuxtLink
               v-for="brand in brands"
               :key="brand.name"
+              :to="localePath(`/brands/${brand.slug}`)"
               class="mb-2 flex justify-between items-center font-lato text-primary text-left focus:outline-none focus:text-black"
-              @click="setFilter(brand, 'brand')"
             >
               {{ brand.name }}
               <img
@@ -108,14 +107,32 @@
                 alt=""
                 class="w-4 h-4"
               />
-            </button>
+            </NuxtLink>
           </template>
         </Collapsible>
       </div>
-      <Products
-        :products="products"
-        :link="`/products/${subcategory.category.slug}/${subcategory.slug}`"
-      ></Products>
+      <div
+        class="grid gap-4 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
+        <NuxtLink
+          v-for="product in products"
+          :key="product.id"
+          class="w-full"
+          :to="localePath(`/product/${product.id}`)"
+        >
+          <div class="w-full h-60 border-2 border-primary mb-3 overflow-hidden">
+            <img
+              v-if="product.image"
+              :src="`https://sinofarm-portal.4bees.io${product.image.url}`"
+              class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+              alt=""
+            />
+          </div>
+          <p class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end">
+            {{ returnLang === 'en' ? product.name_en : product.name_sr }}
+          </p>
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -137,18 +154,17 @@ export default {
         industry: null,
       },
       categories: [],
-      selectedSubcat: null,
     }
   },
   computed: {
     returnLang() {
       return this.$i18n.locale
     },
-    subcategory() {
-      return this.$store.getters.getSubcategory(this.$route.params.subcat)
-    },
     products() {
-      return this.$store.getters.getProductsBySubcat(this.$route.params.subcat)
+      return this.$store.getters.getProductsByBrand(this.$route.params.slug)
+    },
+    brandName() {
+      return this.$store.getters.getBrand(this.$route.params.slug)
     },
     watchToggled() {
       return this.toggled
@@ -161,18 +177,12 @@ export default {
   mounted() {
     this.setPageTitle()
     this.fillCategories()
-    this.setCatToggledOnMount(this.$route.params)
+    this.setCatToggledOnMount(this.$route.params.category)
   },
   methods: {
     setPageTitle() {
-      const category = this.$store.getters.getSubcategory(
-        this.$route.params.subcat
-      )
-      if (this.returnLang === 'en') {
-        this.pageTitle = category.name_en
-      } else {
-        this.pageTitle = category.name_sr
-      }
+      const category = this.$store.getters.getBrand(this.$route.params.slug)
+      this.pageTitle = category.name
     },
     returnSubcategories(cat, subcategories) {
       const subcat = subcategories.filter(
@@ -193,24 +203,24 @@ export default {
     setToggled(event, type, value) {
       if (event.target.classList.contains('main')) {
         if (type === 'category') {
-          this.toggled.category = value
+          this.toggled.category = !this.toggled.category
           this.toggled.brand = false
           this.toggled.industry = false
         } else if (type === 'brand') {
           this.toggled.category = false
-          this.toggled.brand = value
+          this.toggled.brand = !this.toggled.brand
           this.toggled.industry = false
         } else if (type === 'industry') {
           this.toggled.category = false
           this.toggled.brand = false
-          this.toggled.industry = value
+          this.toggled.industry = !this.toggled.industry
         }
       }
     },
     setCatToggled(category) {
       this.categories.forEach((cat) => {
         if (cat.slug === category.slug) {
-          cat.toggled = true
+          cat.toggled = !cat.toggled
         } else {
           cat.toggled = false
         }
@@ -218,13 +228,12 @@ export default {
     },
     setCatToggledOnMount(slug) {
       this.categories.forEach((cat) => {
-        if (cat.slug === slug.category) {
+        if (cat.slug === slug) {
           cat.toggled = true
         } else {
           cat.toggled = false
         }
       })
-      this.selectedSubcat = slug.subcat
     },
     isCatToggled(categories, cat) {
       let isToggled = false

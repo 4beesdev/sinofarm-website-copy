@@ -1,11 +1,7 @@
 <template>
   <div class="pt-48">
     <div class="container mx-auto px-4 py-10">
-      <BreadcrumbN
-        products
-        :category="subcategory.category"
-        :subcategory="subcategory"
-      ></BreadcrumbN>
+      <BreadcrumbN products></BreadcrumbN>
       <div class="flex flex-col lg:flex-row mt-4 lg:mt-16">
         <div class="flex mb-10 flex-col lg:w-80 lg:mr-20 relative z-1">
           <button
@@ -30,18 +26,6 @@
               alt=""
             />
           </button>
-          <!-- <a
-            href="#"
-            class="flex justify-between text-gray text-xl border-b-2 border-gray py-6"
-            @click.prevent=""
-          >
-            {{ $t('product.details') }}
-            <img
-              src="@/assets/images/arrow-down.svg"
-              class="w-6 transform -rotate-90"
-              alt=""
-            />
-          </a> -->
         </div>
         <div v-if="product" class="flex w-full flex-col">
           <div class="flex flex-col mb-10 lg:flex-row">
@@ -137,12 +121,7 @@ export default {
       return this.$i18n.locale
     },
     product() {
-      return this.$store.getters.getProductById(
-        parseInt(this.$route.params.product)
-      )
-    },
-    subcategory() {
-      return this.$store.getters.getSubcategory(this.product.subcategory.slug)
+      return this.$store.getters.getProductById(parseInt(this.$route.params.id))
     },
   },
   mounted() {
@@ -163,7 +142,7 @@ export default {
     },
     setPageTitle() {
       const product = this.$store.getters.getProductById(
-        parseInt(this.$route.params.product)
+        parseInt(this.$route.params.id)
       )
       if (this.returnLang === 'en') {
         this.pageTitle = product.name_en

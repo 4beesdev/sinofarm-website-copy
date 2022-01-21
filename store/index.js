@@ -92,12 +92,12 @@ export const actions = {
     commit('SET_ARTICLE', article.data)
     commit('SET_LOADINGSTATUS', false)
   },
-
+  // Get all brands
   async getBrands({ commit }) {
     const brands = await axios.get('https://sinofarm-portal.4bees.io/brands')
     commit('SET_BRANDS', brands.data)
   },
-
+  // Get all industries
   async getIndustries({ commit }) {
     const industries = await axios.get(
       'https://sinofarm-portal.4bees.io/industries'
@@ -119,6 +119,12 @@ export const getters = {
   getSubcategories: (state) => {
     return state.sinofarm.subcategories
   },
+  getBrands: (state) => {
+    return state.brands
+  },
+  getIndustries: (state) => {
+    return state.industries
+  },
   getProductById: (state) => (id) => {
     return state.sinofarm.products.find((product) => product.id === id)
   },
@@ -133,7 +139,25 @@ export const getters = {
   getSubcategory: (state) => (slug) => {
     return state.sinofarm.subcategories.find((el) => el.slug === slug)
   },
+  getBrand: (state) => (slug) => {
+    return state.brands.find((el) => el.slug === slug)
+  },
+  getIndustry: (state) => (slug) => {
+    return state.industries.find((el) => el.slug === slug)
+  },
   getProductsBySubcat: (state) => (slug) => {
     return state.sinofarm.products.filter((el) => el.subcategory.slug === slug)
+  },
+  getProductsByIndustry: (state) => (slug) => {
+    return state.sinofarm.products
+      .filter((el) => el.industries.some((ind) => ind.slug === slug))
+      .map((el) => {
+        return Object.assign({}, el, {
+          industries: el.industries.filter((ind) => ind.slug === slug),
+        })
+      })
+  },
+  getProductsByBrand: (state) => (slug) => {
+    return state.sinofarm.products.filter((el) => el.brand.slug === slug)
   },
 }

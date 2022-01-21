@@ -78,17 +78,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-// .with-arrow {
-//   position: relative;
-
-//   &::after {
-//     content: '';
-//     background-image: url('~assets/images/arrow-down.svg');
-//     width: 2rem;
-//     height: auto;
-//     position: absolute;
-//     left: 0;
-//   }
-// }
-</style>
+<style lang="scss" scoped></style>

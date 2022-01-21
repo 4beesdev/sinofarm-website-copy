@@ -141,7 +141,7 @@ export default {
     filter: {
       categories: 'Categories',
       industries: 'Industries',
-      brands: 'Brends',
+      brands: 'Brands',
     },
     filterIcon: {
       category: 'Category',

@@ -67,17 +67,6 @@
               </NuxtLink>
               <NuxtLink :to="switchLocalePath('en')"> EN </NuxtLink>
             </div>
-            <!-- <NuxtLink :to="switchLocalePath('sr')">
-              <img src="@/assets/images/serbia.svg" class="w-8" alt="" />
-            </NuxtLink>
-            <span class="mx-3">/</span>
-            <NuxtLink :to="switchLocalePath('en')">
-              <img
-                src="@/assets/images/united-kingdom.svg"
-                class="w-8"
-                alt=""
-              />
-            </NuxtLink> -->
           </div>
         </div>
         <div
@@ -118,7 +107,7 @@
           <NuxtLink
             v-for="brand in headerData.brands"
             :key="brand.name"
-            :to="localePath(`/products/${brand.slug}`)"
+            :to="localePath(`/brands/${brand.slug}`)"
             class="flex flex-col items-center text-normal text-center text-base text-gray p-4 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
           >
             <div v-if="brand.logo">
@@ -138,7 +127,7 @@
           <NuxtLink
             v-for="industry in headerData.industries"
             :key="industry.title_sr"
-            :to="localePath(`/products/${industry.slug}`)"
+            :to="localePath(`/industries/${industry.slug}`)"
             class="text-normal text-left text-base text-gray py-2 px-3 my-2 hover:bg-lightGray transition duration-300 ease-in-out"
           >
             {{ industry.title_sr }}

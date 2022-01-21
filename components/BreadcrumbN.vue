@@ -24,9 +24,11 @@
       {{ returnLang === 'en' ? subcategory.name_en : subcategory.name_sr }}
       <span class="ml-2">/</span>
     </NuxtLink>
-    <span v-if="current" class="mr-2">{{
-      returnLang === 'en' ? current.name_en : current.name_sr
-    }}</span>
+    <span v-if="current" class="mr-2">
+      {{ returnLang === 'en' ? current.name_en : current.name_sr }}
+      {{ returnLang === 'en' ? current.title_en : current.title_sr }}
+      {{ current.name }}
+    </span>
   </div>
 </template>
 

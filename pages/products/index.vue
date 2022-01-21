@@ -4,7 +4,6 @@
       :current="{ name_sr: 'Proizvodi', name_en: 'Products' }"
     ></BreadcrumbN>
     <transition name="fade">
-      <!-- <ProductList :products="sinofarm.products" /> -->
       <ProductsMain></ProductsMain>
     </transition>
   </div>

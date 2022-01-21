@@ -61,11 +61,11 @@
           @click.native="setToggled($event, 'industry', !toggled.industry)"
         >
           <template v-slot:body>
-            <button
+            <NuxtLink
               v-for="industry in industries"
               :key="industry.title_sr"
+              :to="localePath(`/industries/${industry.slug}`)"
               class="mb-2 flex justify-between items-center text-left font-lato text-primary focus:outline-none focus:text-black"
-              @click="setFilter(industry, 'industry')"
             >
               {{ industry.title_sr }}
               <img
@@ -74,7 +74,7 @@
                 alt=""
                 class="w-4 h-4"
               />
-            </button>
+            </NuxtLink>
           </template>
         </Collapsible>
         <Collapsible
@@ -86,11 +86,11 @@
           @click.native="setToggled($event, 'brand', !toggled.brand)"
         >
           <template v-slot:body>
-            <button
+            <NuxtLink
               v-for="brand in brands"
               :key="brand.name"
+              :to="localePath(`/brands/${brand.slug}`)"
               class="mb-2 flex justify-between items-center font-lato text-primary text-left focus:outline-none focus:text-black"
-              @click="setFilter(brand, 'brand')"
             >
               {{ brand.name }}
               <img
@@ -99,7 +99,7 @@
                 alt=""
                 class="w-4 h-4"
               />
-            </button>
+            </NuxtLink>
           </template>
         </Collapsible>
       </div>
@@ -151,7 +151,7 @@
           </div>
         </div>
         <div
-          class="grid gap-5 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          class="grid gap-4 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           <nuxt-link
             v-for="product in watchProducts"
@@ -164,7 +164,7 @@
               class="w-full h-60 border-2 border-primary mb-3 overflow-hidden"
             >
               <img
-                v-if="product.image !== null"
+                v-if="product.image"
                 :src="`https://sinofarm-portal.4bees.io${product.image.url}`"
                 class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
                 alt=""

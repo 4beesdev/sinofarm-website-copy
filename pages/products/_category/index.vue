@@ -13,7 +13,7 @@
           filter
           :link-title="$t('productspage.filter.categories')"
           text-color="text-primary"
-          is-toggled
+          :is-toggled="watchToggled.category"
           main
           @click.native="setToggled($event, 'category', !toggled.category)"
         >
@@ -69,11 +69,11 @@
           @click.native="setToggled($event, 'industry', !toggled.industry)"
         >
           <template v-slot:body>
-            <button
+            <NuxtLink
               v-for="industry in industries"
               :key="industry.title_sr"
+              :to="localePath(`/industries/${industry.slug}`)"
               class="mb-2 flex justify-between items-center text-left font-lato text-primary focus:outline-none focus:text-black"
-              @click="setFilter(industry, 'industry')"
             >
               {{ industry.title_sr }}
               <img
@@ -82,7 +82,7 @@
                 alt=""
                 class="w-4 h-4"
               />
-            </button>
+            </NuxtLink>
           </template>
         </Collapsible>
         <Collapsible
@@ -94,11 +94,11 @@
           @click.native="setToggled($event, 'brand', !toggled.brand)"
         >
           <template v-slot:body>
-            <button
+            <NuxtLink
               v-for="brand in brands"
               :key="brand.name"
+              :to="localePath(`/brands/${brand.slug}`)"
               class="mb-2 flex justify-between items-center font-lato text-primary text-left focus:outline-none focus:text-black"
-              @click="setFilter(brand, 'brand')"
             >
               {{ brand.name }}
               <img
@@ -107,25 +107,25 @@
                 alt=""
                 class="w-4 h-4"
               />
-            </button>
+            </NuxtLink>
           </template>
         </Collapsible>
       </div>
       <div
-        class="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:grid-cols-4 pt-6 px-1 justify-center"
+        class="grid gap-4 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         <NuxtLink
           v-for="subCat in subcategories"
           :key="subCat.slug"
-          class="w-full mb-8 px-4"
+          class="w-full"
           :to="localePath(`/products/${$route.params.category}/${subCat.slug}`)"
         >
           <img
             :src="`https://sinofarm-portal.4bees.io${subCat.img.url}`"
-            class="w-full h-52 object-cover mb-2 border-2 border-primary"
+            class="w-full h-60 object-cover mb-2 border-2 border-primary"
             alt=""
           />
-          <p class="text-center text-lg text-gray font-medium">
+          <p class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end">
             {{ returnLang === 'en' ? subCat.name_en : subCat.name_sr }}
           </p>
         </NuxtLink>
@@ -206,24 +206,24 @@ export default {
     setToggled(event, type, value) {
       if (event.target.classList.contains('main')) {
         if (type === 'category') {
-          this.toggled.category = value
+          this.toggled.category = !this.toggled.category
           this.toggled.brand = false
           this.toggled.industry = false
         } else if (type === 'brand') {
           this.toggled.category = false
-          this.toggled.brand = value
+          this.toggled.brand = !this.toggled.brand
           this.toggled.industry = false
         } else if (type === 'industry') {
           this.toggled.category = false
           this.toggled.brand = false
-          this.toggled.industry = value
+          this.toggled.industry = !this.toggled.industry
         }
       }
     },
     setCatToggled(category) {
       this.categories.forEach((cat) => {
         if (cat.slug === category.slug) {
-          cat.toggled = true
+          cat.toggled = !cat.toggled
         } else {
           cat.toggled = false
         }
