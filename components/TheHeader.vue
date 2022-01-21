@@ -95,13 +95,13 @@
               >{{ $t('header.navigation.brands') }}</a
             >
           </div>
-          <NuxtLink to="http://www.apotekasinofarm.rs/">
+          <a href="http://www.apotekasinofarm.rs/">
             <img
               src="@/assets/images/Apoteka-Sinofarm-Logo-svg-1.svg"
               class="w-40"
               alt=""
             />
-          </NuxtLink>
+          </a>
         </div>
         <div v-if="brandsToggled" class="grid grid-cols-4 pt-6 px-1">
           <NuxtLink
