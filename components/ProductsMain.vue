@@ -366,7 +366,6 @@ export default {
       }
     },
     setCatToggled(category) {
-      console.log('click')
       this.categories.forEach((cat) => {
         if (cat.slug === category.slug) {
           cat.toggled = !cat.toggled
