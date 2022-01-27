@@ -16,7 +16,9 @@ export const state = () => ({
 
 export const mutations = {
   SET_CATEGORIES(state, categories) {
-    state.sinofarm.categories = categories
+    state.sinofarm.categories = categories.sort((a, b) => {
+      return a.id - b.id
+    })
   },
   SET_PRODUCTS(state, products) {
     state.sinofarm.products = products
