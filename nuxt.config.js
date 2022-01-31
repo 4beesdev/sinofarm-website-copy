@@ -61,7 +61,13 @@ export default {
         lazy: true,
         langDir: 'lang/',
         defaultLocale: 'sr',
-        detectBrowserLanguage: false,
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieDomain: null,
+          cookieKey: 'lang',
+          alwaysRedirect: true,
+          fallbackLocale: 'sr'
+        },
       },
     ],
     '@nuxtjs/axios',

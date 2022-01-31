@@ -57,7 +57,11 @@
           </div>
           <!-- Specification -->
           <div
-            v-if="product.specification_sr || product.specification_en"
+            v-if="
+              product.specification_sr ||
+              product.specification_en ||
+              product.refNumber
+            "
             id="specification"
             ref="specification"
             class="mb-20"
@@ -65,7 +69,7 @@
             <h2 class="font-lato font-bold text-2xl text-primary mb-6">
               {{ $t('product.specification') }}
             </h2>
-            <div v-if="product.refNumber !== null" class="overflow-x-auto mb-6">
+            <div v-if="product.refNumber" class="overflow-x-auto mb-6">
               <div class="bg-primary flex text-white py-2 row-container">
                 <div class="flex-1 pl-2">REF Number</div>
                 <div class="flex-1 pl-2">Type</div>

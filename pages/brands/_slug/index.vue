@@ -97,7 +97,11 @@
             <NuxtLink
               v-for="brand in brands"
               :key="brand.name"
-              :to="localePath(`/brands/${brand.slug}`)"
+              :to="
+                brand.slug !== $route.params.slug
+                  ? localePath(`/brands/${brand.slug}`)
+                  : localePath(`/products`)
+              "
               class="mb-2 flex justify-between items-center font-lato text-primary text-left focus:outline-none focus:text-black"
             >
               {{ brand.name }}

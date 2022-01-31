@@ -73,7 +73,11 @@
           </div>
           <!-- Specification -->
           <div
-            v-if="product.specification_sr || product.specification_en"
+            v-if="
+              product.specification_sr ||
+              product.specification_en ||
+              product.refNumber
+            "
             id="specification"
             ref="specification"
             class="mb-20"

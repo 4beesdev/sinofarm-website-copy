@@ -34,9 +34,11 @@
           <span class="font-lato text-lightBlue text-lg uppercase mb-2">
             {{ $t('footer.news.title') }}
           </span>
-          <NuxtLink to="/" class="font-lato font-normal mb-2">{{
-            $t('footer.news.news')
-          }}</NuxtLink>
+          <NuxtLink
+            :to="localePath('/news')"
+            class="font-lato font-normal mb-2"
+            >{{ $t('footer.news.news') }}</NuxtLink
+          >
         </div>
         <div class="flex flex-col">
           <span class="font-lato text-lg text-lightBlue uppercase mb-2">
