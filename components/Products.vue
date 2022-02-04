@@ -19,9 +19,9 @@
         />
         <div v-else class="h-full w-full bg-blue-50"></div>
       </div>
-      <h3 class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end">
+      <p class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end">
         {{ returnLang === 'sr' ? product.name_sr : product.name_en }}
-      </h3>
+      </p>
     </nuxt-link>
   </div>
 </template>
