@@ -5,44 +5,12 @@
         products
         :category="subcategory.category"
         :subcategory="subcategory"
+        :current="product"
       ></BreadcrumbN>
       <div class="flex flex-col lg:flex-row mt-4 lg:mt-16">
-        <div class="flex mb-10 flex-col lg:w-80 lg:mr-20 relative z-1">
-          <button
-            class="flex justify-between text-gray text-xl border-b-2 border-gray py-6 focus:outline-none"
-            @click="scrollOverview()"
-          >
-            {{ $t('product.overview') }}
-            <img
-              src="@/assets/images/arrow-down.svg"
-              class="w-6 transform -rotate-90"
-              alt=""
-            />
-          </button>
-          <button
-            class="flex justify-between text-gray text-xl border-b-2 border-gray py-6 focus:outline-none"
-            @click="scrollSpec()"
-          >
-            {{ $t('product.specification') }}
-            <img
-              src="@/assets/images/arrow-down.svg"
-              class="w-6 transform -rotate-90"
-              alt=""
-            />
-          </button>
-          <!-- <a
-            href="#"
-            class="flex justify-between text-gray text-xl border-b-2 border-gray py-6"
-            @click.prevent=""
-          >
-            {{ $t('product.details') }}
-            <img
-              src="@/assets/images/arrow-down.svg"
-              class="w-6 transform -rotate-90"
-              alt=""
-            />
-          </a> -->
-        </div>
+        <!-- for side menu -->
+        <!-- <div class="flex mb-10 flex-col lg:w-80 lg:mr-20 relative z-1"></div> -->
+        <SideMenu />
         <div v-if="product" class="flex w-full flex-col">
           <div class="flex flex-col mb-10 lg:flex-row">
             <a

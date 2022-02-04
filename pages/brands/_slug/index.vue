@@ -122,7 +122,7 @@
           v-for="product in products"
           :key="product.id"
           class="w-full"
-          :to="localePath(`/product/${product.id}`)"
+          :to="localePath(productUrl(product))"
         >
           <div class="w-full h-60 border-2 border-primary mb-3 overflow-hidden">
             <img
@@ -260,6 +260,16 @@ export default {
         item.toggled = false
         this.categories.push(item)
       })
+    },
+    productUrl(product) {
+      const subcategory = this.$store.getters.getSubcategory(
+        product.subcategory.slug
+      )
+      if (subcategory) {
+        return `/products/${subcategory.category.slug}/${subcategory.slug}/${product.id}`
+      } else {
+        return `/product/${product.id}`
+      }
     },
   },
   head() {

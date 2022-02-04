@@ -31,7 +31,7 @@
                   )"
                   :key="subcategory.name_sr"
                   class="mb-1 flex justify-between items-center text-left font-lato text-gray focus:outline-none focus:text-black"
-                  @click.stop="setFilter(subcategory, 'category')"
+                  @click.stop="setFilter(subcategory, 'subcategory')"
                 >
                   {{
                     returnLang === 'sr'
@@ -40,8 +40,8 @@
                   }}
                   <img
                     v-if="
-                      filter.category &&
-                      filter.category.slug === subcategory.slug
+                      chosenFilter.subcategory &&
+                      chosenFilter.subcategory.slug === subcategory.slug
                     "
                     src="~/assets/images/checked.svg"
                     alt=""
@@ -69,7 +69,10 @@
             >
               {{ industry.title_sr }}
               <img
-                v-if="filter.industry && filter.industry.slug === industry.slug"
+                v-if="
+                  chosenFilter.industry &&
+                  chosenFilter.industry.slug === industry.slug
+                "
                 src="~/assets/images/checked.svg"
                 alt=""
                 class="w-4 h-4"
@@ -94,7 +97,9 @@
             >
               {{ brand.name }}
               <img
-                v-if="filter.brand && filter.brand.name === brand.name"
+                v-if="
+                  chosenFilter.brand && chosenFilter.brand.name === brand.name
+                "
                 src="~/assets/images/checked.svg"
                 alt=""
                 class="w-4 h-4"
@@ -105,8 +110,11 @@
       </div>
       <!-- List of products starts here -->
       <div class="flex flex-col">
+        <!-- TODO: change filter category for subcategory -->
         <div
-          v-if="filter.category || filter.brand || filter.industry"
+          v-if="
+            chosenFilter.category || chosenFilter.brand || chosenFilter.industry
+          "
           class="flex flex-col my-5"
         >
           <p class="mb-2 text-xl text-primary">
@@ -114,35 +122,52 @@
           </p>
           <div class="flex flex-wrap">
             <div
-              v-if="filter.category"
+              v-if="chosenFilter.subcategory"
               class="flex items-center border p-2 border-primary mr-2"
             >
               {{
                 returnLang === 'en'
-                  ? filter.category.name_en
-                  : filter.category.name_sr
+                  ? chosenFilter.subcategory.name_en
+                  : chosenFilter.subcategory.name_sr
+              }}
+              <button class="p-2 ml-2" @click="clearFilter('subcategory')">
+                <img src="@/assets/images/close.svg" class="w-2" alt="" />
+              </button>
+            </div>
+            <div
+              v-else-if="chosenFilter.category"
+              class="flex items-center border p-2 border-primary mr-2"
+            >
+              {{
+                returnLang === 'en'
+                  ? chosenFilter.category.name_en
+                  : chosenFilter.category.name_sr
               }}
               <button class="p-2 ml-2" @click="clearFilter('category')">
                 <img src="@/assets/images/close.svg" class="w-2" alt="" />
               </button>
             </div>
             <div
-              v-if="filter.brand"
+              v-if="chosenFilter.brand"
               class="flex items-center border p-2 border-primary mr-2"
             >
-              {{ returnLang === 'en' ? filter.brand.name : filter.brand.name }}
+              {{
+                returnLang === 'en'
+                  ? chosenFilter.brand.name
+                  : chosenFilter.brand.name
+              }}
               <button class="p-2 ml-2" @click="clearFilter('brand')">
                 <img src="@/assets/images/close.svg" class="w-2" alt="" />
               </button>
             </div>
             <div
-              v-if="filter.industry"
+              v-if="chosenFilter.industry"
               class="flex items-center border p-2 border-primary mr-2"
             >
               {{
                 returnLang === 'en'
-                  ? filter.industry.title_en
-                  : filter.industry.title_sr
+                  ? chosenFilter.industry.title_en
+                  : chosenFilter.industry.title_sr
               }}
               <button class="p-2 ml-2" @click="clearFilter('industry')">
                 <img src="@/assets/images/close.svg" class="w-2" alt="" />
@@ -189,8 +214,9 @@ export default {
     return {
       products: [],
       filteredProducts: [],
-      filter: {
+      chosenFilter: {
         category: null,
+        subcategory: null,
         brand: null,
         industry: null,
       },
@@ -243,108 +269,136 @@ export default {
       return subcat
     },
     setFilter(item, type) {
-      if (type === 'category') {
-        this.filter.category = item
-      } else if (type === 'industry') {
-        this.filter.industry = item
-      } else if (type === 'brand') {
-        this.filter.brand = item
+      for (const [key, value] of Object.entries(this.chosenFilter)) {
+        if (key === type) {
+          value === item
+            ? this.clearFilter(type)
+            : (this.chosenFilter[key] = item)
+        }
       }
       this.filteredProducts = this.products.filter(this.filterProducts)
     },
     filterProducts(product) {
+      // TODO: change filter category for subcategory
       let valid = false
+
       // Only category is selected
       if (
-        this.filter.category &&
-        this.filter.brand === null &&
-        this.filter.industry === null
+        this.chosenFilter.category &&
+        !this.chosenFilter.brand &&
+        !this.chosenFilter.industry
       ) {
-        if (product.subcategory.slug === this.filter.category.slug) {
-          valid = true
-        }
-        // Category and brand selected
-      } else if (
-        this.filter.category &&
-        this.filter.brand &&
-        this.filter.industry === null
-      ) {
-        if (
-          product.subcategory.slug === this.filter.category.slug &&
-          product.brand.slug === this.filter.brand.slug
+        // if there is a subcategory and slugs match
+        if (this.chosenFilter.subcategory) {
+          if (product.subcategory.slug === this.chosenFilter.subcategory.slug) {
+            valid = true
+          }
+          // if no subcategory's selected
+        } else if (
+          product.subcategory.category === this.chosenFilter.category.id
         ) {
           valid = true
         }
+
+        // category and brand selected
+      } else if (
+        this.chosenFilter.category &&
+        this.chosenFilter.brand &&
+        !this.chosenFilter.industry
+      ) {
+        if (this.chosenFilter.subcategory) {
+          if (
+            product.subcategory.slug === this.chosenFilter.subcategory.slug &&
+            product.brand.slug === this.chosenFilter.brand.slug
+          ) {
+            valid = true
+          }
+        } else if (
+          product.subcategory.category === this.chosenFilter.category.id &&
+          product.brand.slug === this.chosenFilter.brand.slug
+        ) {
+          valid = true
+        }
+
         // Category, brand, industries selected
       } else if (
-        this.filter.category &&
-        this.filter.brand &&
-        this.filter.industry
+        this.chosenFilter.category &&
+        this.chosenFilter.brand &&
+        this.chosenFilter.industry
       ) {
         const industries = []
         product.industries.forEach((el) => {
           industries.push(el.slug)
         })
-        if (
-          product.subcategory.slug === this.filter.category.slug &&
-          product.brand.slug === this.filter.brand.slug &&
-          industries.includes(this.filter.industry.slug)
+
+        if (this.chosenFilter.subcategory) {
+          if (
+            product.subcategory.slug === this.chosenFilter.subcategory.slug &&
+            product.brand.slug === this.chosenFilter.brand.slug &&
+            industries.includes(this.chosenFilter.industry.slug)
+          ) {
+            valid = true
+          }
+        } else if (
+          product.subcategory.category === this.chosenFilter.category.id &&
+          product.brand.slug === this.chosenFilter.brand.slug &&
+          industries.includes(this.chosenFilter.industry.slug)
         ) {
           valid = true
         }
         // Only brand is selected
       } else if (
-        this.filter.category === null &&
-        this.filter.brand &&
-        this.filter.industry === null
+        !this.chosenFilter.subcategory &&
+        this.chosenFilter.brand &&
+        !this.chosenFilter.industry
       ) {
-        if (product.brand.slug === this.filter.brand.slug) {
+        if (product.brand.slug === this.chosenFilter.brand.slug) {
           valid = true
         }
         // Brand and industries selected
       } else if (
-        this.filter.brand &&
-        this.filter.industry &&
-        this.filter.category === null
+        this.chosenFilter.brand &&
+        this.chosenFilter.industry &&
+        !this.chosenFilter.subcategory
       ) {
         const industries = []
         product.industries.forEach((el) => {
           industries.push(el.slug)
         })
         if (
-          product.brand.slug === this.filter.brand.slug &&
-          industries.includes(this.filter.industry.slug)
+          product.brand.slug === this.chosenFilter.brand.slug &&
+          industries.includes(this.chosenFilter.industry.slug)
         ) {
           valid = true
         }
+        // only industry is selected
       } else if (
-        this.filter.brand === null &&
-        this.filter.industry &&
-        this.filter.category === null
+        !this.chosenFilter.brand &&
+        this.chosenFilter.industry &&
+        !this.chosenFilter.subcategory
       ) {
         const industries = []
         product.industries.forEach((el) => {
           industries.push(el.slug)
         })
-        if (industries.includes(this.filter.industry.slug)) {
+        if (industries.includes(this.chosenFilter.industry.slug)) {
           valid = true
         }
+        // none are chosen
       } else if (
-        this.filter.category === null &&
-        this.filter.brand === null &&
-        this.filter.industry === null
+        !this.chosenFilter.subcategory &&
+        !this.chosenFilter.brand &&
+        !this.chosenFilter.industry
       ) {
         valid = true
       }
       return valid
     },
     clearFilter(type) {
-      if (type === 'category') {
-        this.filter.category = null
-      } else if (type === 'industry') {
-        this.filter.industry = null
-      } else if (type === 'brand') {
-        this.filter.brand = null
+      for (const [key] of Object.entries(this.chosenFilter)) {
+        if (type === key) {
+          this.chosenFilter[key] = null
+        }
       }
       this.filteredProducts = this.products.filter(this.filterProducts)
     },
@@ -373,6 +427,7 @@ export default {
           cat.toggled = false
         }
       })
+      this.setFilter(category, 'category')
     },
     isCatToggled(categories, cat) {
       let isToggled = false
