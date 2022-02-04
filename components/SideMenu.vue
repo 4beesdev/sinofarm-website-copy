@@ -35,6 +35,12 @@
               {{
                 returnLang === 'sr' ? subcategory.name_sr : subcategory.name_en
               }}
+              <img
+                v-if="$route.params.subcat === subcategory.slug"
+                src="~/assets/images/checked.svg"
+                alt=""
+                class="w-4 h-4"
+              />
             </NuxtLink>
           </template>
         </Collapsible>
@@ -91,7 +97,7 @@ export default {
   data() {
     return {
       toggled: {
-        category: false,
+        category: true,
         industry: false,
         brand: false,
       },
