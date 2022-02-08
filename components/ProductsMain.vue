@@ -274,6 +274,11 @@ export default {
           value === item
             ? this.clearFilter(type)
             : (this.chosenFilter[key] = item)
+          if (type === 'category' && value === item) {
+            this.clearFilter('subcategory')
+          } else if (type === 'category' && value !== item) {
+            this.chosenFilter.subcategory = null
+          }
         }
       }
       this.filteredProducts = this.products.filter(this.filterProducts)
