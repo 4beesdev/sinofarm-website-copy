@@ -44,10 +44,8 @@ export default {
       const products = this.$store.getters.getProducts
       const result = products.filter(this.loop)
       this.filteredProducts = result
-      console.log(this.filteredProducts)
     },
     loop(product) {
-      console.log(this.queryAsArray)
       if (!this.queryAsArray) return true
       const amountOfSearchParams = this.queryAsArray.length
       let isValuePresent = 0
