@@ -110,7 +110,6 @@
       </div>
       <!-- List of products starts here -->
       <div class="flex flex-col">
-        <!-- TODO: change filter category for subcategory -->
         <div
           v-if="
             chosenFilter.category || chosenFilter.brand || chosenFilter.industry
@@ -192,7 +191,7 @@
                 v-if="product.image"
                 :src="`https://sinofarm-portal.4bees.io${product.image.url}`"
                 class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
-                alt=""
+                :alt="returnLang === 'sr' ? product.name_sr : product.name_en"
               />
             </div>
             <p

@@ -7,10 +7,10 @@
       v-for="product in products"
       :key="product.id"
       :to="localePath(`${link}/${product.id}`)"
-      class="flex flex-col border-b-2"
+      class="product flex flex-col border-b-2"
       target=""
     >
-      <div class="w-full h-60 border-2 border-primary mb-3 overflow-hidden">
+      <div class="w-full h-60 border-2 mb-3 overflow-hidden">
         <img
           v-if="product.image"
           :src="`https://sinofarm-portal.4bees.io${product.image.url}`"

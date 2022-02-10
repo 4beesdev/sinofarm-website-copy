@@ -25,19 +25,23 @@
             </a>
           </div>
           <div class="relative w-full h-full lg:w-96">
-            <input
-              id=""
-              class="w-full border-2 border-primary p-2 rounded-2xl focus:outline-none"
-              type="text"
-              name=""
-              :placeholder="$t('header.search')"
-            />
-            <button
-              type="submit"
-              class="absolute w-12 flex justify-center items-center h-full right-0 top-0"
-            >
-              <img src="@/assets/images/search.svg" class="w-6" alt="" />
-            </button>
+            <form action="">
+              <input
+                id=""
+                v-model="searchQuery"
+                class="w-full border-2 border-primary p-2 rounded-2xl focus:outline-none"
+                type="text"
+                name=""
+                :placeholder="$t('header.search')"
+              />
+              <button
+                type="submit"
+                class="absolute w-12 flex justify-center items-center h-full right-0 top-0"
+                @click.prevent="submitSearch"
+              >
+                <img src="@/assets/images/search.svg" class="w-6" alt="" />
+              </button>
+            </form>
           </div>
           <div
             class="hidden text-base text-gray font-lato relative font-bold lg:flex lg:flex-col"
@@ -206,6 +210,7 @@ export default {
       langToggled: false,
       industriesToggled: false,
       productsToggled: false,
+      searchQuery: '',
     }
   },
   computed: {
@@ -246,6 +251,12 @@ export default {
         (sub) => sub.category.name_sr === cat.name_sr
       )
       return subcat
+    },
+    submitSearch() {
+      const searchWords = this.searchQuery.split(' ').join('-')
+      this.returnLang === 'en'
+        ? this.$router.push('/en/search?q=' + searchWords)
+        : this.$router.push('/search?q=' + searchWords)
     },
   },
 }
