@@ -6,7 +6,7 @@
     <nuxt-link
       v-for="product in products"
       :key="product.id"
-      :to="localePath(`${link}/${product.id}`)"
+      :to="localePath(productUrl(product))"
       class="product flex flex-col border-b-2"
       target=""
     >
@@ -45,6 +45,18 @@ export default {
   computed: {
     returnLang() {
       return this.$i18n.locale
+    },
+  },
+  methods: {
+    productUrl(product) {
+      const subcategory = this.$store.getters.getSubcategory(
+        product.subcategory.slug
+      )
+      if (subcategory) {
+        return `/products/${subcategory.category.slug}/${subcategory.slug}/${product.id}`
+      } else {
+        return '/'
+      }
     },
   },
 }
