@@ -109,7 +109,7 @@
         </Collapsible>
       </div>
       <!-- List of products starts here -->
-      <div class="flex flex-col">
+      <div v-if="!chosenFilter.product" class="flex flex-col">
         <div
           v-if="
             chosenFilter.category || chosenFilter.brand || chosenFilter.industry
@@ -177,12 +177,11 @@
         <div
           class="grid gap-4 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
-          <nuxt-link
+          <div
             v-for="product in watchProducts"
             :key="product.id"
-            :to="localePath(productUrl(product))"
             class="w-full flex flex-col"
-            target=""
+            @click="setFilter(product, 'product')"
           >
             <div
               class="w-full h-60 border-2 border-primary mb-3 overflow-hidden"
@@ -199,9 +198,10 @@
             >
               {{ returnLang === 'sr' ? product.name_sr : product.name_en }}
             </p>
-          </nuxt-link>
+          </div>
         </div>
       </div>
+      <Product v-if="chosenFilter.product" :product="chosenFilter.product" />
     </div>
   </div>
 </template>
@@ -214,6 +214,7 @@ export default {
       products: [],
       filteredProducts: [],
       chosenFilter: {
+        product: null,
         category: null,
         subcategory: null,
         brand: null,
@@ -268,6 +269,9 @@ export default {
       return subcat
     },
     setFilter(item, type) {
+      if (item !== 'product') {
+        this.clearFilter('product')
+      }
       for (const [key, value] of Object.entries(this.chosenFilter)) {
         if (key === type) {
           value === item
