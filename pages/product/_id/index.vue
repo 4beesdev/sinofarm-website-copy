@@ -27,7 +27,8 @@
             />
           </button>
         </div>
-        <div v-if="product" class="flex w-full flex-col">
+        <Product v-if="product" :product="product" />
+        <div v-if="false" class="flex w-full flex-col">
           <div class="flex flex-col mb-10 lg:flex-row">
             <a
               ref="overview"
@@ -92,7 +93,7 @@
                   {{ spec.size }}
                 </div>
                 <div class="flex-1 border-r border-primary p-2">
-                  {{ returnLang === 'en' ? spec.color : spec.color_rs }}
+                  {{ returnLang === 'en' ? spec.color : spec.color_sr }}
                 </div>
                 <div class="flex-1 p-2">
                   {{ spec.pack }}

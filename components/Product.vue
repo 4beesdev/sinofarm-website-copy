@@ -64,7 +64,7 @@
             {{ spec.size }}
           </div>
           <div class="flex-1 border-r border-primary p-2">
-            {{ returnLang === 'en' ? spec.color : spec.color_rs }}
+            {{ returnLang === 'en' ? spec.color : spec.color_sr }}
           </div>
           <div class="flex-1 p-2">
             {{ spec.pack }}
