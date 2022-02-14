@@ -108,6 +108,8 @@ export default {
       const type = product.type.split('-').map((item) => item.trim())
       const size = product.size.split('-').map((item) => item.trim())
       const color = product.color.split('-').map((item) => item.trim())
+      // eslint-disable-next-line
+      const color_sr = product.color_sr.split('-').map((item) => item.trim())
       const pack = product.package.split('-').map((item) => item.trim())
 
       const specification = []
@@ -117,6 +119,8 @@ export default {
         temp.type = type[i]
         temp.size = size[i]
         temp.color = color[i]
+        // eslint-disable-next-line
+        temp.color_sr = color_sr[i]
         temp.pack = pack[i]
         specification.push(temp)
       })
