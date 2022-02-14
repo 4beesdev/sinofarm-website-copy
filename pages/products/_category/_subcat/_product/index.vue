@@ -11,7 +11,8 @@
         <!-- for side menu -->
         <!-- <div class="flex mb-10 flex-col lg:w-80 lg:mr-20 relative z-1"></div> -->
         <SideMenu />
-        <div v-if="product" class="flex w-full flex-col">
+        <Product v-if="product" :product="product" />
+        <div v-if="false" class="flex w-full flex-col">
           <div class="flex flex-col mb-10 lg:flex-row">
             <a
               ref="overview"
