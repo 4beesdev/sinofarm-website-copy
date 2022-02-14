@@ -180,7 +180,7 @@
           <div
             v-for="product in watchProducts"
             :key="product.id"
-            class="w-full flex flex-col"
+            class="w-full flex flex-col cursor-pointer"
             @click="setFilter(product, 'product')"
           >
             <div

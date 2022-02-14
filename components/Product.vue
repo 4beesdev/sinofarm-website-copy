@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product" class="flex w-full flex-col cursor-pointer" tabindex="0">
+  <div v-if="product" class="flex w-full flex-col" tabindex="0">
     <div class="flex flex-col mb-10 lg:flex-row">
       <a
         ref="overview"
