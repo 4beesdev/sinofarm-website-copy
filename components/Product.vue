@@ -41,7 +41,7 @@
       <h2 class="font-lato font-bold text-2xl text-primary mb-6">
         {{ $t('product.specification') }}
       </h2>
-      <div v-if="product.refNumber !== null" class="overflow-x-auto mb-6">
+      <div v-if="false" class="overflow-x-auto mb-6">
         <div class="bg-primary flex text-white py-2 row-container">
           <div class="flex-1 pl-2">REF Number</div>
           <div class="flex-1 pl-2">Type</div>
@@ -71,6 +71,39 @@
           </div>
         </div>
       </div>
+      <div style="max-width: 100vw" class="overflow-x-scroll">
+        <table
+          v-if="product.refNumber !== null"
+          class="product-table mb-6 w-full border border-primary"
+        >
+          <tr class="bg-primary text-white text-left">
+            <th class="sm:pl-2 w-4 sm:w-1/5 font-normal py-2">
+              {{ returnLang === 'en' ? 'REF Number' : 'REF Broj' }}
+            </th>
+            <th class="sm:pl-2 font-normal w-1/5">
+              {{ returnLang === 'en' ? 'Type' : 'Tip' }}
+            </th>
+            <th class="sm:pl-2 font-normal w-1/5">
+              {{ returnLang === 'en' ? 'Size' : 'Veličina' }}
+            </th>
+            <th class="sm:pl-2 font-normal w-1/5">
+              {{ returnLang === 'en' ? 'Color' : 'Boja' }}
+            </th>
+            <th class="sm:pl-2 font-normal w-auto">
+              {{ returnLang === 'en' ? 'Package' : 'Pakovanje' }}
+            </th>
+          </tr>
+          <tr v-for="spec in formatSpec(product)" :key="spec.ref" class="">
+            <td class="py-2 sm:p-2">{{ spec.ref }}</td>
+            <td class="sm:p-2">{{ spec.type }}</td>
+            <td class="sm:p-2 break-words">{{ spec.size }}</td>
+            <td class="sm:p-2">
+              {{ returnLang === 'en' ? spec.color : spec.color_sr }}
+            </td>
+            <td class="sm:p-2">{{ spec.pack }}</td>
+          </tr>
+        </table>
+      </div>
       <div class="whitespace-pre-line">
         {{
           returnLang === 'sr'
@@ -96,11 +129,6 @@ export default {
     returnLang() {
       return this.$i18n.locale
     },
-    // product() {
-    //   return this.$store.getters.getProductById(
-    //     parseInt(this.$route.params.product)
-    //   )
-    // },
   },
   methods: {
     formatSpec(product) {
@@ -109,11 +137,9 @@ export default {
       const size = product.size.split('-').map((item) => item.trim())
       const color = product.color.split('-').map((item) => item.trim())
       // eslint-disable-next-line
-      if (product.color_sr) {
-        const color_sr = product.color_sr.split('-').map((item) => item.trim())
-      } else {
-        const color_sr = product.color.split('-').map((item) => item.trim())
-      }
+      let color_sr = null
+      // eslint-disable-next-line
+      product.color_sr ? color_sr = product.color_sr.split('-').map((item) => item.trim()) : color_sr = product.color.split('-').map((item) => item.trim())
       const pack = product.package.split('-').map((item) => item.trim())
 
       const specification = []
@@ -134,4 +160,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.product-table {
+  tr + tr {
+    @apply border-t border-primary;
+  }
+  td + td {
+    @apply border-l border-primary;
+  }
+}
+</style>
