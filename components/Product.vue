@@ -109,7 +109,11 @@ export default {
       const size = product.size.split('-').map((item) => item.trim())
       const color = product.color.split('-').map((item) => item.trim())
       // eslint-disable-next-line
-      const color_sr = product.color_sr.split('-').map((item) => item.trim())
+      if (product.color_sr) {
+        const color_sr = product.color_sr.split('-').map((item) => item.trim())
+      } else {
+        const color_sr = product.color.split('-').map((item) => item.trim())
+      }
       const pack = product.package.split('-').map((item) => item.trim())
 
       const specification = []
