@@ -216,22 +216,38 @@
     <div class="container mx-auto py-16 px-4">
       <div class="flex flex-col lg:flex-row">
         <div ref="homeAboutText" class="lg:w-3/6 md:mr-5">
-          <h2
-            class="font-lato section-heading text-3xl underline font-bold text-gray mb-4"
-          >
-            {{ $t('homepage.about.title') }}
-          </h2>
+          <NuxtLink :to="localePath('/about-us')">
+            <h2
+              class="font-lato section-heading text-3xl underline font-bold text-gray mb-4"
+            >
+              {{ $t('homepage.about.title') }}
+            </h2>
+          </NuxtLink>
           <p
-            v-for="(text, index) in $t('homepage.about.text')"
-            :key="index"
-            class="font-lato text-normal font-normal text-gray mb-2"
+            class="font-lato text-normal font-normal text-gray mb-2 whitespace-pre-line"
           >
-            {{ text }}
+            {{
+              returnLang === 'en'
+                ? this.about.short_text_en
+                : this.about.short_text_sr
+            }}
           </p>
           <div class="flex flex-wrap justify-between gap-2 mt-10">
-            <img src="@/assets/images/sinomedic.svg" class="h-8" alt="" />
-            <img src="@/assets/images/sinodreams.svg" class="h-8" alt="" />
-            <img src="@/assets/images/sinofine.svg" class="h-8" alt="" />
+            <img
+              src="@/assets/images/sinomedic.svg"
+              class="h-8"
+              alt="sinomedic logo"
+            />
+            <img
+              src="@/assets/images/sinodreams.svg"
+              class="h-8"
+              alt="sinodreams logo"
+            />
+            <img
+              src="@/assets/images/sinofine.svg"
+              class="h-8"
+              alt="sinofine logo"
+            />
           </div>
         </div>
         <div
@@ -241,22 +257,22 @@
             ref="homeAboutImg"
             class="w-11/12 lg:w-1/2 h-full lg:h-48 object-cover lg:p-2"
             src="@/assets/images/O-nama-1.jpg"
-            alt=""
+            alt="inventory"
           />
           <img
             class="w-11/12 lg:w-1/2 h-full lg:h-48 object-cover lg:p-2"
             src="@/assets/images/O-nama-2.jpg"
-            alt=""
+            alt="sinomedic bus"
           />
           <img
             class="w-11/12 lg:w-1/2 h-full lg:h-48 object-cover lg:p-2"
             src="@/assets/images/O-nama-3.jpg"
-            alt=""
+            alt="inventory"
           />
           <img
             class="w-11/12 lg:w-1/2 h-full lg:h-48 object-cover lg:p-2"
             src="@/assets/images/O-nama-4.jpg"
-            alt=""
+            alt="office desk"
           />
         </div>
       </div>
@@ -338,8 +354,12 @@ export default {
     products() {
       return this.$store.getters.getProducts
     },
+    about() {
+      return this.$store.getters.getAboutUs
+    },
     ...mapState(['articles']),
   },
+  mounted() {},
   methods: {
     latestProducts(products) {
       const temp = products.map((el) => el)

@@ -12,6 +12,7 @@ export const state = () => ({
   brands: [],
   industries: [],
   loading: false,
+  about: {},
 })
 
 export const mutations = {
@@ -43,6 +44,9 @@ export const mutations = {
   },
   SET_INDUSTRIES(state, industries) {
     state.industries = industries
+  },
+  SET_ABOUT(state, about) {
+    state.about = about
   },
 }
 export const actions = {
@@ -106,6 +110,10 @@ export const actions = {
     )
     commit('SET_INDUSTRIES', industries.data)
   },
+  async getAboutUs({ commit }) {
+    const about = await axios.get('https://sinofarm-portal.4bees.io/pages/1')
+    commit('SET_ABOUT', about.data)
+  },
 }
 
 export const getters = {
@@ -161,5 +169,8 @@ export const getters = {
   },
   getProductsByBrand: (state) => (slug) => {
     return state.sinofarm.products.filter((el) => el.brand.slug === slug)
+  },
+  getAboutUs: (state) => {
+    return state.about
   },
 }

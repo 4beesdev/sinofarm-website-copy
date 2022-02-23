@@ -29,11 +29,7 @@
     </div>
     <!-- Specification -->
     <div
-      v-if="
-        product.specification_sr ||
-        product.specification_en ||
-        product.refNumber
-      "
+      v-if="product.refNumber"
       id="specification"
       ref="specification"
       class="mb-20"
@@ -41,37 +37,7 @@
       <h2 class="font-lato font-bold text-2xl text-primary mb-6">
         {{ $t('product.specification') }}
       </h2>
-      <div v-if="false" class="overflow-x-auto mb-6">
-        <div class="bg-primary flex text-white py-2 row-container">
-          <div class="flex-1 pl-2">REF Number</div>
-          <div class="flex-1 pl-2">Type</div>
-          <div class="flex-1 pl-2">Size</div>
-          <div class="flex-1 pl-2">Color</div>
-          <div class="flex-1 pl-2">Package</div>
-        </div>
-        <div
-          v-for="spec in formatSpec(product)"
-          :key="spec.ref"
-          class="border-primary border-b border-l border-r flex row-container"
-        >
-          <div class="flex-1 border-r border-primary p-2">
-            {{ spec.ref }}
-          </div>
-          <div class="flex-1 border-r border-primary p-2">
-            {{ spec.type }}
-          </div>
-          <div class="flex-1 border-r border-primary p-2">
-            {{ spec.size }}
-          </div>
-          <div class="flex-1 border-r border-primary p-2">
-            {{ returnLang === 'en' ? spec.color : spec.color_sr }}
-          </div>
-          <div class="flex-1 p-2">
-            {{ spec.pack }}
-          </div>
-        </div>
-      </div>
-      <div style="max-width: 100vw" class="overflow-x-scroll">
+      <div class="refs overflow-x-scroll">
         <table
           v-if="product.refNumber !== null"
           class="product-table mb-6 w-full border border-primary"
@@ -104,7 +70,10 @@
           </tr>
         </table>
       </div>
-      <div class="whitespace-pre-line">
+      <div
+        v-if="product.specification_sr || product.specification_en"
+        class="whitespace-pre-line"
+      >
         {{
           returnLang === 'sr'
             ? product.specification_sr
@@ -161,6 +130,13 @@ export default {
 </script>
 
 <style lang="scss">
+.refs {
+  max-width: 100vw;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 .product-table {
   tr + tr {
     @apply border-t border-primary;

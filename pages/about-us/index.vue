@@ -7,12 +7,8 @@
           <h2 class="text-3xl font-bold text-gray font-lato mb-5">
             {{ $t('aboutpage.title') }}
           </h2>
-          <p
-            v-for="(text, i) in $t('aboutpage.text')"
-            :key="i"
-            class="mb-3 text-lg font-lato text-gray"
-          >
-            {{ text }}
+          <p class="mb-3 text-lg font-lato text-black">
+            {{ returnLang === 'en' ? this.about.text_en : this.about.text_sr }}
           </p>
         </div>
         <img
@@ -52,6 +48,14 @@ export default {
     return {
       links: [{ title: '' }],
     }
+  },
+  computed: {
+    returnLang() {
+      return this.$i18n.locale
+    },
+    about() {
+      return this.$store.getters.getAboutUs
+    },
   },
 }
 </script>
