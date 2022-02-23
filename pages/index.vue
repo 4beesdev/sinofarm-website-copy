@@ -340,21 +340,6 @@ export default {
     },
     ...mapState(['articles']),
   },
-  mounted() {
-    // const elements = this.$refs
-    // for (const el in elements) {
-    //   gsap.to(elements[el], {
-    //     scrollTrigger: {
-    //       trigger: elements[el],
-    //       start: '-100px top',
-    //     },
-    //     y: 0,
-    //     x: 0,
-    //     opacity: 1,
-    //     duration: 0.5,
-    //   })
-    // }
-  },
   methods: {
     latestProducts(products) {
       const temp = products.map((el) => el)
