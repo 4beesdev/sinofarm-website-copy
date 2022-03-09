@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product" class="flex w-full flex-col" tabindex="0">
+  <div v-if="product" ref="product" class="flex w-full flex-col" tabindex="0">
     <div class="flex flex-col mb-10 lg:flex-row">
       <a
         ref="overview"
@@ -71,7 +71,7 @@
           </div>
         </div>
       </div>
-      <div style="max-width: 100vw" class="overflow-x-scroll">
+      <div style="max-width: 100vw" class="table-specs overflow-x-auto">
         <table
           v-if="product.refNumber !== null"
           class="product-table mb-6 w-full border border-primary"

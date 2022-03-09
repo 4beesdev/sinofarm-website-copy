@@ -4,7 +4,10 @@
       {{ returnLang === 'en' ? 'All products' : 'Svi proizvodi' }}
     </h1>
     <div class="flex flex-col lg:flex-row">
-      <div class="flex mb-10 flex-col w-full filterContainer lg:mr-10">
+      <div
+        ref="aside"
+        class="flex mb-10 flex-col w-full filterContainer lg:mr-10"
+      >
         <Collapsible
           filter
           :link-title="$t('productspage.filter.categories')"
@@ -285,6 +288,8 @@ export default {
         }
       }
       this.filteredProducts = this.products.filter(this.filterProducts)
+      // this.$emit('scrollToStart')
+      this.scrollToAside()
     },
     filterProducts(product) {
       // TODO: change filter category for subcategory
@@ -457,6 +462,13 @@ export default {
         item.slug = cat.slug
         item.toggled = false
         this.categories.push(item)
+      })
+    },
+    scrollToAside() {
+      console.log('triggered aside')
+      this.$scrollTo(this.$refs.aside, 500, {
+        easing: 'ease-in',
+        offset: -150,
       })
     },
   },

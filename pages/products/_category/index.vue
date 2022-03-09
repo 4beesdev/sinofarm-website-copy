@@ -111,24 +111,30 @@
           </template>
         </Collapsible>
       </div>
-      <div
-        class="grid gap-4 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-      >
-        <NuxtLink
-          v-for="subCat in subcategories"
-          :key="subCat.slug"
-          class="w-full"
-          :to="localePath(`/products/${$route.params.category}/${subCat.slug}`)"
+      <div>
+        <div
+          class="grid gap-4 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
-          <img
-            :src="`https://sinofarm-portal.4bees.io${subCat.img.url}`"
-            class="w-full h-60 object-cover mb-2 border-2 border-primary"
-            alt=""
-          />
-          <p class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end">
-            {{ returnLang === 'en' ? subCat.name_en : subCat.name_sr }}
-          </p>
-        </NuxtLink>
+          <NuxtLink
+            v-for="subCat in subcategories"
+            :key="subCat.slug"
+            class="w-full"
+            :to="
+              localePath(`/products/${$route.params.category}/${subCat.slug}`)
+            "
+          >
+            <img
+              :src="`https://sinofarm-portal.4bees.io${subCat.img.url}`"
+              class="w-full h-60 object-cover mb-2 border-2 border-primary"
+              alt=""
+            />
+            <p
+              class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end"
+            >
+              {{ returnLang === 'en' ? subCat.name_en : subCat.name_sr }}
+            </p>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </div>
