@@ -23,6 +23,7 @@
               :key="cat.name_sr"
               category
               :link-title="returnLang === 'sr' ? cat.name_sr : cat.name_en"
+              :linkurl="localePath(`/products/${cat.slug}`)"
               text-color="text-primary"
               :is-toggled="isCatToggled(watchCategories, cat)"
               @click.native="setCatToggled(cat)"

@@ -25,6 +25,7 @@
             <Collapsible
               v-for="cat in sinofarm.categories"
               :key="cat.name_sr"
+              :linkurl="localePath(`/products/${cat.slug}`)"
               category
               :link-title="returnLang === 'sr' ? cat.name_sr : cat.name_en"
               text-color="text-primary"

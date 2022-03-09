@@ -8,14 +8,15 @@
       {{ linkTitle }}
       <img src="@/assets/images/arrow-down.svg" class="w-4 main" alt="" />
     </button>
-    <button
+    <NuxtLink
       v-if="category"
+      :to="linkurl"
       class="text-left w-full mb-2 flex justify-between items-center focus:outline-none"
       :class="getCtgClasses()"
     >
       {{ linkTitle }}
       <img src="@/assets/images/arrow-down.svg" class="w-3 ml-2" alt="" />
-    </button>
+    </NuxtLink>
     <div
       v-if="isToggled"
       :class="`${category === true ? 'py-1' : 'py-3'}`"
@@ -51,6 +52,10 @@ export default {
     main: {
       type: Boolean,
       default: false,
+    },
+    linkurl: {
+      type: String,
+      default: '/products',
     },
   },
   data() {

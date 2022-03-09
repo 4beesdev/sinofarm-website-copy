@@ -99,7 +99,7 @@
               >{{ $t('header.navigation.brands') }}</a
             >
           </div>
-          <a href="http://www.apotekasinofarm.rs/">
+          <a href="http://www.apotekasinofarm.rs/" target="_blank">
             <img
               src="@/assets/images/Apoteka-Sinofarm-Logo-svg-1.svg"
               class="w-40"
