@@ -113,10 +113,12 @@
           </template>
         </Collapsible>
       </div>
-      <Products
-        :products="products"
-        :link="`/products/${subcategory.category.slug}/${subcategory.slug}`"
-      ></Products>
+      <div>
+        <Products
+          :products="products"
+          :link="`/products/${subcategory.category.slug}/${subcategory.slug}`"
+        ></Products>
+      </div>
     </div>
   </div>
 </template>

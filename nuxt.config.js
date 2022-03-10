@@ -20,6 +20,11 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap',
       },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.png'
+      }
     ],
   },
 
@@ -40,6 +45,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxt/postcss8',
     '@nuxtjs/tailwindcss',
   ],
 
@@ -90,6 +96,12 @@ export default {
           fix: true
         }
       })
-    }
+    },
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
   },
 }

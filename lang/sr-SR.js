@@ -21,7 +21,7 @@ export default {
     navigation: {
       products: 'Proizvodi',
       careers: 'Karijera',
-      pharmacy: 'Apoteka',
+      pharmacy: 'Apoteka Webshop',
       portal: 'Portal',
       soon: 'Uskoro',
     },

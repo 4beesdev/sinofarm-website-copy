@@ -11,8 +11,10 @@ export const state = () => ({
   article: [],
   brands: [],
   industries: [],
-  loading: false,
+  contacts: [],
   about: {},
+  career: {},
+  loading: false,
 })
 
 export const mutations = {
@@ -45,8 +47,14 @@ export const mutations = {
   SET_INDUSTRIES(state, industries) {
     state.industries = industries
   },
+  SET_CONTACTS(state, contacts) {
+    state.contacts = contacts
+  },
   SET_ABOUT(state, about) {
     state.about = about
+  },
+  SET_CAREER(state, career) {
+    state.career = career
   },
 }
 export const actions = {
@@ -110,9 +118,22 @@ export const actions = {
     )
     commit('SET_INDUSTRIES', industries.data)
   },
+  // Get all contacts
+  async getContacts({ commit }) {
+    const contacts = await axios.get(
+      'https://sinofarm-portal.4bees.io/contacts'
+    )
+    commit('SET_CONTACTS', contacts.data)
+  },
+  // Get about us content
   async getAboutUs({ commit }) {
     const about = await axios.get('https://sinofarm-portal.4bees.io/pages/1')
     commit('SET_ABOUT', about.data)
+  },
+  // Get career info
+  async getCareer({ commit }) {
+    const career = await axios.get('https://sinofarm-portal.4bees.io/pages/2')
+    commit('SET_CAREER', career.data)
   },
 }
 
@@ -134,6 +155,9 @@ export const getters = {
   },
   getIndustries: (state) => {
     return state.industries
+  },
+  getContacts: (state) => {
+    return state.contacts
   },
   getProductById: (state) => (id) => {
     return state.sinofarm.products.find((product) => product.id === id)
@@ -172,5 +196,8 @@ export const getters = {
   },
   getAboutUs: (state) => {
     return state.about
+  },
+  getCareer: (state) => {
+    return state.career
   },
 }

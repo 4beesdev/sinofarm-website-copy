@@ -12,21 +12,21 @@
       ref="heading"
       class="text-3xl font-bold text-gray font-lato mb-5 transform -translate-x-32 opacity-0"
     >
-      {{ $t('careers.title') }}
+      {{ returnLang === 'sr' ? career.title_sr : career.title_en }}
     </h2>
-    <div class="grid grid-cols-1 gap-5 lg:gap-10 lg:grid-cols-2">
+    <div class="grid grid-cols-1 gap-5 lg:gap-10">
       <p
         ref="text1"
-        class="text-lg font-lato text-gray transform -translate-x-32 opacity-0"
+        class="text-lg font-lato columns-2 text-gray transform -translate-x-32 opacity-0"
       >
-        {{ $t('careers.text1') }}
+        {{ returnLang === 'sr' ? career.text_sr : career.text_en }}
       </p>
-      <p
+      <!-- <p
         ref="text2"
         class="text-lg font-lato text-gray transform -translate-x-32 opacity-0"
       >
         {{ $t('careers.text2') }}
-      </p>
+      </p> -->
     </div>
     <div
       ref="icons"
@@ -72,6 +72,14 @@ if (process.client) {
   gsap.registerPlugin(ScrollTrigger)
 }
 export default {
+  computed: {
+    career() {
+      return this.$store.getters.getCareer
+    },
+    returnLang() {
+      return this.$i18n.locale
+    },
+  },
   mounted() {
     const elements = this.$refs
     for (const el in elements) {

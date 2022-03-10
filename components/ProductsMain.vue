@@ -272,8 +272,10 @@ export default {
       return subcat
     },
     setFilter(item, type) {
-      if (item !== 'product') {
+      if (type !== 'product') {
         this.clearFilter('product')
+      } else {
+        this.chosenFilter.subcategory = item.subcategory
       }
       for (const [key, value] of Object.entries(this.chosenFilter)) {
         if (key === type) {

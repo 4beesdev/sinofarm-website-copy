@@ -32,7 +32,9 @@ export default {
       this.$store.dispatch('getSubcategories'),
       this.$store.dispatch('getBrands'),
       this.$store.dispatch('getIndustries'),
+      this.$store.dispatch('getContacts'),
       this.$store.dispatch('getAboutUs'),
+      this.$store.dispatch('getCareer'),
     ])
     this.ready = true
   },

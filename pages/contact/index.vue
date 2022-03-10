@@ -6,289 +6,64 @@
     <div class="flex flex-col lg:flex-row lg:justify-between relative">
       <div class="w-full lg:w-3/6 lg:mr-5 flex flex-col">
         <div
+          v-for="contact in contacts"
+          :key="contact.title_sr"
           ref="contactInfo"
           class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
         >
+          <!-- Template -->
           <div class="flex flex-col items-center md:items-start">
             <h3 class="text-2xl font-bold text-gray mb-2">
-              SINOFARM SRBIJA D.O.O.
+              {{ contact['title_' + returnLang] }}
             </h3>
-            <div class="flex flex-col md:flex-row items-center mb-2">
+            <div
+              v-if="contact.phones.length > 0"
+              class="flex flex-col md:flex-row items-center mb-2"
+            >
               <p
                 class="text-lg text-center text-gray md:text-left md:mr-3 font-lato font-bold"
               >
                 {{ $t('contactpage.info.phone') }}:
               </p>
               <a
+                v-for="phone in contact.phones"
+                :key="phone.id"
                 class="text-normal mt-2 text-gray font-lato font-normal md:mr-4 md:mt-0"
-                href="tel:+381113431061"
-              >
-                +381 (11) 343 1061</a
-              >
-              <a
-                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0 md:mb-0"
-                href="tel:+381113425934"
-              >
-                +381 (11) 342 5934</a
-              >
-            </div>
-            <div class="flex flex-col md:flex-row items-center mb-2">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.email') }}:
-              </p>
-              <a
-                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
-                href="mailto:office@sinofarm.co.rs"
-                >office@sinofarm.co.rs</a
-              >
-            </div>
-            <div class="flex flex-col md:flex-row items-center">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.location') }}:
-              </p>
-              <div class="flex flex-col">
-                <a
-                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0 lg:text-left"
-                  href="http://maps.google.com/?q=Koste Nađa 31, 11160 Beograd, Srbija"
-                  target="_blank"
-                >
-                  Koste Nađa 31, 11160 Beograd, Srbija
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Germany -->
-        <div
-          ref="contactInfo2"
-          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
-        >
-          <div class="flex flex-col items-center md:items-start">
-            <h3 class="text-2xl font-bold text-gray mb-2">
-              SINOFARM GERMANY GmbH
-            </h3>
-            <div class="flex flex-col md:flex-row items-center mb-2">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.email') }}:
-              </p>
-              <a
-                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
-                href="mailto:office@sinofarm.de"
-                >office@sinofarm.de</a
-              >
-            </div>
-            <!-- <div class="flex flex-col md:flex-row items-center mb-2">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.company') }}:
-              </p>
-              <div class="flex flex-col">
-                <a
-                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
-                  href="http://maps.google.com/?q=Alte Reichsstr 6, 66424 Homburg"
-                  target="_blank"
-                >
-                  Alte Reichsstr 6, 66424 Homburg
-                </a>
-              </div>
-            </div> -->
-            <!-- <div class="flex flex-col md:flex-row items-center">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.warehouse') }}:
-              </p>
-              <div class="flex flex-col">
-                <a
-                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0 lg:text-left"
-                  href="http://maps.google.com/?q=Ringstrase 2, 66459 Kirkel-Limbach"
-                  target="_blank"
-                >
-                  Ringstrase 2, 66459 Kirkel-Limbach
-                </a>
-              </div>
-            </div> -->
-          </div>
-        </div>
-        <!-- Austria -->
-        <div
-          ref="contactInfo3"
-          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
-        >
-          <div class="flex flex-col items-center md:items-start">
-            <h3 class="text-2xl font-bold text-gray mb-2">
-              SINOFARM AUSTRIA GmbH
-            </h3>
-            <div class="flex flex-col md:flex-row items-center mb-2">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.email') }}:
-              </p>
-              <a
-                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
-                href="mailto:office@sinofarm.at"
-                >office@sinofarm.at</a
-              >
-            </div>
-            <div class="flex flex-col md:flex-row items-center mb-2">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.location') }}:
-              </p>
-              <div class="flex flex-col">
-                <a
-                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0 lg:text-left"
-                  href="http://maps.google.com/?q=Bloch Bauer Promenade, 24/1/8, 1100 Wien"
-                  target="_blank"
-                >
-                  Bloch Bauer Promenade, 24/1/8, 1100 Wien
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Romania -->
-        <div
-          ref="contactInfo4"
-          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
-        >
-          <div class="flex flex-col items-center md:items-start">
-            <h3 class="text-2xl font-bold text-gray mb-2">
-              SINOFARM ROMANIA S.R.L.
-            </h3>
-            <div class="flex flex-col md:flex-row items-center mb-2">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.email') }}:
-              </p>
-              <a
-                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
-                href="mailto:office@sinofarm.ro"
-                >office@sinofarm.ro</a
+                :href="`tel:${phone.number}`"
+                >{{ phone.number }}</a
               >
             </div>
             <div
-              class="flex flex-col items-center md:flex-row md:items-start mb-2"
+              v-if="contact.email"
+              class="flex flex-col md:flex-row items-center mb-2"
+            >
+              <p class="text-lg text-gray font-lato font-bold md:mr-3">
+                {{ $t('contactpage.info.email') }}:
+              </p>
+              <a
+                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
+                :href="`mailto:${contact.email}`"
+                >{{ contact.email }}</a
+              >
+            </div>
+            <div
+              v-if="contact[`location_${returnLang}`]"
+              class="flex flex-col md:flex-row items-start"
             >
               <p class="text-lg text-gray font-lato font-bold md:mr-3">
                 {{ $t('contactpage.info.location') }}:
               </p>
               <div class="flex flex-col">
                 <a
-                  class="text-normal mt-2 text-center text-gray font-lato font-normal md:mt-0 lg:text-left"
-                  href="http://maps.google.com/?q=Sat Giroc, Comuna Giroc, Strada Destinului, Nr. 3, Ap. 2, Judet Timis, Timisoara"
+                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-px lg:text-left"
+                  :href="`http://maps.google.com/?q=${
+                    contact['location_' + returnLang]
+                  }`"
                   target="_blank"
+                  >{{ contact[`location_${returnLang}`] }}</a
                 >
-                  Sat Giroc, Comuna Giroc, Strada Destinului, Nr. 3, Ap. 2,
-                  Judet Timis, Timisoara
-                </a>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- Montenegro -->
-        <div
-          ref="contactInfo5"
-          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
-        >
-          <div class="flex flex-col items-center md:items-start">
-            <h3 class="text-2xl font-bold text-gray mb-2">
-              SINOFARM MONTENEGRO D.O.O
-            </h3>
-            <div class="flex flex-col md:flex-row items-center mb-2">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.email') }}:
-              </p>
-              <a
-                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
-                href="mailto:interpharm@interpharm.me"
-                >interpharm@interpharm.me</a
-              >
-            </div>
-            <div
-              class="flex flex-col md:flex-row items-center md:items-start mb-2"
-            >
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.location') }}:
-              </p>
-              <div class="flex flex-col">
-                <a
-                  class="text-normal mt-2 text-gray font-lato text-center lg:text-left font-normal md:mt-0"
-                  href="http://maps.google.com/"
-                  target="_blank"
-                >
-                  Bulevar JNA - Preko puta hotela "Sidro" 85000 Bar, Crna Gora
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- China -->
-        <div
-          ref="contactInfo6"
-          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
-        >
-          <div class="flex flex-col items-center md:items-start">
-            <h3 class="text-2xl font-bold text-gray mb-2">
-              Head of China office Sinofarm
-            </h3>
-            <div class="flex flex-col md:flex-row items-center mb-2">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.email') }}:
-              </p>
-              <a
-                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
-                href="mailto:interpharm@interpharm.me"
-                >sinogroupcn@outlook.com</a
-              >
-            </div>
-            <div
-              class="flex flex-col md:flex-row items-center md:items-start mb-2"
-            >
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.location') }}:
-              </p>
-              <div class="flex flex-col">
-                <a
-                  class="text-normal mt-2 text-gray font-lato text-center lg:text-left font-normal md:mt-0"
-                  href="http://maps.google.com/?q=Rm.207, Building B, No.6 Kangding Street, YiZhuang Economic
-                  Development Area, Beijing, China. 100176"
-                  target="_blank"
-                >
-                  Rm.207, Building B, No.6 Kangding Street, YiZhuang Economic
-                  Development Area, Beijing, China. 100176
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- bosna -->
-        <div
-          ref="contactInfo7"
-          class="bg-lightBlue px-2 py-6 w-full contact__info md:px-6 rounded-lg mb-6 lg:px-8 transform -translate-x-32 opacity-0"
-        >
-          <div class="flex flex-col items-center md:items-start">
-            <h3 class="text-2xl font-bold text-gray mb-2">
-              SINOFARM BOSNA I HERCEGOVINA
-            </h3>
-            <!-- <div class="flex flex-col md:flex-row items-center mb-2">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.email') }}:
-              </p>
-              <a
-                class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
-                href="mailto:interpharm@interpharm.me"
-                >interpharm@interpharm.me</a
-              >
-            </div>
-            <div class="flex flex-col md:flex-row items-start mb-2">
-              <p class="text-lg text-gray font-lato font-bold md:mr-3">
-                {{ $t('contactpage.info.location') }}:
-              </p>
-              <div class="flex flex-col">
-                <a
-                  class="text-normal mt-2 text-gray font-lato font-normal md:mt-0"
-                  href="http://maps.google.com/"
-                  target="_blank"
-                >
-                  Bulevar JNA - Preko puta hotela "Sidro" 85000 Bar, Crna Gora
-                </a>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
@@ -362,6 +137,14 @@ if (process.client) {
   gsap.registerPlugin(ScrollTrigger)
 }
 export default {
+  computed: {
+    contacts() {
+      return this.$store.getters.getContacts
+    },
+    returnLang() {
+      return this.$i18n.locale
+    },
+  },
   mounted() {
     const elements = this.$refs
     for (const el in elements) {

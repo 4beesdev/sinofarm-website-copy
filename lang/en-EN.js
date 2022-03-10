@@ -21,7 +21,7 @@ export default {
     navigation: {
       products: 'Products',
       careers: 'Careers',
-      pharmacy: 'Pharmacy',
+      pharmacy: 'Pharmacy Webshop',
       portal: 'Portal',
       soon: 'Coming soon',
     },
