@@ -467,7 +467,6 @@ export default {
       })
     },
     scrollToAside() {
-      console.log('triggered aside')
       this.$scrollTo(this.$refs.aside, 500, {
         easing: 'ease-in',
         offset: -150,
