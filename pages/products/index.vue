@@ -18,7 +18,6 @@ export default {
   },
   methods: {
     scrollToStart() {
-      console.log('triggered')
       this.$scrollTo(this.$refs.start, 500, {
         easing: 'ease-in',
         offset: 0,
