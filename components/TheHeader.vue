@@ -24,7 +24,7 @@
               <span class="block h-1 w-12 bg-primary"></span>
             </a>
           </div>
-          <div class="relative w-full h-full lg:w-96">
+          <div class="search-form relative w-full h-full lg:w-96">
             <form action="">
               <input
                 id=""
@@ -44,7 +44,7 @@
             </form>
           </div>
           <div
-            class="hidden text-base text-gray font-lato relative font-bold lg:flex lg:flex-col"
+            class="lang-switch hidden text-base text-gray font-lato relative font-bold lg:flex lg:flex-col"
           >
             <a
               href="#"
@@ -69,7 +69,11 @@
               <NuxtLink :to="switchLocalePath('sr')" class="mb-2">
                 SR
               </NuxtLink>
-              <NuxtLink :to="switchLocalePath('en')"> EN </NuxtLink>
+              <NuxtLink :to="switchLocalePath('en')" class="mb-2">
+                EN
+              </NuxtLink>
+              <NuxtLink :to="switchLocalePath('en')" class="mb-2">DE</NuxtLink>
+              <NuxtLink :to="switchLocalePath('en')">RO</NuxtLink>
             </div>
           </div>
         </div>

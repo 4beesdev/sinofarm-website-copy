@@ -112,99 +112,105 @@
         </Collapsible>
       </div>
       <!-- List of products starts here -->
-      <div v-if="!chosenFilter.product" class="flex flex-col">
-        <div
-          v-if="
-            chosenFilter.category || chosenFilter.brand || chosenFilter.industry
-          "
-          class="flex flex-col my-5"
-        >
-          <p class="mb-2 text-xl text-primary">
-            {{ returnLang === 'en' ? 'Selected filters' : 'Izabrani filteri' }}
-          </p>
-          <div class="flex flex-wrap">
-            <div
-              v-if="chosenFilter.subcategory"
-              class="flex items-center border p-2 border-primary mr-2"
-            >
+      <div ref="start">
+        <div v-if="!chosenFilter.product" class="flex flex-col">
+          <div
+            v-if="
+              chosenFilter.category ||
+              chosenFilter.brand ||
+              chosenFilter.industry
+            "
+            class="flex flex-col my-5"
+          >
+            <p class="mb-2 text-xl text-primary">
               {{
-                returnLang === 'en'
-                  ? chosenFilter.subcategory.name_en
-                  : chosenFilter.subcategory.name_sr
+                returnLang === 'en' ? 'Selected filters' : 'Izabrani filteri'
               }}
-              <button class="p-2 ml-2" @click="clearFilter('subcategory')">
-                <img src="@/assets/images/close.svg" class="w-2" alt="" />
-              </button>
-            </div>
-            <div
-              v-else-if="chosenFilter.category"
-              class="flex items-center border p-2 border-primary mr-2"
-            >
-              {{
-                returnLang === 'en'
-                  ? chosenFilter.category.name_en
-                  : chosenFilter.category.name_sr
-              }}
-              <button class="p-2 ml-2" @click="clearFilter('category')">
-                <img src="@/assets/images/close.svg" class="w-2" alt="" />
-              </button>
-            </div>
-            <div
-              v-if="chosenFilter.brand"
-              class="flex items-center border p-2 border-primary mr-2"
-            >
-              {{
-                returnLang === 'en'
-                  ? chosenFilter.brand.name
-                  : chosenFilter.brand.name
-              }}
-              <button class="p-2 ml-2" @click="clearFilter('brand')">
-                <img src="@/assets/images/close.svg" class="w-2" alt="" />
-              </button>
-            </div>
-            <div
-              v-if="chosenFilter.industry"
-              class="flex items-center border p-2 border-primary mr-2"
-            >
-              {{
-                returnLang === 'en'
-                  ? chosenFilter.industry.title_en
-                  : chosenFilter.industry.title_sr
-              }}
-              <button class="p-2 ml-2" @click="clearFilter('industry')">
-                <img src="@/assets/images/close.svg" class="w-2" alt="" />
-              </button>
+            </p>
+            <div class="flex flex-wrap">
+              <div
+                v-if="chosenFilter.subcategory"
+                class="flex items-center border p-2 border-primary mr-2"
+              >
+                {{
+                  returnLang === 'en'
+                    ? chosenFilter.subcategory.name_en
+                    : chosenFilter.subcategory.name_sr
+                }}
+                <button class="p-2 ml-2" @click="clearFilter('subcategory')">
+                  <img src="@/assets/images/close.svg" class="w-2" alt="" />
+                </button>
+              </div>
+              <div
+                v-else-if="chosenFilter.category"
+                class="flex items-center border p-2 border-primary mr-2"
+              >
+                {{
+                  returnLang === 'en'
+                    ? chosenFilter.category.name_en
+                    : chosenFilter.category.name_sr
+                }}
+                <button class="p-2 ml-2" @click="clearFilter('category')">
+                  <img src="@/assets/images/close.svg" class="w-2" alt="" />
+                </button>
+              </div>
+              <div
+                v-if="chosenFilter.brand"
+                class="flex items-center border p-2 border-primary mr-2"
+              >
+                {{
+                  returnLang === 'en'
+                    ? chosenFilter.brand.name
+                    : chosenFilter.brand.name
+                }}
+                <button class="p-2 ml-2" @click="clearFilter('brand')">
+                  <img src="@/assets/images/close.svg" class="w-2" alt="" />
+                </button>
+              </div>
+              <div
+                v-if="chosenFilter.industry"
+                class="flex items-center border p-2 border-primary mr-2"
+              >
+                {{
+                  returnLang === 'en'
+                    ? chosenFilter.industry.title_en
+                    : chosenFilter.industry.title_sr
+                }}
+                <button class="p-2 ml-2" @click="clearFilter('industry')">
+                  <img src="@/assets/images/close.svg" class="w-2" alt="" />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="grid gap-4 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        >
           <div
-            v-for="product in watchProducts"
-            :key="product.id"
-            class="w-full flex flex-col cursor-pointer"
-            @click="setFilter(product, 'product')"
+            class="grid gap-4 grid-columns-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             <div
-              class="w-full h-60 border-2 border-primary mb-3 overflow-hidden"
+              v-for="product in watchProducts"
+              :key="product.id"
+              class="w-full flex flex-col cursor-pointer"
+              @click="setFilter(product, 'product')"
             >
-              <img
-                v-if="product.image"
-                :src="`https://sinofarm-portal.4bees.io${product.image.url}`"
-                class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
-                :alt="returnLang === 'sr' ? product.name_sr : product.name_en"
-              />
+              <div
+                class="w-full h-60 border-2 border-primary mb-3 overflow-hidden"
+              >
+                <img
+                  v-if="product.image"
+                  :src="`https://sinofarm-portal.4bees.io${product.image.url}`"
+                  class="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+                  :alt="returnLang === 'sr' ? product.name_sr : product.name_en"
+                />
+              </div>
+              <p
+                class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end"
+              >
+                {{ returnLang === 'sr' ? product.name_sr : product.name_en }}
+              </p>
             </div>
-            <p
-              class="font-lato text-normal text-gray mb-3 pb-3 justify-self-end"
-            >
-              {{ returnLang === 'sr' ? product.name_sr : product.name_en }}
-            </p>
           </div>
         </div>
+        <Product v-if="chosenFilter.product" :product="chosenFilter.product" />
       </div>
-      <Product v-if="chosenFilter.product" :product="chosenFilter.product" />
     </div>
   </div>
 </template>
@@ -290,8 +296,7 @@ export default {
         }
       }
       this.filteredProducts = this.products.filter(this.filterProducts)
-      // this.$emit('scrollToStart')
-      this.scrollToAside()
+      this.scrollToStart()
     },
     filterProducts(product) {
       // TODO: change filter category for subcategory
@@ -466,8 +471,8 @@ export default {
         this.categories.push(item)
       })
     },
-    scrollToAside() {
-      this.$scrollTo(this.$refs.aside, 500, {
+    scrollToStart() {
+      this.$scrollTo(this.$refs.start, 500, {
         easing: 'ease-in',
         offset: -150,
       })

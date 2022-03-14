@@ -61,10 +61,14 @@
           </tr>
           <tr v-for="spec in formatSpec(product)" :key="spec.ref" class="">
             <td class="py-2 sm:p-2">{{ spec.ref }}</td>
-            <td class="sm:p-2">{{ spec.type }}</td>
-            <td class="sm:p-2 break-words">{{ spec.size }}</td>
             <td class="sm:p-2">
-              {{ returnLang === 'en' ? spec.color : spec.color_sr }}
+              {{ returnLang === 'en' ? spec.type_en : spec.type_sr }}
+            </td>
+            <td class="sm:p-2 break-words">
+              {{ returnLang === 'en' ? spec.size_en : spec.size_sr }}
+            </td>
+            <td class="sm:p-2">
+              {{ returnLang === 'en' ? spec.color_en : spec.color_sr }}
             </td>
             <td class="sm:p-2">{{ spec.pack }}</td>
           </tr>
@@ -102,22 +106,50 @@ export default {
   methods: {
     formatSpec(product) {
       const ref = product.refNumber.split('-').map((item) => item.trim())
-      const type = product.type.split('-').map((item) => item.trim())
-      const size = product.size.split('-').map((item) => item.trim())
-      const color = product.color.split('-').map((item) => item.trim())
+
+      // eslint-disable-next-line
+      let type_en = null
+      // eslint-disable-next-line
+      product.type_en ? type_en = product.type_en.split('-').map((item) => item.trim()) : type_en = product.type.split('-').map((item) => item.trim())
+      // eslint-disable-next-line
+      let type_sr = null
+      // eslint-disable-next-line
+      product.type_sr ? type_sr = product.type_sr.split('-').map((item) => item.trim()) : type_sr = product.type.split('-').map((item) => item.trim())
+
+      // eslint-disable-next-line
+      let size_en = null
+      // eslint-disable-next-line
+      product.size_en ? size_en = product.size_en.split('-').map((item) => item.trim()) : size_en = product.size.split('-').map((item) => item.trim())
+      // eslint-disable-next-line
+      let size_sr = null
+      // eslint-disable-next-line
+      product.size_sr ? size_sr = product.size_sr.split('-').map((item) => item.trim()) : size_sr = product.size.split('-').map((item) => item.trim())
+
+      // eslint-disable-next-line
+      let color_en = null
+      // eslint-disable-next-line
+      product.color_en ? color_en = product.color_en.split('-').map((item) => item.trim()) : color_en = product.color.split('-').map((item) => item.trim())
       // eslint-disable-next-line
       let color_sr = null
       // eslint-disable-next-line
       product.color_sr ? color_sr = product.color_sr.split('-').map((item) => item.trim()) : color_sr = product.color.split('-').map((item) => item.trim())
+
       const pack = product.package.split('-').map((item) => item.trim())
 
       const specification = []
       ref.forEach((el, i) => {
         const temp = {}
         temp.ref = el
-        temp.type = type[i]
-        temp.size = size[i]
-        temp.color = color[i]
+        // eslint-disable-next-line
+        temp.type_en = type_en[i]
+        // eslint-disable-next-line
+        temp.type_sr = type_sr[i]
+        // eslint-disable-next-line
+        temp.size_en = size_en[i]
+        // eslint-disable-next-line
+        temp.size_sr = size_sr[i]
+        // eslint-disable-next-line
+        temp.color_en = color_en[i]
         // eslint-disable-next-line
         temp.color_sr = color_sr[i]
         temp.pack = pack[i]

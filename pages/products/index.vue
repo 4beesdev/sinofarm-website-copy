@@ -1,10 +1,10 @@
 <template>
-  <div ref="start" class="container mx-auto px-4 pt-48 pb-10">
+  <div class="container mx-auto px-4 pt-48 pb-10">
     <BreadcrumbN
       :current="{ name_sr: 'Proizvodi', name_en: 'Products' }"
     ></BreadcrumbN>
     <transition name="fade">
-      <ProductsMain @scrollToStart="scrollToStart"></ProductsMain>
+      <ProductsMain></ProductsMain>
     </transition>
   </div>
 </template>
