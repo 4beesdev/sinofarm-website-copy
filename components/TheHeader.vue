@@ -103,13 +103,20 @@
               >{{ $t('header.navigation.brands') }}</a
             >
           </div>
-          <a href="http://www.apotekasinofarm.rs/" target="_blank">
-            <img
-              src="@/assets/images/Apoteka-Sinofarm-Logo-svg-1.svg"
-              class="w-40"
-              alt=""
-            />
-          </a>
+          <div class="relative">
+            <div
+              class="absolute bg-primary text-white text-xs px-1 -top-4 -right-2"
+            >
+              {{ returnLang === 'sr' ? 'Uskoro' : 'Soon' }}
+            </div>
+            <a href="http://www.apotekasinofarm.rs/" target="_blank">
+              <img
+                src="@/assets/images/Apoteka-Sinofarm-Logo-svg-1.svg"
+                class="w-40"
+                alt="Pharmacy Sinofarm webshop"
+              />
+            </a>
+          </div>
         </div>
         <div v-if="brandsToggled" class="grid grid-cols-4 pt-6 px-1">
           <NuxtLink
@@ -122,7 +129,7 @@
               <img
                 :src="`https://sinofarm-portal.4bees.io${brand.logo.url}`"
                 alt=""
-                class="w-44 h-8"
+                class="w-44 h-8 object-contain"
               />
             </div>
             <p v-if="!brand.logo">{{ brand.name }}</p>
@@ -221,6 +228,9 @@ export default {
     returnLang() {
       return this.$i18n.locale
     },
+    returnSoon() {
+      return this.returnLang === 'sr' ? 'Uskoro' : 'Soon'
+    },
   },
   watch: {
     $route(newRoute) {
@@ -304,5 +314,9 @@ export default {
       transform: translateY(-5px);
     }
   }
+}
+
+.pharmacy::before {
+  content: var(--soon);
 }
 </style>

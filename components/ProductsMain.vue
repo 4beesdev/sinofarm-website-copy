@@ -281,7 +281,14 @@ export default {
       if (type !== 'product') {
         this.clearFilter('product')
       } else {
+        this.chosenFilter.category = this.categories.filter(
+          (cat) => cat.id === item.subcategory.category
+        )
+        this.chosenFilter.category = this.chosenFilter.category[0]
+        this.chosenFilter.category.toggled = true
         this.chosenFilter.subcategory = item.subcategory
+        this.toggled.category = true
+        // const currentcat = this.categories.filter()
       }
       for (const [key, value] of Object.entries(this.chosenFilter)) {
         if (key === type) {
@@ -467,6 +474,7 @@ export default {
       categories.forEach((cat) => {
         const item = {}
         item.slug = cat.slug
+        item.id = cat.id
         item.toggled = false
         this.categories.push(item)
       })
@@ -474,7 +482,7 @@ export default {
     scrollToStart() {
       this.$scrollTo(this.$refs.start, 500, {
         easing: 'ease-in',
-        offset: -150,
+        offset: -190,
       })
     },
   },

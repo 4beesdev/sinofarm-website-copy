@@ -248,6 +248,16 @@
               class="h-8"
               alt="sinofine logo"
             />
+            <img
+              src="@/assets/images/flastx.svg"
+              class="h-8"
+              alt="flast x logo"
+            />
+            <img
+              src="@/assets/images/supersoft.svg"
+              class="h-8"
+              alt="supersoft logo"
+            />
           </div>
         </div>
         <div

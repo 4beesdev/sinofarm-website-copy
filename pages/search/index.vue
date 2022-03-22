@@ -14,18 +14,55 @@ export default {
   data() {
     return {
       filteredProducts: [],
+      serbianLat: [
+        {
+          right: 'č',
+          wrong: 'c',
+        },
+        {
+          right: 'ć',
+          wrong: 'c',
+        },
+        {
+          right: 'ž',
+          wrong: 'z',
+        },
+        {
+          right: 'š',
+          wrong: 's',
+        },
+        {
+          right: 'đ',
+          wrong: 'd',
+        },
+        {
+          right: 'đ',
+          wrong: 'dj',
+        },
+      ],
     }
   },
   computed: {
     queryAsArray() {
       if (this.$route.query.q) {
-        return this.$route.query.q.split('-')
+        const arr = this.$route.query.q.split('-')
+        // arr.forEach((word, id) => {
+        //   this.serbianLat.forEach((letter) => {
+        //     if (word.includes(letter.wrong)) {
+        //       arr[arr.length] = word.replace(letter.wrong, letter.right)
+        //     }
+        //   })
+        // })
+        return arr
       } else {
         return []
       }
     },
     lang() {
       return this.$i18n.locale
+    },
+    products() {
+      return this.$store.getters.getProducts
     },
   },
   watch: {
@@ -37,13 +74,10 @@ export default {
     this.$nextTick(() => {
       this.findProductsByQuery()
     })
-    // console.log(searchQuery)
   },
   methods: {
     findProductsByQuery() {
-      const products = this.$store.getters.getProducts
-      const result = products.filter(this.loop)
-      this.filteredProducts = result
+      this.filteredProducts = this.products.filter(this.loop)
     },
     loop(product) {
       if (!this.queryAsArray) return true

@@ -29,7 +29,7 @@
     </div>
     <!-- Specification -->
     <div
-      v-if="product.refNumber"
+      v-if="product.refNumber || product['specification_' + returnLang]"
       id="specification"
       ref="specification"
       class="mb-20"

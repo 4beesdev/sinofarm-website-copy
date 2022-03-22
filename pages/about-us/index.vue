@@ -23,13 +23,31 @@
             {{ $t('aboutpage.brands') }}
           </h2>
           <div class="flex flex-col items-center">
-            <img src="@/assets/images/sinomedic.svg" class="w-96 mb-5" alt="" />
+            <img
+              src="@/assets/images/sinomedic.svg"
+              class="w-96 mb-5"
+              alt="sinomedic logo"
+            />
             <img
               src="@/assets/images/sinodreams.svg"
               class="w-96 mb-5"
-              alt=""
+              alt="sinodreams logo"
             />
-            <img src="@/assets/images/sinofine.svg" class="w-96 h-20" alt="" />
+            <img
+              src="@/assets/images/sinofine.svg"
+              class="w-96 h-20 mb-5"
+              alt="sinofine logo"
+            />
+            <img
+              src="@/assets/images/flastx.svg"
+              class="w-auto h-20 mb-5"
+              alt="flastx logo"
+            />
+            <img
+              src="@/assets/images/supersoft.svg"
+              class="w-auto h-20"
+              alt="supersoft logo"
+            />
           </div>
         </div>
         <img
