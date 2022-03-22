@@ -5,10 +5,10 @@
       class="fixed top-0 left-0 w-full h-full z-0 bg-black opacity-50"
       @click="clearToggles"
     ></div>
-    <div class="container relative z-2 bg-white w-full mx-auto py-4 px-4">
+    <div class="container relative z-90 bg-white w-full mx-auto py-4 px-4">
       <header class="w-full bg-white flex flex-col">
         <div
-          class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mb-6"
+          class="relative z-90 flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mb-6"
         >
           <div class="flex justify-between items-center mb-6 lg:mb-0">
             <NuxtLink :to="localePath('/')" class="mr-3">
@@ -44,7 +44,7 @@
             </form>
           </div>
           <div
-            class="lang-switch hidden text-base text-gray font-lato relative font-bold lg:flex lg:flex-col"
+            class="lang-switch hidden text-base text-gray font-lato relative z-50 font-bold lg:flex lg:flex-col"
           >
             <a
               href="#"
@@ -64,7 +64,7 @@
             </a>
             <div
               v-if="langToggled"
-              class="p-2 flex flex-col items-center w-full absolute transform translate-y-10 bg-white"
+              class="p-2 flex flex-col items-center w-full absolute z-90 transform translate-y-10 bg-white"
             >
               <NuxtLink :to="switchLocalePath('sr')" class="mb-2">
                 SR
@@ -103,13 +103,14 @@
               >{{ $t('header.navigation.brands') }}</a
             >
           </div>
-          <div class="relative">
+          <div class="relative z-10">
             <div
               class="absolute bg-primary text-white text-xs px-1 -top-4 -right-2"
             >
               {{ returnLang === 'sr' ? 'Uskoro' : 'Soon' }}
             </div>
-            <a href="http://www.apotekasinofarm.rs/" target="_blank">
+            <!-- http://www.apotekasinofarm.rs/ -->
+            <a href="" target="_blank">
               <img
                 src="@/assets/images/Apoteka-Sinofarm-Logo-svg-1.svg"
                 class="w-40"
@@ -168,8 +169,8 @@
       </header>
     </div>
     <div
-      class="w-full h-0 fixed overflow-hidden bg-white flex justify-center transition-all duration-500 ease-in-out"
-      :class="toggled ? 'h-full py-16' : ''"
+      class="w-full fixed overflow-hidden bg-white flex justify-center transition-all duration-500 ease-in-out"
+      :class="toggled ? 'h-full py-16' : 'h-0 py-0'"
     >
       <div
         class="flex flex-col font-lato font-bold text-gray text-3xl text-center opacity-0 transition-all duration-500 delay-300"
@@ -181,11 +182,8 @@
         <NuxtLink :to="localePath('/products')" class="mb-5 p-2">{{
           $t('header.navigation.products')
         }}</NuxtLink>
-        <NuxtLink :to="localePath('/products')" class="mb-5 p-2">{{
-          $t('header.navigation.industries')
-        }}</NuxtLink>
-        <NuxtLink :to="localePath('/products')" class="mb-5 p-2">{{
-          $t('header.navigation.brands')
+        <NuxtLink :to="localePath('/about-us')" class="mb-5 p-2">{{
+          $t('homepage.about.title')
         }}</NuxtLink>
         <div
           class="text-base text-gray font-lato font-bold flex justify-center items-center"
