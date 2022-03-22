@@ -103,7 +103,7 @@
               >{{ $t('header.navigation.brands') }}</a
             >
           </div>
-          <div class="relative z-10">
+          <div class="relative z-10 mr-8">
             <div
               class="absolute bg-primary text-white text-xs px-1 -top-4 -right-2"
             >
