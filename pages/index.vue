@@ -97,8 +97,8 @@
         </div>
       </div>
       <!-- PRODUCTS -->
-      {{ latestProducts(products) }}
-      <div class="flex flex-col py-16">
+      <!-- {{ latestProducts(products) }} -->
+      <div v-if="newOffers" class="flex flex-col py-16">
         <div class="flex flex-col lg:flex-row lg:items-center">
           <div class="lg:w-6/12 text-center lg:px-12 lg:mr-2">
             <h2 class="font-medium text-gray text-3xl mb-5">
@@ -238,9 +238,7 @@
             class="font-lato text-normal font-normal text-gray mb-2 whitespace-pre-line"
           >
             {{
-              returnLang === 'en'
-                ? this.about.short_text_en
-                : this.about.short_text_sr
+              returnLang === 'en' ? about.short_text_en : about.short_text_sr
             }}
           </p>
           <div class="flex flex-wrap justify-between gap-2 mt-10">
@@ -365,7 +363,7 @@ if (process.client) {
 export default {
   data() {
     return {
-      newOffers: [],
+      // newOffers: [],
     }
   },
   computed: {
@@ -378,12 +376,8 @@ export default {
     about() {
       return this.$store.getters.getAboutUs
     },
-    ...mapState(['articles']),
-  },
-  mounted() {},
-  methods: {
-    latestProducts(products) {
-      const temp = products.map((el) => el)
+    newOffers() {
+      const temp = this.products.map((el) => el)
       const latestProducts = []
       temp.sort((a, b) => {
         const aDate = new Date(a.created_at)
@@ -393,8 +387,25 @@ export default {
       for (let i = 0; i < 6; i++) {
         latestProducts.push(temp[i])
       }
-      this.newOffers = latestProducts
+      return latestProducts
     },
+    ...mapState(['articles']),
+  },
+  methods: {
+    // latestProducts(products) {
+    //   const temp = products.map((el) => el)
+    //   const latestProducts = []
+    //   temp.sort((a, b) => {
+    //     const aDate = new Date(a.created_at)
+    //     const bDate = new Date(b.created_at)
+    //     return bDate - aDate
+    //   })
+    //   for (let i = 0; i < 6; i++) {
+    //     latestProducts.push(temp[i])
+    //     console.log(i)
+    //   }
+    //   this.newOffers = latestProducts
+    // },
     productUrl(product) {
       const subcategory = this.$store.getters.getSubcategory(
         product.subcategory.slug

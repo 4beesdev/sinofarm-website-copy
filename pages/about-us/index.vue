@@ -8,7 +8,7 @@
             {{ $t('aboutpage.title') }}
           </h2>
           <p class="mb-3 text-lg font-lato text-black">
-            {{ returnLang === 'en' ? this.about.text_en : this.about.text_sr }}
+            {{ returnLang === 'en' ? about.text_en : about.text_sr }}
           </p>
         </div>
         <img

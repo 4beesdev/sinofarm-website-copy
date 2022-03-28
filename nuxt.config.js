@@ -5,6 +5,10 @@ export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
 
+  generate: {
+    fallback: '404.html'
+  },
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Sinofarm',
@@ -52,26 +56,28 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     [
-      'nuxt-i18n',
+      '@nuxtjs/i18n',
       {
         locales: [
           {
             code: 'sr',
+            iso: 'sr',
             file: 'sr-SR.js',
           },
           {
             code: 'en',
+            iso: 'en',
             file: 'en-EN.js',
           },
         ],
-        lazy: true,
+        // lazy: true,
         langDir: 'lang/',
         defaultLocale: 'sr',
-        detectBrowserLanguage: {
+        vueI18n: {
           useCookie: true,
           cookieDomain: null,
           cookieKey: 'lang',
-          alwaysRedirect: true,
+          alwaysRedirect: false,
           fallbackLocale: 'sr'
         },
       },
