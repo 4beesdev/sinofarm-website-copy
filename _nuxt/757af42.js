@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[25],{432:function(n,t,e){"use strict";e.r(t);window.onNuxtReady((function(){window.$nuxt.$router.push("/products")}));var o={},r=e(12),component=Object(r.a)(o,(function(){var n=this.$createElement;return(this._self._c||n)("div")}),[],!1,null,null,null);t.default=component.exports}}]);
